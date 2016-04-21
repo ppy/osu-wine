@@ -1,0 +1,162 @@
+REGEDIT4
+
+[HKEY_CURRENT_USER\Control Panel\Colors]
+"ActiveBorder"="212 212 212"
+"background"="0 0 0"
+"ButtonAlternateFace"="181 181 181"
+"ButtonFace"="212 212 212"
+"ButtonHilight"="255 255 255"
+"ButtonLight"="212 212 212"
+"ButtonShadow"="128 128 128"
+"ButtonText"="0 0 0"
+"GradientInactiveTitle"="192 192 192"
+"GrayText"="128 128 128"
+"HotTrackingColor"="0 0 200"
+"InactiveBorder"="212 212 212"
+"InactiveTitle"="128 128 128"
+"InactiveTitleText"="212 212 212"
+"Menu"="212 212 212"
+"MenuBar"="212 212 212"
+"Scrollbar"="212 212 212"
+"Window"="255 255 255"
+"WindowFrame"="0 0 0"
+
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"FontSmoothing"="1"
+
+[HKEY_CURRENT_USER\Software\Wine\Direct3D]
+
+[HKEY_CURRENT_USER\Software\Wine\Drivers]
+"Graphics"="x11"
+"Audio"="coreaudio"
+
+[HKEY_CURRENT_USER\Software\Wine\Mac Driver]
+"CaptureDisplaysForFullscreen"="y"
+
+[HKEY_CLASSES_ROOT\htmlfile\shell\open\command]
+@="C:\\windows\\system32\\winebrowser.exe -nohome %1"
+
+[HKEY_CLASSES_ROOT\htmlfile\shell\opennew\command]
+@="C:\\windows\\system32\\winebrowser.exe -nohome %1"
+
+[HKEY_CLASSES_ROOT\http\shell\open\command]
+@="C:\\windows\\system32\\winebrowser.exe -nohome %1"
+
+[HKEY_CLASSES_ROOT\https\shell\open\command]
+@="C:\\windows\\system32\\winebrowser.exe -nohome %1"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders]
+"AppData"="C:\\users\\Wineskin\\Application Data"
+"Cache"="C:\\users\\Wineskin\\Local Settings\\Temporary Internet Files"
+"Cookies"="C:\\users\\Wineskin\\Cookies"
+"Desktop"="C:\\users\\Wineskin\\Desktop"
+"Favorites"="C:\\users\\Wineskin\\Favorites"
+"Fonts"="C:\\windows\\Fonts"
+"History"="C:\\users\\Wineskin\\Local Settings\\History"
+"Local AppData"="C:\\users\\Wineskin\\Local Settings\\Application Data"
+"My Music"="C:\\users\\Wineskin\\My Music"
+"My Pictures"="C:\\users\\Wineskin\\My Pictures"
+"My Videos"="C:\\users\\Wineskin\\My Videos"
+"NetHood"="C:\\users\\Wineskin\\NetHood"
+"Personal"="C:\\users\\Wineskin\\My Documents"
+"PrintHood"="C:\\users\\Wineskin\\PrintHood"
+"Programs"="C:\\users\\Wineskin\\Start Menu\\Programs"
+"Recent"="C:\\users\\Wineskin\\Recent"
+"SendTo"="C:\\users\\Wineskin\\SendTo"
+"Start Menu"="C:\\users\\Wineskin\\Start Menu"
+"StartUp"="C:\\users\\Wineskin\\Start Menu\\Programs\\StartUp"
+"Templates"="C:\\users\\Wineskin\\Templates"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders]
+"AppData"=str(2):"%USERPROFILE%\\Application Data"
+"Cache"=str(2):"%USERPROFILE%\\Local Settings\\Temporary Internet Files"
+"Cookies"=str(2):"%USERPROFILE%\\Cookies"
+"Desktop"=str(2):"%USERPROFILE%\\Desktop"
+"Favorites"=str(2):"%USERPROFILE%\\Favorites"
+"Fonts"=str(2):"C:\\windows\\Fonts"
+"History"=str(2):"%USERPROFILE%\\Local Settings\\History"
+"Local AppData"=str(2):"%USERPROFILE%\\Local Settings\\Application Data"
+"My Music"=str(2):"%USERPROFILE%\\My Music"
+"My Pictures"=str(2):"%USERPROFILE%\\My Pictures"
+"My Videos"=str(2):"%USERPROFILE%\\My Videos"
+"NetHood"=str(2):"%USERPROFILE%\\NetHood"
+"Personal"=str(2):"%USERPROFILE%\\My Documents"
+"PrintHood"=str(2):"%USERPROFILE%\\PrintHood"
+"Programs"=str(2):"%USERPROFILE%\\Start Menu\\Programs"
+"Recent"=str(2):"%USERPROFILE%\\Recent"
+"SendTo"=str(2):"%USERPROFILE%\\SendTo"
+"Start Menu"=str(2):"%USERPROFILE%\\Start Menu"
+"StartUp"=str(2):"%USERPROFILE%\\Start Menu\\Programs\\StartUp"
+"Templates"=str(2):"%USERPROFILE%\\Templates"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders]
+"Common Administrative Tools"="C:\\users\\Public\\Start Menu\\Programs\\Administrative Tools"
+"Common AppData"="C:\\users\\Public\\Application Data"
+"Common Desktop"="C:\\users\\Public\\Desktop"
+"Common Documents"="C:\\users\\Public\\Documents"
+"Common Favorites"="C:\\users\\Public\\Favorites"
+"Common Programs"="C:\\users\\Public\\Start Menu\\Programs"
+"Common Start Menu"="C:\\users\\Public\\Start Menu"
+"Common StartUp"="C:\\users\\Public\\Start Menu\\Programs\\StartUp"
+"Common Templates"="C:\\users\\Public\\Templates"
+"CommonMusic"="C:\\users\\Public\\Music"
+"CommonPictures"="C:\\users\\Public\\Pictures"
+"CommonVideo"="C:\\users\\Public\\Videos"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders]
+"Common Administrative Tools"=str(2):"%ALLUSERSPROFILE%\\Start Menu\\Programs\\Administrative Tools"
+"Common AppData"=str(2):"%ALLUSERSPROFILE%\\Application Data"
+"Common Desktop"=str(2):"%ALLUSERSPROFILE%\\Desktop"
+"Common Documents"=str(2):"%ALLUSERSPROFILE%\\Documents"
+"Common Favorites"=str(2):"%ALLUSERSPROFILE%\\Favorites"
+"Common Programs"=str(2):"%ALLUSERSPROFILE%\\Start Menu\\Programs"
+"Common Start Menu"=str(2):"%ALLUSERSPROFILE%\\Start Menu"
+"Common StartUp"=str(2):"%ALLUSERSPROFILE%\\Start Menu\\Programs\\StartUp"
+"Common Templates"=str(2):"%ALLUSERSPROFILE%\\Templates"
+"CommonMusic"=str(2):"%ALLUSERSPROFILE%\\Music"
+"CommonPictures"=str(2):"%ALLUSERSPROFILE%\\Pictures"
+"CommonVideo"=str(2):"%ALLUSERSPROFILE%\\Videos"
+
+[HKEY_USERS\.Default\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders]
+"AppData"="C:\\users\\Wineskin\\Application Data"
+"Cache"="C:\\users\\Wineskin\\Local Settings\\Temporary Internet Files"
+"Cookies"="C:\\users\\Wineskin\\Cookies"
+"Desktop"="C:\\users\\Wineskin\\Desktop"
+"Favorites"="C:\\users\\Wineskin\\Favorites"
+"Fonts"="C:\\windows\\Fonts"
+"History"="C:\\users\\Wineskin\\Local Settings\\History"
+"Local AppData"="C:\\users\\Wineskin\\Local Settings\\Application Data"
+"My Music"="C:\\users\\Wineskin\\My Music"
+"My Pictures"="C:\\users\\Wineskin\\My Pictures"
+"My Videos"="C:\\users\\Wineskin\\My Videos"
+"NetHood"="C:\\users\\Wineskin\\NetHood"
+"Personal"="C:\\users\\Wineskin\\My Documents"
+"PrintHood"="C:\\users\\Wineskin\\PrintHood"
+"Programs"="C:\\users\\Wineskin\\Start Menu\\Programs"
+"Recent"="C:\\users\\Wineskin\\Recent"
+"SendTo"="C:\\users\\Wineskin\\SendTo"
+"Start Menu"="C:\\users\\Wineskin\\Start Menu"
+"StartUp"="C:\\users\\Wineskin\\Start Menu\\Programs\\StartUp"
+"Templates"="C:\\users\\Wineskin\\Templates"
+
+[HKEY_USERS\.Default\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders]
+"AppData"=str(2):"%USERPROFILE%\\Application Data"
+"Cache"=str(2):"%USERPROFILE%\\Local Settings\\Temporary Internet Files"
+"Cookies"=str(2):"%USERPROFILE%\\Cookies"
+"Desktop"=str(2):"%USERPROFILE%\\Desktop"
+"Favorites"=str(2):"%USERPROFILE%\\Favorites"
+"Fonts"=str(2):"C:\\windows\\Fonts"
+"History"=str(2):"%USERPROFILE%\\Local Settings\\History"
+"Local AppData"=str(2):"%USERPROFILE%\\Local Settings\\Application Data"
+"My Music"=str(2):"%USERPROFILE%\\My Music"
+"My Pictures"=str(2):"%USERPROFILE%\\My Pictures"
+"My Videos"=str(2):"%USERPROFILE%\\My Videos"
+"NetHood"=str(2):"%USERPROFILE%\\NetHood"
+"Personal"=str(2):"%USERPROFILE%\\My Documents"
+"PrintHood"=str(2):"%USERPROFILE%\\PrintHood"
+"Programs"=str(2):"%USERPROFILE%\\Start Menu\\Programs"
+"Recent"=str(2):"%USERPROFILE%\\Recent"
+"SendTo"=str(2):"%USERPROFILE%\\SendTo"
+"Start Menu"=str(2):"%USERPROFILE%\\Start Menu"
+"StartUp"=str(2):"%USERPROFILE%\\Start Menu\\Programs\\StartUp"
+"Templates"=str(2):"%USERPROFILE%\\Templates"

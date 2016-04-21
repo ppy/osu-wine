@@ -1,0 +1,27 @@
+#!/bin/bash
+###################################################
+#  CustomEXE code for Wineskin wrappers
+#  Made by doh123@doh123.com
+#
+#  Version 6.0
+#
+#  This code is Open Source and licensed under the
+#  terms of the GNU Lesser General Public License.
+#  If the License file is not with this script, the
+#  full license can be read at the following URL
+#
+#  http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+#
+#  For Wineskin information, see the project website at
+#  http://wineskin.urgesoftware.com
+#
+####################################################
+# Set all variables
+CMACOSFOLD="$(dirname "$0")"
+MACOSFOLD="$CMACOSFOLD/../../../Contents/MacOS"
+cd "$MACOSFOLD"
+MACOSFOLD="$(echo "$PWD")"
+CEXENAME="$(basename "${CMACOSFOLD%/Contents/MacOS}")"
+
+# Launch wrapper
+"$MACOSFOLD/WineskinLauncher" "CustomEXE" "$CEXENAME"

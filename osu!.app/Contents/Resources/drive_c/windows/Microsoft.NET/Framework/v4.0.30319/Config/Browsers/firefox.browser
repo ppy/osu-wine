@@ -1,0 +1,58 @@
+﻿<browsers>
+    <browser id="Firefox" parentID="Mozilla">
+        <identification>
+            <userAgent match="Firefox\/(?'version'(?'major'\d+)(\.(?'minor'\d+)?)\w*)" />
+        </identification>
+
+        <capture>
+            <userAgent match="Gecko/(?'layoutVersion'\d+)" />
+        </capture>
+
+        <capabilities>
+            <capability name="browser"                         value="Firefox" />
+            <capability name="majorversion"                    value="${major}" />
+            <capability name="minorversion"                    value="${minor}" />
+            <capability name="version"                         value="${version}" />
+            <capability name="type"                            value="Firefox${major}" />
+            <capability name="layoutEngine"                    value="Gecko" />
+            <capability name="layoutEngineVersion"             value="${layoutVersion}" />
+            <capability name="ecmascriptversion"               value="3.0" />
+            <capability name="javascript"                      value="true" />
+            <capability name="javascriptversion"               value="1.5" />
+            <capability name="w3cdomversion"                   value="1.0" />
+            <capability name="supportsAccesskeyAttribute"      value="true" />
+            <capability name="tagwriter"                       value="System.Web.UI.HtmlTextWriter" />
+            <capability name="cookies"                         value="true" />
+            <capability name="frames"                          value="true" />
+            <capability name="javaapplets"                     value="true" />
+            <capability name="supportsCallback"                value="true" />
+            <capability name="supportsDivNoWrap"               value="false" />
+            <capability name="supportsFileUpload"              value="true" />
+            <capability name="supportsMultilineTextBoxDisplay" value="true" />
+            <capability name="supportsXmlHttp"                 value="true" />
+            <capability name="tables"                          value="true" />
+        </capabilities>
+    </browser>
+
+    <!-- Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.0.11) Gecko/2009060215 Firefox/3.0.11 (.NET CLR 3.5.30729) -->
+    <browser id="Firefox3" parentID="Firefox">
+        <identification>
+            <capability name="majorversion" match="3" />
+        </identification>
+
+        <capabilities>
+            <capability name="javascriptversion"               value="1.8" />
+            <capability name="supportsMaintainScrollPositionOnPostback" value="true" />
+        </capabilities>
+    </browser>
+
+    <!-- Mozilla/5.0 (Windows; U; Windows NT 5.1; sv-SE; rv:1.9.1) Gecko/20090624 Firefox/3.5 -->
+    <browser id="Firefox35" parentID="Firefox3">
+        <identification>
+            <capability name="minorversion" match="^[5-9]" />
+        </identification>
+
+        <capabilities>
+        </capabilities>
+    </browser>
+</browsers>

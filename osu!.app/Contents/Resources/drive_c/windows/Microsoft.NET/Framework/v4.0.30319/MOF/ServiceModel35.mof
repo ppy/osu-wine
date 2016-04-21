@@ -1,0 +1,348 @@
+#pragma autorecover
+#pragma classflags("forceupdate")
+
+
+#pragma namespace("\\\\.\\root\\ServiceModel")
+
+
+[
+Description("ContextBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{0ef94073-5b9d-4ec9-9c6d-a624d1c3be18}"): ToInstance
+]
+class ContextBindingElement : BindingElement
+{
+    [Description("The ProtectionLevel forContextBindingElement"): Amended,
+    DisplayName("ProtectionLevel"), 
+    read: ToInstance ToSubClass]
+         string ProtectionLevel;
+
+    [Description("The ContextExchangeMechanism for ContextBindingElement"): Amended,
+    DisplayName("ContextExchangeMechanism"), 
+    read: ToInstance ToSubClass]
+         string ContextExchangeMechanism;
+
+    [Description("Whether automatic context management is enabled for ContextBindingElement"): Amended,
+    DisplayName("ContextManagementEnabled"), 
+    read: ToInstance ToSubClass]
+         boolean ContextManagementEnabled;
+};
+
+[
+Description("DurableServiceAttribute"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{4583178d-1aa8-4594-9793-6d12ce2e9e67}"): ToInstance
+]
+class DurableServiceAttribute : Behavior
+{
+    [Description("The SaveStateInOperationTransaction boolean in DurableServiceAttribute"): Amended,
+    DisplayName("SaveStateInOperationTransaction"), 
+    read: ToInstance ToSubClass]
+         boolean SaveStateInOperationTransaction;
+
+};
+
+[
+Description("PersistenceProviderBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{74ACE9F1-513F-4423-8863-47DB4D3E47DE}"): ToInstance
+]
+class PersistenceProviderBehavior: Behavior
+{
+    [Description("Specifies the CLR type of the instance of persistence provider factory configured for durable services."): Amended,
+    DisplayName("PersistenceProviderFactoryType"), 
+    read: ToInstance ToSubClass]
+         string PersistenceProviderFactoryType;
+
+    [Description("Specifies the interval after which persistence operations are considered timed out."): Amended,
+    DisplayName("PersistenceOperationTimeout"), 
+    read: ToInstance ToSubClass]
+         string PersistenceOperationTimeout;
+};
+
+[
+Description("WorkflowRuntimeBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{886372E9-9221-4263-B064-0FED17832E54}"): ToInstance
+]
+class WorkflowRuntimeBehavior: Behavior
+{
+    [Description("Specifies the interval after which idle workflow instances in memory are terminated."): Amended,
+    DisplayName("CachedInstanceExpiration"), 
+    read: ToInstance ToSubClass]
+         string CachedInstanceExpiration;
+};
+
+[
+Description("WorkflowServiceBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{9eab5500-e517-4d4a-85b8-d0c633da2bf2}"): ToInstance
+]
+class WorkflowServiceBehavior : Behavior
+{
+    [Description("Specifies how to use address to filter a message, whether to use Exact match, Prefix match or match Any."): Amended,
+    DisplayName("AddressFilterMode"), 
+    read: ToInstance ToSubClass]
+         string AddressFilterMode;
+
+    [Description("The name of the service configuration."): Amended,
+    DisplayName("ConfigurationName"), 
+    read : ToInstance ToSubclass]
+         string ConfigurationName;
+
+    [Description("Specifies whether to send unknown serlialization data onto the wire."): Amended,
+    DisplayName("IgnoreExtensionDataObject"), 
+    read : ToInstance ToSubclass]
+         boolean IgnoreExtensionDataObject;
+  
+    [Description("Specifies whether to include managed exception information in the detail of SOAP faults returned to the clients for debugging purposes."): Amended,
+    DisplayName("IncludeExceptionDetailInFaults"), 
+    read: ToInstance ToSubClass]
+         boolean IncludeExceptionDetailInFaults;
+
+    [Description("The maximum number of items allowed in a serialized object."): Amended,
+    DisplayName("MaxItemsInObjectGraph"), 
+    read : ToInstance ToSubClass]
+         sint32 MaxItemsInObjectGraph;
+
+    [Description("The name attribute of the service in WSDL."): Amended,
+    DisplayName("Name"), 
+    read : ToInstance ToSubclass]
+         string Name;
+
+    [Description("The target namespace of the service in WSDL."): Amended,
+    DisplayName("Namespace"), 
+    read : ToInstance ToSubclass]
+         string Namespace;
+
+    [Description("Specifies whether to use the current synchronization context to choose the thread execution."): Amended,
+    DisplayName("UseSynchronizationContext"), 
+    read : ToInstance ToSubclass]
+         boolean UseSynchronizationContext;
+
+    [Description("Specifies whether the system or the application enforces SOAP MustUnderstand header processing."): Amended,
+    DisplayName("ValidateMustUnderstand"), 
+    read : ToInstance ToSubclass]
+         boolean ValidateMustUnderstand;
+
+    [Description("Specifies the Type of Workflow."): Amended,
+    DisplayName("WorkflowType"), 
+    read : ToInstance ToSubclass]
+         string WorkflowType;
+
+    [Description("Specifies the path to XOML defined Workflow."): Amended,
+    DisplayName("WorkflowDefinitionPath"), 
+    read : ToInstance ToSubclass]
+         string WorkflowDefinitionPath;
+
+    [Description("Specifies the path to Rules file for a XOML defined Workflow."): Amended,
+    DisplayName("WorkflowRulesPath"), 
+    read : ToInstance ToSubclass]
+         string WorkflowRulesPath;
+};
+
+[
+Description("WorkflowOperationBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{d919fb1d-4388-4c96-8e4e-67b4fc92cc28}"): ToInstance
+]
+class WorkflowOperationBehavior : Behavior
+{
+    [Description("Specifies whether an Activation message can be processed by the Operation."): Amended,
+    DisplayName("CanCreateInstance"), 
+    read: ToInstance ToSubClass]
+         boolean CanCreateInstance;
+
+    [Description("Specifies whether the Operation is invoked Synchronously or not."): Amended,
+    DisplayName("SynchronousDispatch"), 
+    read : ToInstance ToSubclass]
+         boolean SynchronousDispatch;
+
+};
+
+[
+Description("DurableOperationAttribute"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{c6ae95d2-489d-413e-b6eb-18949fc533fd}"): ToInstance
+]
+class DurableOperationAttribute : Behavior
+{
+    [Description("Specifies whether an Activation message can be processed by the Operation."): Amended,
+    DisplayName("CanCreateInstance"), 
+    read: ToInstance ToSubClass]
+         boolean CanCreateInstance;
+
+    [Description("Specifies whether the runtime will complete the instance after the Operation."): Amended,
+    DisplayName("CompletesInstance"), 
+    read : ToInstance ToSubclass]
+         boolean CompletesInstance;
+
+};
+
+
+[
+Description("WebMessageEncodingBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{9d66cffa-b7c5-42e0-a7df-a16ee84b020e}"): ToInstance
+]
+class WebMessageEncodingBindingElement : MessageEncodingBindingElement
+{
+    [Description("The character set encoding to be used for emitting messages on the binding."): Amended,
+    DisplayName("Encoding"), 
+    read: ToInstance ToSubClass]
+         string Encoding;
+
+    [Description("An integer that defines how many messages can be read simultaneously without allocating new readers. "): Amended,
+    DisplayName("MaxReadPoolSize"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxReadPoolSize;
+
+    [Description("An integer that defines how many messages can be sent simultaneously without allocating new writers."): Amended,
+    DisplayName("MaxWritePoolSize"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxWritePoolSize;
+
+    [Description("The quotas of the readers."): Amended,
+    DisplayName("ReaderQuotas"), 
+    read: ToInstance ToSubClass]
+         XmlDictionaryReaderQuotas ReaderQuotas;
+
+};
+
+
+[
+Description("WebHttpBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{50ffd030-c7d2-449a-be4a-a3f272996fd4}"): ToInstance
+]
+class WebHttpBehavior : Behavior
+{
+    [Description("Specifies the web message body style."): Amended,
+    DisplayName("DefaultBodyStyle"), 
+    read: ToInstance ToSubClass]
+         string DefaultBodyStyle;
+
+    [Description("Specifies the default web message format for outgoing requests if the operation does not specify one."): Amended,
+    DisplayName("DefaultOutgoingRequestFormat"), 
+    read: ToInstance ToSubClass]
+         string DefaultOutgoingRequestFormat;
+
+    [Description("Specifies the default web message format for outgoing responses if the operation does not specify one."): Amended,
+    DisplayName("DefaultOutgoingResponseFormat"), 
+    read: ToInstance ToSubClass]
+         string DefaultOutgoingResponseFormat;
+};
+
+[
+Description("WebScriptEnablingBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{c03d857e-9979-44f6-9bc8-caab762a8235}"): ToInstance
+]
+class WebScriptEnablingBehavior : WebHttpBehavior
+{
+};
+
+[
+Description("WebGetAttribute"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{f16185ab-da1b-4e5f-aab4-84a0f1e673c7}"): ToInstance
+]
+class WebGetAttribute : Behavior
+{
+    [Description("Specifies the web message body style."): Amended,
+    DisplayName("BodyStyle"), 
+    read: ToInstance ToSubClass]
+         string BodyStyle;
+
+    [Description("Specifies whether a body style has been explicitly specified."): Amended,
+    DisplayName("IsBodyStyleSetExplicitly"), 
+    read: ToInstance ToSubClass]
+         boolean IsBodyStyleSetExplicitly;
+
+    [Description("Specifies the outgoing request's web message format."): Amended,
+    DisplayName("RequestFormat"), 
+    read: ToInstance ToSubClass]
+         string RequestFormat;
+
+    
+    [Description("Specifies whether the outgoing request's web message format has been explicitly specified."): Amended,
+    DisplayName("IsRequestFormatSetExplicitly"), 
+    read: ToInstance ToSubClass]
+         boolean IsRequestFormatSetExplicitly;
+
+    [Description("Specifies the outgoing response's web message format."): Amended,
+    DisplayName("ResponseFormat"), 
+    read: ToInstance ToSubClass]
+         string ResponseFormat;
+
+    [Description("Specifies whether the outgoing response's web message format has been explicitly specified."): Amended,
+    DisplayName("IsResponseFormatSetExplicitly"), 
+    read: ToInstance ToSubClass]
+         boolean IsResponseFormatSetExplicitly;
+
+    [Description("Specifies the URI template for the request."): Amended,
+    DisplayName("UriTemplate"), 
+    read: ToInstance ToSubClass]
+         string UriTemplate;
+};
+
+[
+Description("WebInvokeAttribute"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{46456be3-05cf-4a65-88b6-99ef787d0d1f}"): ToInstance
+]
+class WebInvokeAttribute : Behavior
+{
+    [Description("Specifies the web message body style."): Amended,
+    DisplayName("BodyStyle"), 
+    read: ToInstance ToSubClass]
+         string BodyStyle;
+
+    [Description("Specifies whether a body style has been explicitly specified."): Amended,
+    DisplayName("IsBodyStyleSetExplicitly"), 
+    read: ToInstance ToSubClass]
+         boolean IsBodyStyleSetExplicitly;
+
+    [Description("Specifies the outgoing request's web message format."): Amended,
+    DisplayName("RequestFormat"), 
+    read: ToInstance ToSubClass]
+         string RequestFormat;
+
+    
+    [Description("Specifies whether the outgoing request's web message format has been explicitly specified."): Amended,
+    DisplayName("IsRequestFormatSetExplicitly"), 
+    read: ToInstance ToSubClass]
+         boolean IsRequestFormatSetExplicitly;
+
+    [Description("Specifies the outgoing response's web message format."): Amended,
+    DisplayName("ResponseFormat"), 
+    read: ToInstance ToSubClass]
+         string ResponseFormat;
+
+    [Description("Specifies whether the outgoing response's web message format has been explicitly specified."): Amended,
+    DisplayName("IsResponseFormatSetExplicitly"), 
+    read: ToInstance ToSubClass]
+         boolean IsResponseFormatSetExplicitly;
+
+    [Description("Specifies the URI template for the request."): Amended,
+    DisplayName("UriTemplate"), 
+    read: ToInstance ToSubClass]
+         string UriTemplate;
+
+    [Description("Specifies the HTTP method allowed for the request."): Amended,
+    DisplayName("Method"), 
+    read: ToInstance ToSubClass]
+         string Method;
+};

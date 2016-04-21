@@ -1,0 +1,55 @@
+<browsers>
+    <browser id="GenericDownlevel" parentID="Default">
+        <identification>
+            <userAgent match="^Generic Downlevel$" />
+        </identification>
+
+
+        <capture>
+        </capture>
+
+
+        <capabilities>
+            <capability name="cookies"                     value="false" />
+            <capability name="ecmascriptversion"           value="1.0" />
+            <capability name="tables"                      value="true" />
+	    <capability name="type"                        value="Downlevel" />
+        </capabilities>
+        <controlAdapters>
+        <adapter controlType="System.Web.UI.WebControls.Menu"
+                     adapterType="System.Web.UI.WebControls.Adapters.MenuAdapter" />
+        </controlAdapters>
+    </browser>
+
+    <browser id="Mozilla" parentID="Default">
+        <identification>
+            <userAgent match="Mozilla" />
+        </identification>
+
+        <capture>
+        </capture>
+
+
+        <capabilities>
+            <capability name="browser"                         value="Mozilla" />
+            <capability name="cookies"                         value="false" />
+            <capability name="inputType"                       value="keyboard" />
+            <capability name="isColor"                         value="true" />
+            <capability name="isMobileDevice"                  value="false" />
+            <capability name="maximumRenderedPageSize"         value="300000" />
+            <capability name="screenBitDepth"                  value="8" />
+            <capability name="supportsBold"                    value="true" />
+            <capability name="supportsCss"                     value="true" />
+            <capability name="supportsDivNoWrap"               value="true" />
+            <capability name="supportsFontName"                value="true" />
+            <capability name="supportsFontSize"                value="true" />
+            <capability name="supportsImageSubmit"             value="true" />
+            <capability name="supportsItalic"                  value="true" />
+            <capability name="type"                            value="Mozilla" />
+        </capabilities>
+    </browser>
+
+
+
+
+</browsers>

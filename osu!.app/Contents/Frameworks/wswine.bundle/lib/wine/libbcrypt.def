@@ -1,0 +1,15 @@
+; File generated automatically from ./dlls/bcrypt/bcrypt.spec; do not edit!
+
+LIBRARY bcrypt.dll
+
+EXPORTS
+  BCryptCloseAlgorithmProvider@8 @3
+  BCryptCreateHash@28 @7
+  BCryptDestroyHash@4 @11
+  BCryptEnumAlgorithms@16 @17
+  BCryptFinishHash@16 @25
+  BCryptGenRandom@16 @27
+  BCryptGetFipsAlgorithmMode@4 @30
+  BCryptGetProperty@24 @31
+  BCryptHashData@16 @32
+  BCryptOpenAlgorithmProvider@16 @35

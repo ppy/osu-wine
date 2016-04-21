@@ -1,0 +1,225 @@
+﻿<browsers>
+
+    <gateway id="Crawler" parentID="Default">
+        <identification>
+            <userAgent match="crawler|Crawler|Googlebot|msnbot" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="crawler" value="true" />
+        </capabilities>
+    </gateway>
+
+
+    <gateway id="Platform" parentID="Default">
+        <identification>
+            <userAgent match="." />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+        </capabilities>
+    </gateway>
+
+    <browser id="PlatformWinnt" parentID="Platform">
+        <identification>
+            <userAgent match="Windows NT|WinNT|Windows XP" />
+            <userAgent nonMatch="WinCE|Windows CE" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="platform"    value="WinNT" />
+        </capabilities>
+    </browser>
+
+    <browser id="PlatformWinXP" parentID="PlatformWinnt">
+        <identification>
+            <userAgent match="Windows (NT 5\.1|XP)" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="platform"    value="WinXP" />
+        </capabilities>
+    </browser>
+
+    <browser id="PlatformWin2000a" parentID="PlatformWinnt">
+        <identification>
+            <userAgent match="Windows NT 5\.0" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="platform"    value="Win2000" />
+        </capabilities>
+    </browser>
+
+    <browser id="PlatformWin2000b" parentID="Platform">
+        <identification>
+            <userAgent match="Windows 2000" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="platform"    value="Win2000" />
+        </capabilities>
+    </browser>
+
+    <browser id="PlatformWin95" parentID="Platform">
+        <identification>
+            <userAgent match="Win(dows )?95" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="platform"    value="Win95" />
+        </capabilities>
+    </browser>
+
+    <browser id="PlatformWin98" parentID="Platform">
+        <identification>
+            <userAgent match="Win(dows )?98" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="platform"    value="Win98" />
+        </capabilities>
+    </browser>
+
+    <browser id="PlatformWin16" parentID="Platform">
+        <identification>
+            <userAgent match="Win(dows 3\.1|16)" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="platform"    value="Win16" />
+        </capabilities>
+    </browser>
+
+    <!-- sample UA "Mozilla/4.0 (compatible; MSIE 4.01; Windows NT Windows CE)" -->
+    <browser id="PlatformWinCE" parentID="Platform">
+        <identification>
+            <userAgent match="Win(dows )?CE" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="platform"    value="WinCE" />
+        </capabilities>
+    </browser>
+
+    <browser id="PlatformMac68k" parentID="Platform">
+        <identification>
+            <userAgent match="Mac(_68(000|K)|intosh.*68K)" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="platform"    value="Mac68K" />
+        </capabilities>
+    </browser>
+
+    <browser id="PlatformMacPPC" parentID="Platform">
+        <identification>
+            <userAgent match="Mac(_PowerPC|intosh.*PPC|_PPC)|PPC Mac" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="platform"    value="MacPPC" />
+        </capabilities>
+    </browser>
+
+    <browser id="PlatformUNIX" parentID="Platform">
+        <identification>
+            <userAgent match="X11" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="platform"    value="UNIX" />
+        </capabilities>
+    </browser>
+
+    <browser id="PlatformWebTV" parentID="Platform">
+        <identification>
+            <userAgent match="WebTV" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="platform"    value="WebTV" />
+        </capabilities>
+    </browser>
+
+    <gateway id="Win" parentID="Default">
+        <identification>
+            <userAgent match="." />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+        </capabilities>
+    </gateway>
+
+    <browser id="Win32" parentID="Win">
+        <identification>
+            <userAgent match="Win(dows )?(9[58]|NT|32)" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="win32"   value="true" />
+        </capabilities>
+    </browser>
+
+    <browser id="Win16" parentID="Win">
+        <identification>
+            <userAgent match="16bit|Win(dows 3\.1|16)" />
+        </identification>
+
+        <capture>
+        </capture>
+
+        <capabilities>
+            <capability name="win16"   value="true" />
+        </capabilities>
+    </browser>
+
+</browsers>

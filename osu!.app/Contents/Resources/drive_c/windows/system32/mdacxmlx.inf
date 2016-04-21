@@ -1,0 +1,54 @@
+[version]
+Signature="$Windows NT$"
+Class=%ExceptionClassDesc%
+ClassGuid={F5776D81-AE53-4935-8E84-B0B283D8BCEF}
+Provider=%Msft%
+CatalogFile=msxmlx.cat
+ComponentId={C53A407B-397A-4eec-812F-E951673CDE7F}
+DriverVer=4-25-2005, 2.81.1117.6
+FriendlyName=MSXML 3.0 Exception Package
+VersionMajor=2
+VersionMinor=81
+BuildNumber=1117
+QFENumber=6
+
+
+[SourceDisksNames]
+55=%ID1%,"MSXMLX.CAB",0
+
+[SourceDisksFiles]
+msxmlx.inf=55,,
+msxml3.dll=55,,
+msxml3r.dll=55,,
+
+[DefaultInstall]
+RequiredEngine=SETUPAPI
+ComponentName=MSXML_MDAC28
+Realversion=2.81.1117.6
+ComponentVersion=3.81.1117.6
+Copyfiles=INFDIR,SYSTEMDIR
+RegisterOCXs=RegFiles
+
+Realversion=2.81.1117.6
+
+
+
+
+[Strings]
+ID1="MSXML Installer"
+Msft="Microsoft"
+ExceptionClassDesc="Exception Package" 
+
+[DestinationDirs]
+INFDIR=16427,"Microsoft Shared\dasetup"
+SYSTEMDIR=11
+
+[INFDIR]
+msxmlx.inf,,,96
+
+[SYSTEMDIR]
+msxml3.dll,,,96
+msxml3r.dll,,,96
+
+[RegFiles]
+%11%\msxml3.dll

@@ -1,0 +1,2 @@
+#!/bin/bash
+DYLD_FALLBACK_LIBRARY_PATH="${WINESKIN_LIB_PATH_FOR_FALLBACK}" "$(dirname "$0")/quartz-wm-ws" "$@"

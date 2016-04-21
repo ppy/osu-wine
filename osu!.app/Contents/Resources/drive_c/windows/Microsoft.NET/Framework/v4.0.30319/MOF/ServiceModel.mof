@@ -1,0 +1,2416 @@
+#pragma autorecover
+#pragma classflags("forceupdate")
+#pragma namespace("\\\\.\\Root")
+
+[Locale(1033) : ToInstance, 
+NamespaceSecuritySDDL ("O:BAG:BAD:P(A;CI;CCDCLCSWRPWPRCWD;;;BA)(A;CI;CC;;;NS)(A;CI;CC;;;LS)(A;CI;CC;;;S-1-5-32-568)")]
+Instance of __Namespace
+{
+  Name = "ServiceModel";
+};
+
+#pragma namespace("\\\\.\\root\\ServiceModel")
+
+[RequiresEncryption(TRUE)] 
+instance of __systemSecurity 
+{ 
+};
+
+instance of __Win32Provider as $P
+{
+    Name = "ServiceModel";
+    HostingModel = "Decoupled:Com";  
+    SecurityDescriptor = "O:BAG:BAD:(A;;0x1;;;BA)(A;;0x1;;;NS)(A;;0x1;;;LS)(A;;0x1;;;S-1-5-32-568)";
+};
+
+instance of __InstanceProviderRegistration
+{
+    Provider = $P;
+    SupportsGet = TRUE;
+    SupportsPut = TRUE;
+    SupportsDelete = TRUE;
+    SupportsEnumeration = TRUE;
+    QuerySupportLevels = {"WQL:UnarySelect"};
+};
+
+instance of __MethodProviderRegistration
+{
+    Provider = $P;
+};
+
+[
+Description("Application domain information"): amended,
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{A598F86F-FC0D-4b6b-A591-661E0B49DB9E}"): ToInstance
+]
+class AppDomainInfo
+{
+    [Description("The Id of the appdomain."): Amended,
+    DisplayName("AppDomainId"), 
+    key: ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         sint32 AppDomainId;
+
+    [Description("The name of the appdomain."): Amended,
+    DisplayName("Name"), 
+    key: ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         string Name;
+
+    [Description("The process Id."): Amended,
+    DisplayName("ProcessId"), 
+    key: ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         sint32 ProcessId;
+
+    [Description("Indicates if the appdomain is the default appdomain."): Amended,
+    DisplayName("IsDefault"), 
+    read: ToInstance ToSubClass]
+         boolean IsDefault;
+
+    [Description("A value that specifies whether malformed messages are logged."): Amended,
+    DisplayName("LogMalformedMessages")]
+        boolean LogMalformedMessages;
+
+    [Description("A value that specifies whether messages are traced at the service level (before encryption and transport-related transforms)."): Amended,
+    DisplayName("LogMessagesAtServiceLevel")]
+        boolean LogMessagesAtServiceLevel;
+
+    [Description("A value that specifies whether messages are traced at the transport level."): Amended,
+    DisplayName("LogMessagesAtTransportLevel")]
+        boolean LogMessagesAtTransportLevel;
+
+    [Description("The collection trace listeners that listen to the System.ServiceModel.MessageLogging trace source."): Amended,
+    DisplayName("MessageLoggingTraceListeners"), 
+    read: ToInstance ToSubClass]
+         TraceListener MessageLoggingTraceListeners[];
+
+    [Description("The scope of active performance counters in the appdomain."): Amended,
+    DisplayName("PerformanceCounters"), 
+    read: ToInstance ToSubClass]
+         string PerformanceCounters;
+
+    [Description("The path to the configuration of the service."): Amended,
+    DisplayName("ServiceConfigPath"), 
+    read: ToInstance ToSubClass]
+         string ServiceConfigPath;
+
+    [Description("The collection trace listeners that listen to the System.ServiceModel trace source."): Amended,
+    DisplayName("ServiceModelTraceListeners"), 
+    read: ToInstance ToSubClass]
+         TraceListener ServiceModelTraceListeners[];
+
+    [Description("The trace level of the System.ServiceModel trace source."): Amended,
+    DisplayName("TraceLevel")]
+        string TraceLevel;
+
+};
+
+[
+Description("Trace Listener"): amended,
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{4556569B-4546-4C74-A0DB-8D889238137D}"): ToInstance
+]
+class TraceListener
+{
+    [Description("The name of the trace listener."): Amended,
+    DisplayName("Name"),
+    read: ToInstance ToSubClass]
+        string Name;
+
+    [Description("The arguments of the trace listener."): Amended,
+    DisplayName("TraceListenerArguments"),
+    read: ToInstance ToSubClass]
+        TraceListenerArgument TraceListenerArguments[];
+
+};
+
+[
+Description("Trace Listener Argument"): amended,
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{81A1FEF1-9A54-4B10-927C-877F1241F4E8}"): ToInstance
+]
+class TraceListenerArgument
+{
+    [Description("The name of the argument."): Amended,
+    DisplayName("Name"),
+    read: ToInstance ToSubClass]
+        string Name;
+
+    [Description("The value of the argument."): Amended,
+    DisplayName("Value"),
+    read: ToInstance ToSubClass]
+        string Value;
+
+};
+
+[
+Description("ServiceModel Service"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{94C1FEE8-EDFD-4db1-B07F-FB06622C882D}"): ToInstance
+]
+class Service
+{
+    [Description("Service name at the address."): Amended,
+    DisplayName("DistinguishedName"), 
+    key: ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         string DistinguishedName;
+
+    [Description("The process id of the process that hosts the service."): Amended,
+    DisplayName("ProcessId"), 
+    key: ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         sint32 ProcessId;
+
+    [Description("The base addresses used by the service."): Amended,
+    DisplayName("BaseAddresses"), 
+    read: ToInstance ToSubClass]
+         string BaseAddresses[];
+
+    [Description("The behaviors associated with this service."): Amended,
+    DisplayName("Behaviors"), 
+    read: ToInstance ToSubClass]
+         Behavior Behaviors[];
+
+    [Description("ServiceElement_BehaviorConfiguration"): Amended,
+    DisplayName("ConfigurationName"), 
+    read: ToInstance ToSubClass]
+         string ConfigurationName;
+
+    [Description("Instance name of the instance of the performance counters of the service. "): Amended,
+    DisplayName("CounterInstanceName"), 
+    read: ToInstance ToSubClass]
+         string CounterInstanceName;
+
+    [Description("The instance contexts for the extensions of the service instance."): Amended,
+    DisplayName("Extensions"), 
+    read: ToInstance ToSubClass]
+         string Extensions[];
+
+    [Description("The unique name of this service."): Amended,
+    DisplayName("Name"), 
+    read: ToInstance ToSubClass]
+         string Name;
+
+    [Description("The namespace of the service."): Amended,
+    DisplayName("Namespace"), 
+    read: ToInstance ToSubClass]
+         string Namespace;
+
+    [Description("The time the service was opened."): Amended,
+    DisplayName("Opened"), 
+    read: ToInstance ToSubClass]
+         datetime Opened;
+
+    [Description("The channels that are outgoing from the service instance."): Amended,
+    DisplayName("OutgoingChannels"), 
+    read: ToInstance ToSubClass]
+         Channel OutgoingChannels[];
+
+    [Description("The service metadata settings."): Amended,
+    DisplayName("Metadata"), 
+    read: ToInstance ToSubClass]
+         string Metadata[];
+
+};
+
+[
+Aggregation: ToSubClass, 
+Association: DisableOverride ToInstance ToSubClass, 
+Description("Map service to app domain"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{E989AF08-2217-4d67-8E20-282594606E80}"): ToInstance
+]
+class ServiceAppDomain
+{
+    [Description("The service of this appdomain."): Amended,
+    DisplayName("Service"), 
+    key,
+    read: ToInstance ToSubClass]
+         Service ref Service;
+
+    [Description("Contains properties of the appdomain."): Amended,
+    DisplayName("AppDomainInfo"), 
+    key,
+    read: ToInstance ToSubClass]
+         AppDomainInfo ref AppDomainInfo;
+
+};
+
+[
+Aggregation: ToSubClass, 
+Association: DisableOverride ToInstance ToSubClass, 
+Description("Map service to endpoint"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{B454051D-0A85-4346-A55B-7BDA5189A405}"): ToInstance
+]
+class ServiceToEndpointAssociation
+{
+    [Description("The service associated with the endpoint."): Amended,
+    DisplayName("Service"), 
+    key,
+    read: ToInstance ToSubClass]
+         Service ref Service;
+
+    [Description("The endpoint associated with the service."): Amended,
+    DisplayName("Endpoint"), 
+    key,
+    read: ToInstance ToSubClass]
+         Endpoint ref Endpoint;
+
+};
+
+[
+Description("ServiceModel Endpoint"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{712A0B9F-4AA8-418a-823E-6421E1A895AD}"): ToInstance
+]
+class Endpoint
+{
+    [Description("The appdomain id of the appdomain that hosts the endpoint."): Amended,
+    DisplayName("AppDomainId"), 
+    key: ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         sint32 AppDomainId;
+
+    [Description("A string that specifies which contract this endpoint is exposing."): Amended,
+    DisplayName("ContractName"), 
+    key: ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         string ContractName;
+
+    [Description("The Uri the endpoint listens on."): Amended,
+    DisplayName("ListenUri"), 
+    key: ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         string ListenUri;
+
+    [Description("The process Id of the process that hosts the endpoint."): Amended,
+    DisplayName("ProcessId"), 
+    key: ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         sint32 ProcessId;
+
+    [Description("A Uri that contains the address of the endpoint."): Amended,
+    DisplayName("Address"), 
+    read: ToInstance ToSubClass]
+         string Address;
+
+    [Description(" The collection of address headers attached to this endpoint."): Amended,
+    DisplayName("AddressHeaders"), 
+    read: ToInstance ToSubClass]
+         string AddressHeaders[];
+
+    [Description("The identity of the endpoint."): Amended,
+    DisplayName("AddressIdentity"), 
+    read: ToInstance ToSubClass]
+         string AddressIdentity;
+
+    [Description("The collection of behaviors implemented by this endpoint."): Amended,
+    DisplayName("Behaviors"), 
+    read: ToInstance ToSubClass]
+         Behavior Behaviors[];
+
+    [Description("The binding used by this endpoint."): Amended,
+    DisplayName("Binding"), 
+    read: ToInstance ToSubClass]
+         Binding Binding;
+
+    [Description("The contract this endpoint is exposing."): Amended,
+    DisplayName("Contract"), 
+    read: ToInstance ToSubClass]
+         Contract ref Contract;
+
+    [Description("The name of the instance of performance counters of the endpoint."): Amended,
+    DisplayName("CounterInstanceName"), 
+    read: ToInstance ToSubClass]
+         string CounterInstanceName;
+
+    [Description("The unique name of this endpoint."): Amended,
+    DisplayName("Name"), 
+    read: ToInstance ToSubClass]
+         string Name;
+
+    [DisplayName("GetOperationCounterInstanceName"), 
+    Implemented: ToInstance ToSubClass,
+    Description("Retrieves operation performance counter instance name"): ToInstance ToSubClass amended]
+         string GetOperationCounterInstanceName([In] string Operation);
+
+};
+
+[
+Description("ServiceModel Channel"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{3EC525AF-3189-4ea1-966E-B6F437F5D289}"): ToInstance
+]
+class Channel
+{
+    [Description("The local endpoint for the channel."): Amended,
+    DisplayName("LocalAddress"), 
+    read: ToInstance ToSubClass]
+         string LocalAddress;
+
+    [Description("The remote address associated with the channel."): Amended,
+    DisplayName("RemoteAddress"), 
+    read: ToInstance ToSubClass]
+         string RemoteAddress;
+
+    [Description("A reference to the endpoint the channel connects to."): Amended,
+    DisplayName("RemoteEndpoint"), 
+    read: ToInstance ToSubClass]
+         Endpoint ref RemoteEndpoint;
+
+    [Description("The current session Id, if any."): Amended,
+    DisplayName("SessionId"), 
+    read: ToInstance ToSubClass]
+         string SessionId;
+
+    [Description("The type of the channel."): Amended,
+    DisplayName("Type"), 
+    read: ToInstance ToSubClass]
+         string Type;
+
+};
+
+[
+Description("ServiceModel Contract"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{BFDB09BA-5A7A-47ad-86BD-ACF6E55AA864}"): ToInstance
+]
+class Contract
+{
+    [Description("The appdomain id of the appdomain that hosts the contract."): Amended,
+    DisplayName("AppDomainId"), 
+    key: ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         sint32 AppDomainId;
+
+    [Description("The name of the contract in WSDL."): Amended,
+    DisplayName("Name"), 
+    key: ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         string Name;
+
+    [Description("The process Id of the process that hosts the contract."): Amended,
+    DisplayName("ProcessId"), 
+    key: ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         sint32 ProcessId;
+
+    [Description("The behaviors associated with this contract."): Amended,
+    DisplayName("Behaviors"), 
+    read: ToInstance ToSubClass]
+         Behavior Behaviors[];
+
+    [Description("The type of callback when the contract is a duplex contract."): Amended,
+    DisplayName("CallbackContract"), 
+    read: ToInstance ToSubClass]
+         Contract ref CallbackContract;
+
+    [Description("The namespace of the <portType> element in WSDL."): Amended,
+    DisplayName("Namespace"), 
+    read: ToInstance ToSubClass]
+         string Namespace;
+
+    [Description("The operations of this contract."): Amended,
+    DisplayName("Operations"), 
+    read: ToInstance ToSubClass]
+         Operation Operations[];
+
+    [Description("Indicates whether the contract requires the binding associated with this contract to use channel sessions."): Amended,
+    DisplayName("SessionMode"), 
+    read: ToInstance ToSubClass]
+         string SessionMode;
+
+    [Description("The type of the contract."): Amended,
+    DisplayName("Type"), 
+    read: ToInstance ToSubClass]
+         string Type;
+
+};
+
+[
+Description("ServiceModel Operation"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{45FBBDD4-0582-4c5f-9CED-787B1DE35BA9}"): ToInstance
+]
+class Operation
+{
+    [Description("The WS-Adressing action of the request message."): Amended,
+    DisplayName("Action"), 
+    read: ToInstance ToSubClass]
+         string Action;
+
+    [Description("Indicates that an operation is implemented asynchronously using a Begin<> and End<> method pair in a service contract."): Amended,
+    DisplayName("AsyncPattern"), 
+    read: ToInstance ToSubClass]
+         boolean AsyncPattern;
+
+    [Description("The bhaviors associated with this operation."): Amended,
+    DisplayName("Behaviors"), 
+    read: ToInstance ToSubClass]
+         Behavior Behaviors[];
+
+    [Description("True when the operation is a callback operation."): Amended,
+    DisplayName("IsCallback"), 
+    read: ToInstance ToSubClass]
+         boolean IsCallback;
+
+    [Description("Indicates whether an operation returns a reply message."): Amended,
+    DisplayName("IsOneWay"), 
+    read: ToInstance ToSubClass]
+         boolean IsOneWay;
+
+    [Description("Indicates whether the method implements an operation that can initiate a session on the server."): Amended,
+    DisplayName("IsInitiating"), 
+    read: ToInstance ToSubClass]
+         boolean IsInitiating;
+
+    [Description("Indicates whether an operation returns a reply message."): Amended,
+    DisplayName("IsTerminating"), 
+    read: ToInstance ToSubClass]
+         boolean IsTerminating;
+
+    [Description("The method signature of the operation."): Amended,
+    DisplayName("MethodSignature"), 
+    read: ToInstance ToSubClass]
+         string MethodSignature;
+
+    [Description("The name of the operation."): Amended,
+    DisplayName("Name"), 
+    read: ToInstance ToSubClass]
+         string Name;
+
+    [Description("The types of the parameters of the operation."): Amended,
+    DisplayName("ParameterTypes"), 
+    read: ToInstance ToSubClass]
+         string ParameterTypes[];
+
+    [Description("The value of the SOAP action for the reply message of the operation."): Amended,
+    DisplayName("ReplyAction"), 
+    read: ToInstance ToSubClass]
+         string ReplyAction;
+
+    [Description("The return type of the operation."): Amended,
+    DisplayName("ReturnType"), 
+    read: ToInstance ToSubClass]
+         string ReturnType;
+
+};
+
+[
+Description("ServiceModel Binding"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{25EFB242-17CB-4260-BE2B-38E70ACF8524}"): ToInstance
+]
+class Binding
+{
+    [Description("The name of the binding."): Amended,
+    DisplayName("Name"), 
+    read: ToInstance ToSubClass]
+         string Name;
+
+    [Description("The XML namespace of the binding."): Amended,
+    DisplayName("Namespace"), 
+    read: ToInstance ToSubClass]
+         string Namespace;
+
+    [Description("The URI transport scheme that is used by the channel and listener factories that are built by the binding."): Amended,
+    DisplayName("Scheme"), 
+    read: ToInstance ToSubClass]
+         string Scheme;
+
+    [Description("The interval of time provided for a close operation to complete. "): Amended,
+    DisplayName("CloseTimeout"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime CloseTimeout;
+
+    [Description("The interval of time provided for an open operation to complete."): Amended,
+    DisplayName("OpenTimeout"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime OpenTimeout;
+
+    [Description("The interval of time provided for a receive operation to complete."): Amended,
+    DisplayName("ReceiveTimeout"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime ReceiveTimeout;
+
+    [Description("The interval of time provided for a send operation to complete."): Amended,
+    DisplayName("SendTimeout"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime SendTimeout;
+
+    [Description("The collection of binding elements implemented by the binding."): Amended,
+    DisplayName("BindingElements"), 
+    read: ToInstance ToSubClass]
+         BindingElement BindingElements[];
+
+};
+
+[
+Description("MetadataExporter"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{810DC764-C1E0-4A3A-8734-87C8390A1371}"): ToInstance
+]
+class MetadataExporter
+{
+    [Description("The policy version used in metadata retrieved from the service."): Amended,
+    DisplayName("PolicyVersion"), 
+    read: ToInstance ToSubClass]
+         string PolicyVersion;
+
+};
+
+///////////                Binding elements
+
+[abstract]
+class BindingElement
+{
+};
+
+[
+Description("TransportBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{0ef94073-5b9d-4ec9-9c6d-a624d1c3be17}"): ToInstance
+]
+class TransportBindingElement : BindingElement
+{
+    [Description("A Boolean value that specifies if the user wants to take control of message addressing. "): Amended,
+    DisplayName("ManualAddressing"), 
+    read: ToInstance ToSubClass]
+         boolean ManualAddressing;
+
+    [Description("The maximum buffer pool size for the binding."): Amended,
+    DisplayName("MaxBufferPoolSize"), 
+    read: ToInstance ToSubClass]
+         sint64 MaxBufferPoolSize;
+
+    [Description("The maximum size for a message that is processed by this binding."): Amended,
+    DisplayName("MaxReceivedMessageSize"), 
+    read: ToInstance ToSubClass]
+         sint64 MaxReceivedMessageSize;
+
+    [Description("The URI scheme for the transport."): Amended,
+    DisplayName("Scheme"), 
+    read: ToInstance ToSubClass]
+         string Scheme;
+
+};
+
+[
+Description("ConnectionOrientedTransportBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{4cdec0d4-b0c4-4ea7-8d75-40236a87f3ed}"): ToInstance
+]
+class ConnectionOrientedTransportBindingElement : TransportBindingElement
+{
+    [Description("The size of the buffer used to transmit a chunk of the serialized message on the wire from the client or service. "): Amended,
+    DisplayName("ConnectionBufferSize"), 
+    read: ToInstance ToSubClass]
+         sint32 ConnectionBufferSize;
+
+    [Description("A value that indicates whether the hostname is used to reach the service when matching on the URI."): Amended,
+    DisplayName("HostNameComparisonMode"), 
+    read: ToInstance ToSubClass]
+         string HostNameComparisonMode;
+
+    [Description("The Timespan that specifies how long the channel initialization has to complete before timing out."): Amended,
+    DisplayName("ChannelInitializationTimeout"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime ChannelInitializationTimeout;
+
+    [Description("The maximum size of the buffer to use."): Amended,
+    DisplayName("MaxBufferSize"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxBufferSize;
+
+    [Description("The maximum number of pending connections."): Amended,
+    DisplayName("MaxPendingConnections"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxPendingConnections;
+
+    [Description("The maximum interval of time that a chunk of a message or a full message can remain buffered in memory before being sent out."): Amended,
+    DisplayName("MaxOutputDelay"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime MaxOutputDelay;
+
+    [Description("The maximum number of pending asynchronous accept threads that are available for processing incoming connections on the service."): Amended,
+    DisplayName("MaxPendingAccepts"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxPendingAccepts;
+
+    [Description("A value that specifies whether the messages are buffered or streamed with the connection-oriented transport."): Amended,
+    DisplayName("TransferMode"), 
+    read: ToInstance ToSubClass]
+         string TransferMode;
+
+};
+
+[
+Description("CompositeDuplexBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{11A902C8-E95E-4450-9B6F-6DDC9ACDF06E}"): ToInstance
+]
+class CompositeDuplexBindingElement : BindingElement
+{
+    [Description("The base address of the client."): Amended,
+    DisplayName("ClientBaseAddress"), 
+    read: ToInstance ToSubClass]
+         string ClientBaseAddress;
+
+};
+
+[
+Description("OneWayBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{346b65dd-bbb9-43c8-a254-779b2aff95f9}"): ToInstance
+]
+class OneWayBindingElement : BindingElement
+{
+    [Description("The channel pool settings."): Amended,
+    DisplayName("ChannelPoolSettings"), 
+    read: ToInstance ToSubClass]
+         ChannelPoolSettings ChannelPoolSettings;
+
+    [Description("The maximum number of accepted channels."): Amended,
+    DisplayName("MaxAcceptedChannels"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxAcceptedChannels;
+
+    [Description("Whether the packet is routable."): Amended,
+    DisplayName("PacketRoutable"), 
+    read: ToInstance ToSubClass]
+         boolean PacketRoutable;
+
+};
+
+[
+Description("ChannelPoolSettings"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{73b1292c-60a2-405d-a008-a13632059431}"): ToInstance
+]
+class ChannelPoolSettings
+{
+    [Description("The maximum time the connection can be idle before being disconnected. "): Amended,
+    DisplayName("IdleTimeout"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime IdleTimeout;
+
+    [Description("The maximum time for a lease operation to complete before timing out."): Amended,
+    DisplayName("LeaseTimeout"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime LeaseTimeout;
+
+    [Description("The maximum number of outbound channels per endpoint."): Amended,
+    DisplayName("MaxOutboundChannelsPerEndpoint"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxOutboundChannelsPerEndpoint;
+
+};
+
+[
+Description("HttpTransportBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{A605A67F-CE6E-44c7-AD55-E37332D888A6}"): ToInstance
+]
+class HttpTransportBindingElement : TransportBindingElement
+{
+    [Description("A value that indicates whether the client accepts cookies and propagates them on future requests."): Amended,
+    DisplayName("AllowCookies"), 
+    read: ToInstance ToSubClass]
+         boolean AllowCookies;
+
+    [Description("The authentication scheme used to authenticate client requests being processed by an HTTP listener. "): Amended,
+    DisplayName("AuthenticationScheme"), 
+    read: ToInstance ToSubClass]
+         string AuthenticationScheme;
+
+    [Description("A value that indicates whether proxies are ignored for local addresses."): Amended,
+    DisplayName("BypassProxyOnLocal"), 
+    read: ToInstance ToSubClass]
+         boolean BypassProxyOnLocal;
+
+    [Description("A value that indicates whether HTTP decompression (gzip/deflate) is enabled on the client."): Amended,
+    DisplayName("DecompressionEnabled"), 
+    read: ToInstance ToSubClass]
+         boolean DecompressionEnabled;
+
+    [Description("A value that indicates whether the hostname is used to reach the service when matching on the URI."): Amended,
+    DisplayName("HostNameComparisonMode"), 
+    read: ToInstance ToSubClass]
+         string HostNameComparisonMode;
+
+    [Description("When enabled http connections are kept alive regardless of activity level."): Amended,
+    DisplayName("KeepAliveEnabled"), 
+    read: ToInstance ToSubClass]
+         boolean KeepAliveEnabled;
+
+    [Description("The maximum size of the buffer pool"): Amended,
+    DisplayName("MaxBufferSize"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxBufferSize;
+
+    [Description("A URI that contains the address of the proxy to use for HTTP requests."): Amended,
+    DisplayName("ProxyAddress"), 
+    read: ToInstance ToSubClass]
+         string ProxyAddress;
+
+    [Description("The authentication scheme used to authenticate client requests being processed by an HTTP proxy."): Amended,
+    DisplayName("ProxyAuthenticationScheme"), 
+    read: ToInstance ToSubClass]
+         string ProxyAuthenticationScheme;
+
+    [Description("The authentication realm."): Amended,
+    DisplayName("Realm"), 
+    read: ToInstance ToSubClass]
+         string Realm;
+
+    [Description("A value that specifies whether messages are buffered or streamed or a request or response."): Amended,
+    DisplayName("TransferMode"), 
+    read: ToInstance ToSubClass]
+         string TransferMode;
+
+    [Description("A value that indicates whether Unsafe Connection Sharing is enabled on the server."): Amended,
+    DisplayName("UnsafeConnectionNtlmAuthentication"), 
+    read: ToInstance ToSubClass]
+         boolean UnsafeConnectionNtlmAuthentication;
+
+    [Description("A value that indicates whether the machine-wide proxy settings are used rather than the user specific settings."): Amended,
+    DisplayName("UseDefaultWebProxy"), 
+    read: ToInstance ToSubClass]
+         boolean UseDefaultWebProxy;
+         
+    [Description("The extended protection policy used by the server to validate incoming client connections."): Amended,
+    DisplayName("ExtendedProtectionPolicy"), 
+    read: ToInstance ToSubClass]
+         ExtendedProtectionPolicy ExtendedProtectionPolicy;
+};
+
+[
+Description("HttpsTransportBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{bf31b34a-fcdf-45f3-a777-badecf0ad4b2}"): ToInstance
+]
+class HttpsTransportBindingElement : HttpTransportBindingElement
+{
+    [Description("A value that indicates whether SSL client authentication is required."): Amended,
+    DisplayName("RequireClientCertificate"), 
+    read: ToInstance ToSubClass]
+         boolean RequireClientCertificate;
+
+};
+
+[
+Description("NamedPipeConnectionPoolSettings"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{68a6caf8-ea81-4ad2-a2a7-e96a9cce87df}"): ToInstance
+]
+class NamedPipeConnectionPoolSettings
+{
+    [Description("The group name of the connection pool used by the binding element."): Amended,
+    DisplayName("GroupName"), 
+    read: ToInstance ToSubClass]
+         string GroupName;
+
+    [Description("The maximum time the connection can be idle before being disconnected."): Amended,
+    DisplayName("IdleTimeout"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime IdleTimeout;
+
+    [Description("The maximum number of outbound connections per endpoint on the client."): Amended,
+    DisplayName("MaxOutboundConnectionsPerEndpoint"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxOutboundConnectionsPerEndpoint;
+
+};
+
+[
+Description("NamedPipeTransportBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{A608750F-F8C9-4089-97E6-F8E32976A0D4}"): ToInstance
+]
+class NamedPipeTransportBindingElement : ConnectionOrientedTransportBindingElement
+{
+    [Description("The connection pool settings."): Amended,
+    DisplayName("ConnectionPoolSettings"), 
+    read: ToInstance ToSubClass]
+         NamedPipeConnectionPoolSettings ConnectionPoolSettings;
+
+};
+
+[
+Description("SslStreamSecurityBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{c7631639-a700-45ee-a603-a0aeac9a78e2}"): ToInstance
+]
+class SslStreamSecurityBindingElement : BindingElement
+{
+    [Description("Specifies if a client certificate is required for this binding."): Amended,
+    DisplayName("RequireClientCertificate"), 
+    read: ToInstance ToSubClass]
+         boolean RequireClientCertificate;
+
+};
+
+[
+Description("ExtendedProtectionPolicy"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{6E964E9B-46BD-45C6-88B4-4F9D5593237B}"): ToInstance
+]
+class ExtendedProtectionPolicy
+{
+    [Description("A value that specifies when ExtendedProtection should be enforced."): Amended,
+    DisplayName("PolicyEnforcement"), 
+    read: ToInstance ToSubClass]
+         string PolicyEnforcement;
+
+    [Description("A value that specifies the protection scenario being enforced by the policy."): Amended,
+    DisplayName("ProtectionScenario"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         string ProtectionScenario;
+
+    [Description("A list of service principal names accepted by the service."): Amended,
+    DisplayName("CustomServiceNames"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         string CustomServiceNames[];
+         
+    [Description("A channel binding token used when authenticating clients."): Amended,
+    DisplayName("CustomChannelBinding"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         string CustomChannelBinding;
+};
+
+[
+Description("TcpConnectionPoolSettings"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{64f756ad-26ae-4ef7-b63c-204599916ad5}"): ToInstance
+]
+class TcpConnectionPoolSettings
+{
+    [Description("The group name of the connection pool used by the binding element."): Amended,
+    DisplayName("GroupName"), 
+    read: ToInstance ToSubClass]
+         string GroupName;
+
+    [Description("The maximum time the connection can be idle before being disconnected."): Amended,
+    DisplayName("IdleTimeout"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime IdleTimeout;
+
+    [Description("The maximum time for the lease operation to complete before timing out."): Amended,
+    DisplayName("LeaseTimeout"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime LeaseTimeout;
+
+    [Description("The maximum outbound connections per endpoint."): Amended,
+    DisplayName("MaxOutboundConnectionsPerEndpoint"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxOutboundConnectionsPerEndpoint;
+
+};
+
+[
+Description("TcpTransportBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{600c8260-c838-4aa6-b818-553f6308ad8b}"): ToInstance
+]
+class TcpTransportBindingElement : ConnectionOrientedTransportBindingElement
+{
+    [Description("The maximum number of queued connection requests that can be pending."): Amended,
+    DisplayName("ListenBacklog"), 
+    read: ToInstance ToSubClass]
+         sint32 ListenBacklog;
+
+    [Description("A boolean value that specifies whether TCP port sharing is enabled for this connection."): Amended,
+    DisplayName("PortSharingEnabled"), 
+    read: ToInstance ToSubClass]
+         boolean PortSharingEnabled;
+
+    [Description("A Boolean value that specifies whether Teredo (a technology for addressing clients that are behind firewalls) is enabled. "): Amended,
+    DisplayName("TeredoEnabled"), 
+    read: ToInstance ToSubClass]
+         boolean TeredoEnabled;
+
+    [Description("The connection pool settings."): Amended,
+    DisplayName("ConnectionPoolSettings"), 
+    read: ToInstance ToSubClass]
+         TcpConnectionPoolSettings ConnectionPoolSettings;
+         
+    [Description("The extended protection policy used by the server to validate incoming client connections."): Amended,
+    DisplayName("ExtendedProtectionPolicy"), 
+    read: ToInstance ToSubClass]
+         ExtendedProtectionPolicy ExtendedProtectionPolicy;
+};
+
+[
+Description("WindowsStreamSecurityBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{2a3cf567-a736-4138-a085-0f8f99665572}"): ToInstance
+]
+class WindowsStreamSecurityBindingElement : BindingElement
+{
+    [Description("The ProtectionLevel for the TCP stream."): Amended,
+    DisplayName("ProtectionLevel"), 
+    read: ToInstance ToSubClass]
+         string ProtectionLevel;
+
+};
+
+[
+Description("MsmqBindingElementBase"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{d2b115a6-259b-4d9a-b14d-8ddea2739d3e}"): ToInstance
+]
+class MsmqBindingElementBase : TransportBindingElement
+{
+    [Description("A value that indicates whether the messages processed by this binding are durable or volatile."): Amended,
+    DisplayName("Durable"), 
+    read: ToInstance ToSubClass]
+         boolean Durable;
+
+    [Description("A URI that contains the location of the per-application dead letter queue, where messages that have expired or that have failed transfer or delivery are placed."): Amended,
+    DisplayName("CustomDeadLetterQueue"), 
+    read: ToInstance ToSubClass]
+         string CustomDeadLetterQueue;
+
+    [Description("An enumeration value that indicates the type of dead letter queue to use."): Amended,
+    DisplayName("DeadLetterQueue"), 
+    read: ToInstance ToSubClass]
+         string DeadLetterQueue;
+
+    [Description("A Boolean value that indicates whether messages processed by this binding will be received exactly once."): Amended,
+    DisplayName("ExactlyOnce"), 
+    read: ToInstance ToSubClass]
+         boolean ExactlyOnce;
+
+    [Description("The maximum number of retry cycles to attempt delivery of messages to the receiving application."): Amended,
+    DisplayName("MaxRetryCycles"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxRetryCycles;
+
+    [Description("A boolean value that indicates whether messages received by this binding should be locked when received."): Amended,
+    DisplayName("ReceiveContextEnabled"), 
+    read: ToInstance ToSubClass]
+         boolean ReceiveContextEnabled;
+
+    [Description("The settings for poison message handling."): Amended,
+    DisplayName("ReceiveErrorHandling"), 
+    read: ToInstance ToSubClass]
+         string ReceiveErrorHandling;   
+
+    [Description("The maximum number of immediate retry attempts on a message that is read from the application queue."): Amended,
+    DisplayName("ReceiveRetryCount"), 
+    read: ToInstance ToSubClass]
+         sint32 ReceiveRetryCount;
+
+    [Description("A value that indicates the time delay between retry cycles when attempting to deliver a message that could not be delivered immediately."): Amended,
+    DisplayName("RetryCycleDelay"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime RetryCycleDelay;
+
+    [Description("The interval of time that indicates how long the messages processed by this binding can be in the queue before they expire."): Amended,
+    DisplayName("TimeToLive"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime TimeToLive;
+
+    [Description("A Boolean value that indicates whether messages processed by this binding should be traced."): Amended,
+    DisplayName("UseMsmqTracing"), 
+    read: ToInstance ToSubClass]
+         boolean UseMsmqTracing;
+
+    [Description("A Boolean value that indicates whether copies of messages processed by this binding should be stored in the source journal queue."): Amended,
+    DisplayName("UseSourceJournal"), 
+    read: ToInstance ToSubClass]
+         boolean UseSourceJournal;
+
+    [Description("Gets or sets the interval of time before a message locked by ReceiveContext is unlocked and returned to the Queue."): Amended,
+    DisplayName("ValidityDuration"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime ValidityDuration;
+
+};
+
+[
+Description("MsmqTransportBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{7cc9edb6-944b-45cd-95cb-00bf221a4ae9}"): ToInstance
+]
+class MsmqTransportBindingElement : MsmqBindingElementBase
+{
+    [Description("An integer that specifies the maximum size of the pool that contains internal MSMQ message objects."): Amended,
+    DisplayName("MaxPoolSize"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxPoolSize;
+
+    [Description("An enumeration value that indicates the queued communication channel transport that this binding uses."): Amended,
+    DisplayName("QueueTransferProtocol"), 
+    read: ToInstance ToSubClass]
+         string QueueTransferProtocol;
+
+    [Description("Returns a Boolean value that indicates whether queue addresses should be converted using Active Directory."): Amended,
+    DisplayName("UseActiveDirectory"), 
+    read: ToInstance ToSubClass]
+         boolean UseActiveDirectory;
+
+};
+
+[
+Description("MsmqIntegrationBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{64439f80-c739-41eb-a192-6dba528a0244}"): ToInstance
+]
+class MsmqIntegrationBindingElement : MsmqBindingElementBase
+{
+    [Description("The format the binding uses to serialize messages."): Amended,
+    DisplayName("SerializationFormat"), 
+    read: ToInstance ToSubClass]
+         string SerializationFormat;
+
+};
+
+[
+Description("ReliableSessionBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{B364997C-4D5F-418c-BDA2-DBAB3A4314CD}"): ToInstance
+]
+class ReliableSessionBindingElement : BindingElement
+{
+    [Description("The interval of time that a destination waits before sending an acknowledgement to the message source on reliable channels that are created by the factory."): Amended,
+    DisplayName("AcknowledgementInterval"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime AcknowledgementInterval;
+
+    [Description("A boolean value that specifies if flow control is enabled."): Amended,
+    DisplayName("FlowControlEnabled"), 
+    read: ToInstance ToSubClass]
+         boolean FlowControlEnabled;
+
+    [Description("Specifies the maximum duration the channel is going to allow the other communicating party not to send any messages before faulting the channel."): Amended,
+    DisplayName("InactivityTimeout"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime InactivityTimeout;
+
+    [Description("The maximum number of channels that can wait to be accepted on the listener."): Amended,
+    DisplayName("MaxPendingChannels"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxPendingChannels;
+
+    [Description("The maximum number of times a reliable channel attempts to retransmit a message it has not received an acknowledgement for, by calling Send on its underlying channel."): Amended,
+    DisplayName("MaxRetryCount"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxRetryCount;
+
+    [Description("The maximum transfer window size for the reliable session."): Amended,
+    DisplayName("MaxTransferWindowSize"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxTransferWindowSize;
+
+    [Description("A Boolean value that specifies whether messages are guaranteed to arrive in the order they were sent."): Amended,
+    DisplayName("Ordered"), 
+    read: ToInstance ToSubClass]
+         boolean Ordered;
+
+    [Description("The WS-ReliableMessaging protocol version used in the reliable session."): Amended,
+    DisplayName("ReliableMessagingVersion"), 
+    read: ToInstance ToSubClass]
+         string ReliableMessagingVersion;
+
+};
+
+[
+Description("LocalServiceSecuritySettings"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{f5905497-65ad-4f5a-997c-7fcc359c896f}"): ToInstance
+]
+class LocalServiceSecuritySettings
+{
+    [Description("A Boolean value that specifies whether replay attacks against the channel are detected and dealt with automatically."): Amended,
+    DisplayName("DetectReplays"), 
+    read: ToInstance ToSubClass]
+         boolean DetectReplays;
+
+    [Description("A value that specifies the maximum number of pending security sessions that the service supports."): Amended,
+    DisplayName("InactivityTimeout"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime InactivityTimeout;
+
+    [Description("A TimeSpan that specifies the lifetime issued to all new security cookies."): Amended,
+    DisplayName("IssuedCookieLifetime"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime IssuedCookieLifetime;
+
+    [Description("A value that specifies the maximum number of cookies that can be cached."): Amended,
+    DisplayName("MaxCachedCookies"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxCachedCookies;
+
+    [Description("A TimeSpan that specifies the maximum time difference between the system clocks of the two communicating parties."): Amended,
+    DisplayName("MaxClockSkew"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime MaxClockSkew;
+
+    [Description("The maximum number of pending connections on the service."): Amended,
+    DisplayName("MaxPendingSessions"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxPendingSessions;
+
+    [Description("A value that specifies the number of security negotiations that can be active concurrently."): Amended,
+    DisplayName("MaxStatefulNegotiations"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxStatefulNegotiations;
+
+    [Description("A TimeSpan that specifies the maximum duration for the security negotiation phase between server and client."): Amended,
+    DisplayName("NegotiationTimeout"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime NegotiationTimeout;
+
+    [Description("A Boolean value that specifies whether connections using WS-Reliable messaging will attempt to reconnect after transport failures."): Amended,
+    DisplayName("ReconnectTransportOnFailure"), 
+    read: ToInstance ToSubClass]
+         boolean ReconnectTransportOnFailure;
+
+    [Description("A value that specifies the number of cached nonces used for replay detection."): Amended,
+    DisplayName("ReplayCacheSize"), 
+    read: ToInstance ToSubClass]
+         sint32 ReplayCacheSize;
+
+    [Description("A TimeSpan that specifies the duration in which individual message nonces are valid."): Amended,
+    DisplayName("ReplayWindow"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime ReplayWindow;
+
+    [Description("A TimeSpan that specifies the duration after which the initiator will renew the key for the security session."): Amended,
+    DisplayName("SessionKeyRenewalInterval"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime SessionKeyRenewalInterval;
+
+    [Description("A TimeSpan that specifies the time interval a previous session key is valid on incoming messages during a key renewal."): Amended,
+    DisplayName("SessionKeyRolloverInterval"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime SessionKeyRolloverInterval;
+
+    [Description("A TimeSpan that specifies the duration in which a time stamp is valid."): Amended,
+    DisplayName("TimestampValidityDuration"), 
+    subtype("interval"): ToInstance ToSubClass,
+    read: ToInstance ToSubClass]
+         datetime TimestampValidityDuration;
+
+};
+
+[
+Description("SecurityBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{8a39d0c4-c412-4095-b882-7b16104516c6}"): ToInstance
+]
+class SecurityBindingElement : BindingElement
+{
+    [Description("A boolean value that specifies if security should be enabled with insecure transports."): Amended,
+    DisplayName("AllowInsecureTransport"), 
+    read: ToInstance ToSubClass]
+         boolean AllowInsecureTransport;
+
+    [Description("Specifies the algorithms to use with the binding."): Amended,
+    DisplayName("DefaultAlgorithmSuite"), 
+    read: ToInstance ToSubClass]
+         string DefaultAlgorithmSuite;
+
+    [Description("A boolean value that specifies if the response can be unsecured."): Amended,
+    DisplayName("EnableUnsecuredResponse"), 
+    read: ToInstance ToSubClass]
+         boolean EnableUnsecuredResponse;
+
+    [Description("A boolean value that specifies if each message contains a timestamp."): Amended,
+    DisplayName("IncludeTimestamp"), 
+    read: ToInstance ToSubClass]
+         boolean IncludeTimestamp;
+
+    [Description("The source of entropy used to create keys."): Amended,
+    DisplayName("KeyEntropyMode"), 
+    read: ToInstance ToSubClass]
+         string KeyEntropyMode;
+
+    [Description("The order of elements in the security header for this binding."): Amended,
+    DisplayName("SecurityHeaderLayout"), 
+    read: ToInstance ToSubClass]
+         string SecurityHeaderLayout;
+
+    [Description("The version used for message security."): Amended,
+    DisplayName("MessageSecurityVersion"), 
+    read: ToInstance ToSubClass]
+         string MessageSecurityVersion;
+
+    [Description("The binding specific security properties for the local service."): Amended,
+    DisplayName("LocalServiceSecuritySettings"), 
+    read: ToInstance ToSubClass]
+         LocalServiceSecuritySettings LocalServiceSecuritySettings;
+
+};
+
+[
+Description("AsymmetricSecurityBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{d0235521-1976-4480-a962-16aba137f34a}"): ToInstance
+]
+class AsymmetricSecurityBindingElement : SecurityBindingElement
+{
+    [Description("The order of message encryption and signing for this binding."): Amended,
+    DisplayName("MessageProtectionOrder"), 
+    read: ToInstance ToSubClass]
+         string MessageProtectionOrder;
+
+    [Description("Whether the binding requires signature confirmation."): Amended,
+    DisplayName("RequireSignatureConfirmation"), 
+    read: ToInstance ToSubClass]
+         boolean RequireSignatureConfirmation;
+
+};
+
+[
+Description("SymmetricSecurityBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{4660a5d3-197e-4d58-8643-f9853b1049c1}"): ToInstance
+]
+class SymmetricSecurityBindingElement : SecurityBindingElement
+{
+    [Description("The order of message encryption and signing for this binding."): Amended,
+    DisplayName("MessageProtectionOrder"), 
+    read: ToInstance ToSubClass]
+         string MessageProtectionOrder;
+
+    [Description("Whether the binding requires signature confirmation."): Amended,
+    DisplayName("RequireSignatureConfirmation"), 
+    read: ToInstance ToSubClass]
+         boolean RequireSignatureConfirmation;
+
+};
+
+[
+Description("TransportSecurityBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{213f2c06-42ba-4124-8f19-f4ba22ce8f25}"): ToInstance
+]
+class TransportSecurityBindingElement : SecurityBindingElement
+{
+};
+
+[
+Description("MessageEncodingBindingElement "): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{82da10e5-6500-4311-a686-2d55b58bcc24}"): ToInstance
+]
+class MessageEncodingBindingElement : BindingElement
+{
+    [Description("The SOAP version of the messages sent using the binding."): Amended,
+    DisplayName("MessageVersion"), 
+    read: ToInstance ToSubClass]
+         string MessageVersion;
+
+};
+
+[
+Description("XmlDictionaryReaderQuotas"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{e1d18625-d144-4121-99e7-72b7bfb0e4c1}"): ToInstance
+]
+class XmlDictionaryReaderQuotas
+{
+    [Description("The maximum allowed array length."): Amended,
+    DisplayName("MaxArrayLength"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxArrayLength;
+
+    [Description("The maximum allowed bytes returned per read."): Amended,
+    DisplayName("MaxBytesPerRead"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxBytesPerRead;
+
+    [Description("The maximum nested node depth per read."): Amended,
+    DisplayName("MaxDepth"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxDepth;
+
+    [Description("The maximum characters allowed in a table name."): Amended,
+    DisplayName("MaxNameTableCharCount"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxNameTableCharCount;
+
+    [Description("The maximum characters allowed in XML element content."): Amended,
+    DisplayName("MaxStringContentLength"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxStringContentLength;
+
+};
+
+[
+Description("BinaryMessageEncodingBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{345d03af-4a1d-4ce7-ac3d-4d27b21b4a6e}"): ToInstance
+]
+class BinaryMessageEncodingBindingElement : MessageEncodingBindingElement
+{
+    [Description("An integer that defines how many messages can be read simultaneously without allocating new readers. "): Amended,
+    DisplayName("MaxReadPoolSize"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxReadPoolSize;
+
+    [Description("A value that specifies the size, in bytes, of the buffer used for encoding."): Amended,
+    DisplayName("MaxSessionSize"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxSessionSize;
+
+    [Description("An integer that defines how many messages can be sent simultaneously without allocating new writers."): Amended,
+    DisplayName("MaxWritePoolSize"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxWritePoolSize;
+
+    [Description("The quotas of the readers."): Amended,
+    DisplayName("ReaderQuotas"), 
+    read: ToInstance ToSubClass]
+         XmlDictionaryReaderQuotas ReaderQuotas;
+
+};
+
+[
+Description("MtomMessageEncodingBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{1d25b795-68df-41a1-8255-a18329bcdbcc}"): ToInstance
+]
+class MtomMessageEncodingBindingElement : MessageEncodingBindingElement
+{
+    [Description("The character set encoding to be used for emitting messages on the binding."): Amended,
+    DisplayName("Encoding"), 
+    read: ToInstance ToSubClass]
+         string Encoding;
+
+    [Description("An integer that defines how many messages can be read simultaneously without allocating new readers. "): Amended,
+    DisplayName("MaxReadPoolSize"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxReadPoolSize;
+
+    [Description("An integer that defines how many messages can be sent simultaneously without allocating new writers."): Amended,
+    DisplayName("MaxWritePoolSize"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxWritePoolSize;
+
+    [Description("The quotas of the readers."): Amended,
+    DisplayName("ReaderQuotas"), 
+    read: ToInstance ToSubClass]
+         XmlDictionaryReaderQuotas ReaderQuotas;
+
+};
+
+[
+Description("TextMessageEncodingBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{32354668-ef89-4ffd-951a-9d483291ea84}"): ToInstance
+]
+class TextMessageEncodingBindingElement : MessageEncodingBindingElement
+{
+    [Description("The character set encoding to be used for emitting messages on the binding."): Amended,
+    DisplayName("Encoding"), 
+    read: ToInstance ToSubClass]
+         string Encoding;
+
+    [Description("An integer that defines how many messages can be read simultaneously without allocating new readers. "): Amended,
+    DisplayName("MaxReadPoolSize"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxReadPoolSize;
+
+    [Description("An integer that defines how many messages can be sent simultaneously without allocating new writers."): Amended,
+    DisplayName("MaxWritePoolSize"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxWritePoolSize;
+
+    [Description("The quotas of the readers."): Amended,
+    DisplayName("ReaderQuotas"), 
+    read: ToInstance ToSubClass]
+         XmlDictionaryReaderQuotas ReaderQuotas;
+
+};
+
+[
+Description("PeerResolverBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{cfdd34c4-dfaf-4f80-be62-2897711ae964}"): ToInstance
+]
+class PeerResolverBindingElement : BindingElement
+{
+    [Description("Determines how referrals are shared among peers."): Amended,
+    DisplayName("ReferralPolicy"), 
+    read: ToInstance ToSubClass]
+         string ReferralPolicy;
+
+};
+
+
+[
+Description("PeerCustomResolverBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{cfdd34c4-dfaf-4f80-be62-2897711ae964}"): ToInstance
+]
+class PeerCustomResolverBindingElement: PeerResolverBindingElement
+{
+    [Description("The address of the peer custom resolver."): Amended,
+    DisplayName("Address"), 
+    read: ToInstance ToSubClass]
+         string Address;
+
+    [Description("The configuration name of the binding."): Amended,
+    DisplayName("Binding"), 
+    read: ToInstance ToSubClass]
+         string Binding;
+
+};
+
+
+[
+Description("PeerTransportSecuritySettings"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{8c8b30e4-b13f-469f-9854-f67feee02148}"): ToInstance
+]
+class PeerTransportSecuritySettings
+{
+    [Description("The transport credential type of the peer security element."): Amended,
+    DisplayName("CredentialType"), 
+    read: ToInstance ToSubClass]
+         string CredentialType;
+
+};
+
+[
+Description("PeerSecuritySettings"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{04a660e9-78d4-4da2-bea5-6442f1919f20}"): ToInstance
+]
+class PeerSecuritySettings
+{
+    [Description("Whether message-level and transport-level security are used by an endpoint configured with the binding."): Amended,
+    DisplayName("Mode"), 
+    read: ToInstance ToSubClass]
+         string Mode;
+
+    [Description("Transport security settings."): Amended,
+    DisplayName("Transport"), 
+    read: ToInstance ToSubClass]
+         PeerTransportSecuritySettings Transport;
+
+};
+
+[
+Description("PeerTransportBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{148fab8a-0c88-4bcc-b7b4-1879096544de}"): ToInstance
+]
+class PeerTransportBindingElement : TransportBindingElement
+{
+    [Description("The IP address on which the peer node will listen for messages."): Amended,
+    DisplayName("ListenIPAddress"), 
+    read: ToInstance ToSubClass]
+         string ListenIPAddress;
+
+    [Description("The network interface port on which this binding will process peer channel messages."): Amended,
+    DisplayName("Port"), 
+    read: ToInstance ToSubClass]
+         sint32 Port;
+
+    [Description("Peer transport security settings."): Amended,
+    DisplayName("Security"), 
+    read: ToInstance ToSubClass]
+         PeerSecuritySettings Security;
+
+};
+
+[
+Description("PnrpPeerResolverBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{9b81c0c8-401d-4f7f-a5c7-c104c68dbdc6}"): ToInstance
+]
+class PnrpPeerResolverBindingElement : PeerResolverBindingElement
+{
+};
+
+[
+Description("TransactionFlowBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{a7dbab52-999e-4362-be8c-fe6e5fa30c71}"): ToInstance
+]
+class TransactionFlowBindingElement : BindingElement
+{
+    [Description("The transaction protocol used in flowing a transaction."): Amended,
+    DisplayName("TransactionProtocol"), 
+    read: ToInstance ToSubClass]
+         string TransactionProtocol;
+
+    [Description("Indicates whether incoming transaction flow is enabled."): Amended,
+    DisplayName("TransactionFlow"), 
+    read: ToInstance ToSubClass]
+         boolean TransactionFlow;
+
+    [Description("Indicates whether support for wildcard action with transaction flow is enabled."): Amended,
+    DisplayName("AllowWildcardAction"), 
+    read: ToInstance ToSubClass]
+         boolean AllowWildcardAction;
+};
+
+[
+Description("CustomBindingElement"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{205B4E48-C367-4d42-8C56-DA657D00AD8F}"): ToInstance
+]
+class CustomBindingElement : BindingElement
+{
+    [Description("A string that contains the configuration name of the binding. This value is a user-defined string that acts as the identification string for the custom binding."): Amended,
+    DisplayName("Name"), 
+    read: ToInstance ToSubClass]
+         string Name;
+
+};
+
+[
+Description("UseManagedPresentationBindingElement"): amended,
+dynamic: ToInstance ToSubClass,
+provider("ServiceModel"): ToInstance ToSubClass,
+UUID("{947148e5-c935-4162-bbeb-653e2456f6eb}"): ToInstance
+]
+class UseManagedPresentationBindingElement : BindingElement
+{
+};
+
+[
+Description("PrivacyNoticeBindingElement"): amended,
+dynamic: ToInstance ToSubClass,
+provider("ServiceModel"): ToInstance ToSubClass,
+UUID("{9cfcc123-dfa0-49e1-880b-560bc8e55757}"): ToInstance
+]
+class PrivacyNoticeBindingElement : BindingElement
+{
+    [Description("The URI at which the privacy notice is located."): Amended,
+    DisplayName("Url"), 
+    read: ToInstance ToSubClass]
+         string Url;
+
+    [Description("The privacy notice version."): Amended,
+    DisplayName("PrivacyNoticeVersion"), 
+    read: ToInstance ToSubClass]
+         sint32 PrivacyNoticeVersion;
+
+};
+
+
+////////// Behaviors
+	
+[abstract]
+class Behavior
+{
+    [Description("The type of the behavior."): Amended,
+    DisplayName("Type"), 
+    read: ToInstance ToSubClass]
+         string Type;
+
+};
+
+// Service behaviors
+
+[
+Description("AspNetCompatibilityRequirementsAttribute"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{e6c44c65-8d7d-4784-9fb0-d35703b3f351}"): ToInstance
+]
+class AspNetCompatibilityRequirementsAttribute : Behavior
+{
+    [Description("Indicates if Asp.Net compatibility mode is active."): Amended,
+    DisplayName("RequirementsMode"), 
+    read: ToInstance ToSubClass]
+         string RequirementsMode;
+
+};
+
+[
+Description("ServiceAuthorizationBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{E4B8FE8F-2ACB-4770-9123-68BA91DE248A}"): ToInstance
+]
+class ServiceAuthorizationBehavior : Behavior
+{
+    [Description("A value that controls whether the service attempts to impersonate using the credentials provided by the incoming message. "): Amended,
+    DisplayName("ImpersonateCallerForAllOperations"), 
+    read: ToInstance ToSubClass]
+         boolean ImpersonateCallerForAllOperations;
+
+    [Description("The principal used to carry out operations on the server. "): Amended,
+    DisplayName("PrincipalPermissionMode"), 
+    read: ToInstance ToSubClass]
+         string PrincipalPermissionMode;
+
+    [Description("The name of the ASP .Net role provider."): Amended,
+    DisplayName("RoleProvider"), 
+    read: ToInstance ToSubClass]
+         string RoleProvider;
+
+    [Description("The authorization manager used for custom authorization."): Amended,
+    DisplayName("ServiceAuthorizationManager"), 
+    read: ToInstance ToSubClass]
+         string ServiceAuthorizationManager;
+
+};
+
+[
+Description("ServiceCredentials"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{29364538-5887-4C0F-9816-6BF099D8C815}"): ToInstance
+]
+class ServiceCredentials : Behavior
+{
+    [Description("The client certificate authentication and provisioning settings for this service."): Amended,
+    DisplayName("ClientCertificate"), 
+    read: ToInstance ToSubClass]
+         string ClientCertificate;
+
+    [Description("The current issued token authentication settings for this service."): Amended,
+    DisplayName("IssuedTokenAuthentication"), 
+    read: ToInstance ToSubClass]
+         string IssuedTokenAuthentication;
+
+    [Description("The current credential authentication and provisioning settings to be used by peer transport endpoints."): Amended,
+    DisplayName("Peer"), 
+    read: ToInstance ToSubClass]
+         string Peer;
+
+    [Description("Specifies the current secure conversation settings."): Amended,
+    DisplayName("SecureConversationAuthentication"), 
+    read: ToInstance ToSubClass]
+         string SecureConversationAuthentication;
+
+    [Description("The certificate associated with this service."): Amended,
+    DisplayName("ServiceCertificate"), 
+    read: ToInstance ToSubClass]
+         string ServiceCertificate;
+
+    [Description("The username/password settings for this service."): Amended,
+    DisplayName("UserNameAuthentication"), 
+    read: ToInstance ToSubClass]
+         string UserNameAuthentication;
+
+    [Description("The Windows authentication settings for this service."): Amended,
+    DisplayName("WindowsAuthentication"), 
+    read: ToInstance ToSubClass]
+         string WindowsAuthentication;
+
+};
+
+[
+Description("ServiceDebugBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{41cf6a6e-cfb6-4b00-b6e7-39ccbd0c3f88}"): ToInstance
+]
+class ServiceDebugBehavior : Behavior
+{
+    [Description("Controls whether the service publishes its WSDL at the address controlled by the HttpGetUrl attribute."): Amended,
+    DisplayName("HttpHelpPageEnabled"), 
+    read: ToInstance ToSubClass]
+         boolean HttpHelpPageEnabled;
+
+    [Description("Sets the location at which the service WSDL is published for retrieval using HTTP."): Amended,
+    DisplayName("HttpHelpPageUrl"), 
+    read: ToInstance ToSubClass]
+         string HttpHelpPageUrl;
+
+    [Description("Controls whether the service publishes its WSDL over HTTPS at the address controlled by the HttpsGetUrl attribute."): Amended,
+    DisplayName("HttpsHelpPageEnabled"), 
+    read: ToInstance ToSubClass]
+         boolean HttpsHelpPageEnabled;
+
+    [Description("Sets the location at which the service WSDL is published for retrieval using HTTPS."): Amended,
+    DisplayName("HttpsHelpPageUrl"), 
+    read: ToInstance ToSubClass]
+         string HttpsHelpPageUrl;
+
+    [Description("Specifies whether to include managed exception information in the detail of SOAP faults returned to the clients for debugging purposes."): Amended,
+    DisplayName("IncludeExceptionDetailInFaults"), 
+    read: ToInstance ToSubClass]
+         boolean IncludeExceptionDetailInFaults;
+
+    [Description("Controls the binding for metadata retrieval using HTTP."): Amended,
+    DisplayName("HttpHelpPageBinding"), 
+    read: ToInstance ToSubClass]
+         Binding HttpHelpPageBinding;
+
+    [Description("Controls the binding for metadata retrieval using HTTPS."): Amended,
+    DisplayName("HttpsHelpPageBinding"), 
+    read: ToInstance ToSubClass]
+         Binding HttpsHelpPageBinding;
+
+};
+
+[
+Description("ServiceSecurityAuditBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{42fbba45-4524-4316-82f1-e53a201b74e0}"): ToInstance
+]
+class ServiceSecurityAuditBehavior : Behavior
+{
+    [Description("The location of the audit log. "): Amended,
+    DisplayName("AuditLogLocation"), 
+    read: ToInstance ToSubClass]
+         string AuditLogLocation;
+
+    [Description("A boolean value that specifies the behavior for suppressing failures of writing to the audit log."): Amended,
+    DisplayName("SuppressAuditFailure"), 
+    read: ToInstance ToSubClass]
+         boolean SuppressAuditFailure;
+
+    [Description("The types of authorization events that are recorded in the audit log. "): Amended,
+    DisplayName("ServiceAuthorizationAuditLevel"), 
+    read: ToInstance ToSubClass]
+         string ServiceAuthorizationAuditLevel;
+
+    [Description("The type of message authentication level that is used to log audit events."): Amended,
+    DisplayName("MessageAuthenticationAuditLevel"), 
+    read: ToInstance ToSubClass]
+         string MessageAuthenticationAuditLevel;
+
+};
+
+[
+Description("ServiceBehaviorAttribute"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{F80CB85E-0EAE-4021-A873-0918F594145F}"): ToInstance
+]
+class ServiceBehaviorAttribute : Behavior
+{
+    [Description("Specifies how to use address to filter a message, whether to use Exact match, Prefix match or match Any."): Amended,
+    DisplayName("AddressFilterMode"), 
+    read : ToInstance ToSubclass]
+         string AddressFilterMode;
+
+    [Description("Indicates whether to automatically close a session when a client closes an output session."): Amended,
+    DisplayName("AutomaticSessionShutdown"), 
+    read : ToInstance ToSubclass]
+         boolean AutomaticSessionShutdown;
+
+    [Description("Indicates whether a service supports one thread, multiple threads, or reentrant calls."): Amended,
+    DisplayName("ConcurrencyMode"), 
+    read : ToInstance ToSubclass]
+         string ConcurrencyMode;
+
+    [Description("The name of the service configuration."): Amended,
+    DisplayName("ConfigurationName"), 
+    read : ToInstance ToSubclass]
+         string ConfigurationName;
+
+    [Description("Specifies whether to send unknown serlialization data onto the wire."): Amended,
+    DisplayName("IgnoreExtensionDataObject"), 
+    read : ToInstance ToSubclass]
+         boolean IgnoreExtensionDataObject;
+
+    [Description("Specifies when a new service object is created."): Amended,
+    DisplayName("InstanceContextMode"), 
+    read : ToInstance ToSubclass]
+         string InstanceContextMode;
+
+    [Description("The maximum number of items allowed in a serialized object."): Amended,
+    DisplayName("MaxItemsInObjectGraph"), 
+    read : ToInstance ToSubClass]
+         sint32 MaxItemsInObjectGraph;
+
+    [Description("The name attribute of the service in WSDL."): Amended,
+    DisplayName("Name"), 
+    read : ToInstance ToSubclass]
+         string Name;
+
+    [Description("The target namespace of the service in WSDL."): Amended,
+    DisplayName("Namespace"), 
+    read : ToInstance ToSubclass]
+         string Namespace;
+
+    [Description("Specifies whether the service object is recycled when the current transaction completes."): Amended,
+    DisplayName("ReleaseServiceInstanceOnTransactionComplete"), 
+    read : ToInstance ToSubclass]
+         boolean ReleaseServiceInstanceOnTransactionComplete;
+
+    [Description("Specifies whether to include managed exception information in the detail of SOAP faults returned to the clients for debugging purposes."): Amended,
+    DisplayName("IncludeExceptionDetailInFaults"), 
+    read : ToInstance ToSubclass]
+         boolean IncludeExceptionDetailInFaults;
+
+    [Description("Specifies whether pending transactions are completed when the current session closes."): Amended,
+    DisplayName("TransactionAutoCompleteOnSessionClose"), 
+    read : ToInstance ToSubclass]
+         boolean TransactionAutoCompleteOnSessionClose;
+
+    [Description("Specifies the transaction isolation level."): Amended,
+    DisplayName("TransactionIsolationLevel"), 
+    read : ToInstance ToSubclass]
+         string TransactionIsolationLevel;
+
+    [Description("The period within which a transaction must complete."): Amended,
+    DisplayName("TransactionTimeout"), 
+    subtype("interval") : ToInstance ToSubclass,
+    read : ToInstance ToSubclass]
+         datetime TransactionTimeout;
+
+    [Description("Specifies whether to use the current synchronization context to choose the thread execution."): Amended,
+    DisplayName("UseSynchronizationContext"), 
+    read : ToInstance ToSubclass]
+         boolean UseSynchronizationContext;
+
+    [Description("Specifies whether the system or the application enforces SOAP MustUnderstand header processing."): Amended,
+    DisplayName("ValidateMustUnderstand"), 
+    read : ToInstance ToSubclass]
+         boolean ValidateMustUnderstand;
+
+};
+
+[
+Description("ServiceMetadataBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{47653BC1-623A-42f0-9E60-A5BD9E0587D9}"): ToInstance
+]
+class ServiceMetadataBehavior : Behavior
+{
+    [Description("Sets the location to which the service redirects metadata requests."): Amended,
+    DisplayName("ExternalMetadataLocation"), 
+    read: ToInstance ToSubClass]
+         string ExternalMetadataLocation;
+
+    [Description("Controls whether the service publishes its WSDL at the address controlled by the HttpGetUrl attribute."): Amended,
+    DisplayName("HttpGetEnabled"), 
+    read: ToInstance ToSubClass]
+         boolean HttpGetEnabled;
+
+    [Description("Sets the location at which the service WSDL is published for retrieval using HTTP."): Amended,
+    DisplayName("HttpGetUrl"), 
+    read: ToInstance ToSubClass]
+         string HttpGetUrl;
+
+    [Description("Controls whether the service publishes its WSDL over HTTPS at the address controlled by the HttpsGetUrl attribute."): Amended,
+    DisplayName("HttpsGetEnabled"), 
+    read: ToInstance ToSubClass]
+         boolean HttpsGetEnabled;
+
+    [Description("Sets the location at which the service WSDL is published for retrieval using HTTPS."): Amended,
+    DisplayName("HttpsGetUrl"), 
+    read: ToInstance ToSubClass]
+         string HttpsGetUrl;
+
+    [Description("The component responsible for metadata generation associated with this service."): Amended,
+    DisplayName("MetadataExporter"), 
+    read: ToInstance ToSubClass]
+         MetadataExporter MetadataExportInfo;
+
+    [Description("Controls the binding for metadata retrieval using HTTP."): Amended,
+    DisplayName("HttpGetBinding"), 
+    read: ToInstance ToSubClass]
+         Binding HttpGetBinding;
+
+    [Description("Controls the binding for metadata retrieval using HTTPS."): Amended,
+    DisplayName("HttpsGetBinding"), 
+    read: ToInstance ToSubClass]
+         Binding HttpsGetBinding;
+
+};
+
+[
+Description("ServiceThrottlingBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{F14383B5-8D69-42E8-939A-9ADB781A7FAD}"): ToInstance
+]
+class ServiceThrottlingBehavior : Behavior
+{
+    [Description("The maximum number of messages actively processing across all dispatcher objects in a ServiceHost. "): Amended,
+    DisplayName("MaxConcurrentCalls"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxConcurrentCalls;
+
+    [Description("The maximum number of sessions a host can accept at one time."): Amended,
+    DisplayName("MaxConcurrentSessions"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxConcurrentSessions;
+
+    [Description("The maximum number of service objects that can execute at one time."): Amended,
+    DisplayName("MaxConcurrentInstances"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxConcurrentInstances;
+
+};
+
+[
+Description("ServiceTimeoutsBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{846FD708-3D8E-44DD-BF22-04813ED03586}"): ToInstance
+]
+class ServiceTimeoutsBehavior : Behavior
+{
+    [Description("The period within which a transaction must complete."): Amended,
+    DisplayName("TransactionTimeout"), 
+    subtype("interval") : ToInstance ToSubclass,
+    read : ToInstance ToSubclass]
+         datetime TransactionTimeout;
+
+};
+
+// Endpoint behaviors
+
+[
+Description("CallbackBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{5213e82c-ca20-44cc-b3fd-1edf027e5afc}"): ToInstance
+]
+class CallbackBehavior : Behavior
+{
+    [Description("When true the session is automatically closed when a service closes a duplex session."): Amended,
+    DisplayName("AutomaticSessionShutdown"), 
+    read: ToInstance ToSubClass]
+         boolean AutomaticSessionShutdown;
+
+    [Description("Specifies whether the service supports one thread, multiple threads, or reentrant calls."): Amended,
+    DisplayName("ConcurrencyMode"), 
+    read: ToInstance ToSubClass]
+         string ConcurrencyMode;
+
+    [Description("A value that specifies whether to send unknown serialization data onto the wire."): Amended,
+    DisplayName("IgnoreExtensionDataObject"), 
+    read: ToInstance ToSubClass]
+         boolean IgnoreExtensionDataObject;
+
+    [Description("The maximum number of items allowed in a serialized object."): Amended,
+    DisplayName("MaxItemsInObjectGraph"), 
+    read: ToInstance ToSubClass]
+         boolean MaxItemsInObjectGraph;
+
+    [Description("When enabled details about exceptions on the callback are attached to the faults returned to the service."): Amended,
+    DisplayName("IncludeExceptionDetailInFaults"), 
+    read: ToInstance ToSubClass]
+         boolean IncludeExceptionDetailInFaults;
+
+    [Description("Specifies whether to use the current synchronization context to choose the thread of execution."): Amended,
+    DisplayName("UseSynchronizationContext"), 
+    read: ToInstance ToSubClass]
+         boolean UseSynchronizationContext;
+
+    [Description("Specifies whether the system or the application enforces SOAP MustUnderstand header processing."): Amended,
+    DisplayName("ValidateMustUnderstand"), 
+    read: ToInstance ToSubClass]
+         boolean ValidateMustUnderstand;
+
+};
+
+[
+Description("ClientCredentials"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{05c79d97-2fee-44c3-b680-843bb8fc14b3}"): ToInstance
+]
+class ClientCredentials : Behavior
+{
+    [Description("The X.509 certificate the client uses to authenticate to the service."): Amended,
+    DisplayName("ClientCertificate"), 
+    read: ToInstance ToSubClass]
+         string ClientCertificate;
+
+    [Description("The current Http Digest credential."): Amended,
+    DisplayName("HttpDigest"), 
+    read: ToInstance ToSubClass]
+         string HttpDigest;
+
+    [Description("The endpoint address and binding used to contact the locat security token service."): Amended,
+    DisplayName("IssuedToken"), 
+    read: ToInstance ToSubClass]
+         string IssuedToken;
+
+    [Description("The credentials peer node uses to authenticate itself to other nodes in the mesh."): Amended,
+    DisplayName("Peer"), 
+    read: ToInstance ToSubClass]
+         string Peer;
+
+    [Description("The service's x.509 certificate."): Amended,
+    DisplayName("ServiceCertificate"), 
+    read: ToInstance ToSubClass]
+         string ServiceCertificate;
+
+    [Description("A Boolean value that specifies if the credential supports interactive negotiation."): Amended,
+    DisplayName("SupportInteractive"), 
+    read: ToInstance ToSubClass]
+         boolean SupportInteractive;
+
+    [Description("The username and password the client will use to authenticate itself to the service."): Amended,
+    DisplayName("UserName"), 
+    read: ToInstance ToSubClass]
+         string UserName;
+
+    [Description("The windows credentials the client will use to authenticate itself to the service."): Amended,
+    DisplayName("Windows"), 
+    read: ToInstance ToSubClass]
+         string Windows;
+
+};
+
+[
+Description("MustUnderstandBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{e027f259-b3f1-466f-8053-033842a34d48}"): ToInstance
+]
+class MustUnderstandBehavior : Behavior
+{
+    [Description("When true, all SOAP header with the MustUnderstand attribute that are not handled will cause the behavior to throw."): Amended,
+    DisplayName("ValidateMustUnderstand"), 
+    read: ToInstance ToSubClass]
+         boolean ValidateMustUnderstand;
+
+};
+
+[
+Description("SynchronousReceiveBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{e18641aa-009f-4e43-a076-72282381747b}"): ToInstance
+]
+class SynchronousReceiveBehavior : Behavior
+{
+};
+
+[
+Description("DispatcherSynchronizationBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{f77324b6-5bb9-4721-b63c-b39d1826d72b}"): ToInstance
+]
+class DispatcherSynchronizationBehavior : Behavior
+{
+    [Description("When enabled the reply on the channel will be send asynchronously."): Amended,
+    DisplayName("AsynchronousSendEnabled"), 
+    read: ToInstance ToSubClass]
+         boolean AsynchronousSendEnabled;
+
+    [Description("Limits the maximum number of pending receives that may be queued on the channel."): Amended,
+    DisplayName("MaxPendingReceives"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxPendingReceives;
+
+};
+
+[
+Description("ClientViaBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{f6027ab3-a560-4222-a48c-3f572a6967a7}"): ToInstance
+]
+class ClientViaBehavior : Behavior
+{
+    [Description("The ViaUri."): Amended,
+    DisplayName("Uri"), 
+    read: ToInstance ToSubClass]
+         string Uri;
+
+};
+
+[
+Description("TransactedBatchingBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{e700e91e-8451-4a81-89ba-c5779050ea6b}"): ToInstance
+]
+class TransactedBatchingBehavior : Behavior
+{
+    [Description("The maximum batch size for the transacted batching."): Amended,
+    DisplayName("MaxBatchSize"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxBatchSize;
+
+};
+
+// Contract behaviors
+
+[
+Description("DeliveryRequirementsAttribute"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{b062d889-ea7c-4d18-86d7-c26c42f9b108}"): ToInstance
+]
+class DeliveryRequirementsAttribute : Behavior
+{
+    [Description("Specifies whether the binding for a service supports contracts."): Amended,
+    DisplayName("QueuedDeliveryRequirements"), 
+    read: ToInstance ToSubClass]
+         string QueuedDeliveryRequirements;
+
+    [Description("Specifies whether the binding supports ordered messages."): Amended,
+    DisplayName("RequireOrderedDelivery"), 
+    read: ToInstance ToSubClass]
+         boolean RequireOrderedDelivery;
+
+    [Description("The contract to which it applies."): Amended,
+    DisplayName("TargetContract"), 
+    read: ToInstance ToSubClass]
+         string TargetContract;
+
+};
+
+// Operation behaviors
+
+[
+Description("DataContractSerializerOperationBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{91384181-aaf9-44d2-9c19-8b73f177dc0a}"): ToInstance
+]
+class DataContractSerializerOperationBehavior : Behavior
+{
+    [Description("When enabled the IExtensibleDataObject interface on data contract types will be ignored."): Amended,
+    DisplayName("IgnoreExtensionDataObject"), 
+    read: ToInstance ToSubClass]
+         boolean IgnoreExtensionDataObject;
+
+    [Description("Limits the maximum number of objects that may be deserialized by the data contract serializer in a single deserialization episode."): Amended,
+    DisplayName("MaxItemsInObjectGraph"), 
+    read: ToInstance ToSubClass]
+         sint32 MaxItemsInObjectGraph;
+
+    [Description("Defines the style of the SOAP message."): Amended,
+    DisplayName("Style"), 
+    read: ToInstance ToSubClass]
+         string Style;
+
+};
+
+[
+Description("OperationBehaviorAttribute"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{e6f51a1b-eb37-4377-9b0e-2cb3508be135}"): ToInstance
+]
+class OperationBehaviorAttribute : Behavior
+{
+    [Description("The state of the auto dispose feature for parameters. "): Amended,
+    DisplayName("AutoDisposeParameters"), 
+    read: ToInstance ToSubClass]
+         boolean AutoDisposeParameters;
+
+    [Description("Indicates the level of caller impersonation that the operation supports."): Amended,
+    DisplayName("Impersonation"), 
+    read: ToInstance ToSubClass]
+         string Impersonation;
+
+    [Description("Indicates when in the course of an operation invocation to recycle the object."): Amended,
+    DisplayName("ReleaseInstanceMode"), 
+    read: ToInstance ToSubClass]
+         string ReleaseInstanceMode;
+
+    [Description("Indicates whether to automatically commit the current transaction if no unhandled exceptions occur."): Amended,
+    DisplayName("TransactionAutoComplete"), 
+    read: ToInstance ToSubClass]
+         boolean TransactionAutoComplete;
+
+    [Description("Indicates whether the operation requires a transaction."): Amended,
+    DisplayName("TransactionScopeRequired"), 
+    read: ToInstance ToSubClass]
+         boolean TransactionScopeRequired;
+
+};
+
+[
+Description("TransactionFlowAttribute"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{379c7092-9b76-476a-a66b-1937939ed1d0}"): ToInstance
+]
+class TransactionFlowAttribute : Behavior
+{
+    [Description("Indicates whether transactions flow or not."): Amended,
+    DisplayName("TransactionFlowOption"), 
+    read: ToInstance ToSubClass]
+         string TransactionFlowOption;
+
+};
+
+[
+Description("XmlSerializerOperationBehavior"): amended, 
+dynamic: ToInstance ToSubClass, 
+provider("ServiceModel"): ToInstance ToSubClass, 
+UUID("{307a1805-daa2-454b-93fa-97241bb1aed5}"): ToInstance
+]
+class XmlSerializerOperationBehavior : Behavior
+{
+    [Description("Defines the style of the SOAP message."): Amended,
+    DisplayName("Style"), 
+    read: ToInstance ToSubClass]
+         string Style;
+
+    [Description("Specifies the SOAP encoding style."): Amended,
+    DisplayName("Use"), 
+    read: ToInstance ToSubClass]
+         string Use;
+
+};
+
+//* end WMI data
+
+
+//* Begin Trace data
+
+//*************************************************************
+//***   Registers WSAT Etw Trace Provider                                           ***
+//*************************************************************
+
+#pragma namespace ("\\\\.\\Root\\WMI")
+#pragma autorecover
+
+
+[dynamic, 
+ locale("MS\\0x409"),
+ Description("WSAT Trace Provider"),
+ DisplayName("WSAT_TraceProvider"),
+ Guid("{7f3fe630-462b-47c5-ab07-67ca84934abd}")
+]
+class WSAT_TraceProvider : EventTrace
+{
+};
+
+[dynamic, 
+ locale("MS\\0x409"),
+ Description("WSAT Trace Event"),
+ DisplayName("WSAT_TraceEvent"),
+ Guid("{eb6517d4-090c-48ab-825e-adad366406a2}")
+]
+class WSAT_TraceEvent : WSAT_TraceProvider
+{
+};
+
+[dynamic, 
+ Description("WSAT Trace Record") : amended,
+ DisplayName("WSAT_TraceRecord"),
+ EventTypeName{"Trace", "Start", "Stop", "Suspend", "Resume"},
+ EventType{0,1,2,10,11}
+]
+class WSAT_TraceRecord : WSAT_TraceEvent 
+{
+    [WmiDataId(1),
+     Description("Activity ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object ActivityID; 
+
+    [WmiDataId(2),
+     Description("Trace Record") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     XMLFragment,
+     read]
+     string  TraceRecord;
+    
+    [WmiDataId(3), 
+     Description("EventID"): Amended, 
+     read] 
+     sint32 EventID;
+};
+
+[Dynamic,
+  Description("Activity Transfer Event") : amended,
+  EventType(5),
+  EventTypeName("Transfer"): amended,
+  locale("MS\\0x409")]
+class ActivityTransfer : WSAT_TraceEvent 
+{
+    [WmiDataId(1),
+     Description("Activity ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object ActivityID; 
+
+    [WmiDataId(2),
+     Description("Related Activity ID") : amended,
+     extension("Guid"),
+     RelatedActivityID,
+     read]
+     object  RelatedActivityID; 
+};
+
+//* End Trace data

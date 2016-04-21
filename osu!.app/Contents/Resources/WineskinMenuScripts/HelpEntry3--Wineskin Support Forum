@@ -1,0 +1,6 @@
+#!/bin/bash
+cd "$(dirname "$0")/../../"
+CONTENTSFOLD="$PWD"
+export PATH="$CONTENTSFOLD/Frameworks/bin:$CONTENTSFOLD/Frameworks/wswine.bundle/bin:$PATH"
+export WINEPREFIX="$CONTENTSFOLD/Resources"
+open "http://wineskin.urgesoftware.com/tiki-view_forum.php?forumId=1"

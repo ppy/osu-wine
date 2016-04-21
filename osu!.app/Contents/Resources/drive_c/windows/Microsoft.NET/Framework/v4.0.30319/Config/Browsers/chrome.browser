@@ -1,0 +1,38 @@
+﻿<browsers>
+    <!-- Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/530.1 (KHTML, like Gecko) Chrome/2.0.168.0 Safari/530.1 -->
+    <browser id="Chrome" parentID="Mozilla">
+        <identification>
+            <userAgent match="Chrome/(?'version'(?'major'\d+)(\.(?'minor'\d+)?)\w*)" />
+        </identification>
+
+        <capture>
+            <userAgent match="AppleWebKit/(?'layoutVersion'\d+)" />
+        </capture>
+
+        <capabilities>
+            <capability name="layoutEngine"                    value="WebKit" />
+            <capability name="layoutEngineVersion"             value="${layoutVersion}" />
+            <capability name="browser"                         value="Chrome" />
+            <capability name="majorversion"                    value="${major}" />
+            <capability name="minorversion"                    value="${minor}" />
+            <capability name="type"                            value="Chrome${major}" />
+            <capability name="version"                         value="${version}" />
+            <capability name="ecmascriptversion"               value="3.0" />
+            <capability name="javascript"                      value="true" />
+            <capability name="javascriptversion"               value="1.7" />
+            <capability name="w3cdomversion"                   value="1.0" />
+            <capability name="supportsAccesskeyAttribute"      value="true" />
+            <capability name="tagwriter"                       value="System.Web.UI.HtmlTextWriter" />
+            <capability name="cookies"                         value="true" />
+            <capability name="frames"                          value="true" />
+            <capability name="javaapplets"                     value="true" />
+            <capability name="supportsCallback"                value="true" />
+            <capability name="supportsDivNoWrap"               value="false" />
+            <capability name="supportsFileUpload"              value="true" />
+            <capability name="supportsMaintainScrollPositionOnPostback" value="true" />
+            <capability name="supportsMultilineTextBoxDisplay" value="true" />
+            <capability name="supportsXmlHttp"                 value="true" />
+            <capability name="tables"                          value="true" />
+        </capabilities>
+    </browser>
+</browsers>

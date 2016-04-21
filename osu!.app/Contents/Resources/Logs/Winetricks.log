@@ -1,0 +1,6 @@
+Executing w_do_call gdiplus
+Executing load_gdiplus
+Executing cabextract -q -d /Users/jamie/Applications/Wineskin/osu!.app/Contents/Resources/dosdevices/c:/windows/temp/_gdiplus -L -F x86_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.7601.17514_none_72d18a4386696c80/gdiplus.dll /Users/jamie/.cache/winetricks/win7sp1/windows6.1-KB976932-X86.exe
+Executing cp /Users/jamie/Applications/Wineskin/osu!.app/Contents/Resources/dosdevices/c:/windows/temp/_gdiplus/x86_microsoft.windows.gdiplus_6595b64144ccf1df_1.1.7601.17514_none_72d18a4386696c80/gdiplus.dll /Users/jamie/Applications/Wineskin/osu!.app/Contents/Resources/dosdevices/c:/windows/system32/gdiplus.dll
+Using native override for following DLLs: gdiplus
+Executing winetricks_early_wine regedit C:\windows\Temp\_gdiplus\override-dll.reg

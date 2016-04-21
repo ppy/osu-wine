@@ -1,0 +1,19 @@
+#!/bin/bash
+wineskinAppChoice=1
+cd "$(dirname "$0")/../../"
+CONTENTSFOLD="$PWD"
+export PATH="$CONTENTSFOLD/Frameworks/bin:$CONTENTSFOLD/Frameworks/wswine.bundle/bin:$PATH"
+export WINEPREFIX="$CONTENTSFOLD/Resources"
+
+################
+# You may make a custom program or script and replace this one if you want
+# if you replace this, the Option in Wineskin.app for trying to have programs
+#     give a warning prompt at shut down will not function
+
+if [ "$wineskinAppChoice" == "1" ]
+then
+	wineserver -k
+else
+	cd "$CONTENTSFOLD/Resources/WineskinMenuScripts"
+	wine WineskinQuit.exe
+fi

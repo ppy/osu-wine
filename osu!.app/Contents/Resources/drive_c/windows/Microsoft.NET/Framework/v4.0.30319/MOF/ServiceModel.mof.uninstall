@@ -1,0 +1,24 @@
+#pragma classflags("forceupdate")
+
+#pragma namespace("\\\\.\\root\\ServiceModel")
+#pragma deleteclass("BindingElement",NOFAIL)
+#pragma deleteclass("Behavior",NOFAIL)
+#pragma deleteclass("AppDomainInfo",NOFAIL)
+#pragma deleteclass("Binding",NOFAIL)
+#pragma deleteclass("Channel",NOFAIL)
+#pragma deleteclass("Contract",NOFAIL)
+#pragma deleteclass("Endpoint",NOFAIL)
+#pragma deleteclass("EndpointAddress",NOFAIL)
+#pragma deleteclass("Operation",NOFAIL)
+#pragma deleteclass("ServiceAppDomain",NOFAIL)
+#pragma deleteclass("Service",NOFAIL)
+#pragma deleteclass("ServiceAdmin",NOFAIL)
+#pragma deleteclass("ServiceEndpoint",NOFAIL)
+#pragma deleteclass("LocalServiceSecuritySettings",NOFAIL)
+
+#pragma namespace("\\\\.\\Root")
+#pragma deleteinstance("__Namespace.Name='ServiceModel'",NOFAIL)
+
+#pragma namespace ("\\\\.\\Root\\WMI")
+#pragma deleteclass("WSAT_TraceProvider",NOFAIL)
+

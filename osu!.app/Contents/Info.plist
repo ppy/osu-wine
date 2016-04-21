@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Associations</key>
+	<string>osz2 osr osz osu</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>*</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+	</array>
+	<key>CFBundleExecutable</key>
+	<string>WineskinLauncher</string>
+	<key>CFBundleIconFile</key>
+	<string>Wineskin.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>osu!.Wineskin.prefs</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>CFBundleName</key>
+	<string>osu!</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>osx</string>
+	<key>CFBundleVersion</key>
+	<string>Wineskin 2.6.2</string>
+	<key>CLI Custom Commands</key>
+	<string></string>
+	<key>CSResourcesFileMapped</key>
+	<true/>
+	<key>Disable CPUs</key>
+	<false/>
+	<key>Fullscreen</key>
+	<false/>
+	<key>Gamma Correction</key>
+	<string>default</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.6</string>
+	<key>LSUIElement</key>
+	<true/>
+	<key>NSMainNibFile</key>
+	<string>MainMenu.nib</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>Program Flags</key>
+	<string>-nosplash</string>
+	<key>Program Name and Path</key>
+	<string>/osu!/osu!.exe</string>
+	<key>Resolution</key>
+	<string>novdx24sleep0</string>
+	<key>Symlink Desktop</key>
+	<string>$HOME/Desktop</string>
+	<key>Symlink My Documents</key>
+	<string>$HOME/Documents</string>
+	<key>Symlink My Music</key>
+	<string>$HOME/Music</string>
+	<key>Symlink My Pictures</key>
+	<string>$HOME/Pictures</string>
+	<key>Symlink My Videos</key>
+	<string>$HOME/Movies</string>
+	<key>Symlinks In User Folder</key>
+	<true/>
+	<key>Try To Use GPU Info</key>
+	<true/>
+	<key>Use RandR</key>
+	<true/>
+	<key>Use XQuartz</key>
+	<true/>
+	<key>WINEDEBUG=</key>
+	<string>-all</string>
+	<key>force Installer to normal windows</key>
+	<false/>
+	<key>force wrapper quartz-wm</key>
+	<false/>
+	<key>set max files</key>
+	<false/>
+	<key>use start.exe</key>
+	<false/>
+</dict>
+</plist>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SULastCheckTime</key>
+	<date>2050-01-01T06:00:00Z</date>
+	<key>apps_menu</key>
+	<array/>
+	<key>cache_fonts</key>
+	<false/>
+	<key>depth</key>
+	<integer>24</integer>
+	<key>done_xinit_check</key>
+	<true/>
+	<key>enable_fake_buttons</key>
+	<false/>
+	<key>enable_key_equivalents</key>
+	<true/>
+	<key>enable_system_beep</key>
+	<false/>
+	<key>fullscreen_menu</key>
+	<false/>
+	<key>no_auth</key>
+	<true/>
+	<key>no_quit_alert</key>
+	<true/>
+	<key>nolisten_tcp</key>
+	<true/>
+	<key>option_sends_alt</key>
+	<false/>
+	<key>rootless</key>
+	<true/>
+	<key>sync_clipboard_to_pasteboard</key>
+	<true/>
+	<key>sync_keymap</key>
+	<true/>
+	<key>sync_pasteboard</key>
+	<true/>
+	<key>sync_pasteboard_to_clipboard</key>
+	<true/>
+	<key>sync_pasteboard_to_primary</key>
+	<true/>
+	<key>sync_primary_on_select</key>
+	<false/>
+	<key>wm_auto_quit</key>
+	<false/>
+	<key>wm_auto_quit_timeout</key>
+	<integer>2</integer>
+	<key>wm_click_through</key>
+	<false/>
+	<key>wm_ffm</key>
+	<false/>
+	<key>wm_focus_on_new_window</key>
+	<true/>
+</dict>
+</plist>

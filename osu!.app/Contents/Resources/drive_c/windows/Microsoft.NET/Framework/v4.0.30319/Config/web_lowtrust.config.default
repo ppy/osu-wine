@@ -1,0 +1,95 @@
+<configuration>
+    <mscorlib>
+        <security>
+            <policy>
+                <PolicyLevel version="1">
+                    <SecurityClasses>
+                        <SecurityClass Name="AllMembershipCondition" Description="System.Security.Policy.AllMembershipCondition, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+                        <SecurityClass Name="AspNetHostingPermission" Description="System.Web.AspNetHostingPermission, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+                        <SecurityClass Name="FileIOPermission" Description="System.Security.Permissions.FileIOPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+                        <SecurityClass Name="FirstMatchCodeGroup" Description="System.Security.Policy.FirstMatchCodeGroup, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+                        <SecurityClass Name="IsolatedStorageFilePermission" Description="System.Security.Permissions.IsolatedStorageFilePermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+                        <SecurityClass Name="NamedPermissionSet" Description="System.Security.NamedPermissionSet"/>
+                        <SecurityClass Name="SecurityPermission" Description="System.Security.Permissions.SecurityPermission, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+                        <SecurityClass Name="StrongNameMembershipCondition" Description="System.Security.Policy.StrongNameMembershipCondition, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+                        <SecurityClass Name="UnionCodeGroup" Description="System.Security.Policy.UnionCodeGroup, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+                        <SecurityClass Name="UrlMembershipCondition" Description="System.Security.Policy.UrlMembershipCondition, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+                        <SecurityClass Name="ZoneMembershipCondition" Description="System.Security.Policy.ZoneMembershipCondition, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+                    </SecurityClasses>
+                    <NamedPermissionSets>
+                        <PermissionSet
+                                class="NamedPermissionSet"
+                                version="1"
+                                Unrestricted="true"
+                                Name="FullTrust"
+                                Description="Allows full access to all resources"
+                        />
+                        <PermissionSet
+                                class="NamedPermissionSet"
+                                version="1"
+                                Name="Nothing"
+                                Description="Denies all resources, including the right to execute"
+                        />
+                        <PermissionSet
+                                class="NamedPermissionSet"
+                                version="1"
+                                Name="ASP.Net">
+                            <IPermission
+                                    class="AspNetHostingPermission"
+                                    version="1"
+                                    Level="Low"
+                            />
+                            <IPermission
+                                    class="FileIOPermission"
+                                    version="1"
+                                    Read="$AppDir$"
+                                    PathDiscovery="$AppDir$"
+                            />
+                            <IPermission
+                                    class="IsolatedStorageFilePermission"
+                                    version="1"
+                                    Allowed="AssemblyIsolationByUser"
+                                    UserQuota="1048576"
+                            />
+                            <IPermission
+                                    class="SecurityPermission"
+                                    version="1"
+                                    Flags="Execution"
+                            />
+                        </PermissionSet>
+                    </NamedPermissionSets>
+                    <CodeGroup
+                            class="FirstMatchCodeGroup"
+                            version="1"
+                            PermissionSetName="Nothing">
+                        <IMembershipCondition
+                                class="AllMembershipCondition"
+                                version="1"
+                        />
+                        <CodeGroup
+                                class="UnionCodeGroup"
+                                version="1"
+                                PermissionSetName="ASP.Net">
+                            <IMembershipCondition
+                                    class="UrlMembershipCondition"
+                                    version="1"
+                                    Url="$AppDirUrl$/*"
+                            />
+                        </CodeGroup>
+                        <CodeGroup
+                                class="UnionCodeGroup"
+                                version="1"
+                                PermissionSetName="ASP.Net">
+                            <IMembershipCondition
+                                    class="UrlMembershipCondition"
+                                    version="1"
+                                    Url="$CodeGen$/*"
+                            />
+                        </CodeGroup>
+                    </CodeGroup>
+                </PolicyLevel>
+            </policy>
+        </security>
+    </mscorlib>
+</configuration>
+

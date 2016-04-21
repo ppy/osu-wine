@@ -1,0 +1,3958 @@
+#pragma autorecover
+#pragma classflags("forceupdate")
+#pragma namespace("\\\\.\\root\\WMI")
+//
+// ETW Generated File from Manifest
+// MC:  Microsoft_Windows_DotNETRuntime Event Count 107
+[Dynamic,
+ Description("Microsoft_Windows_DotNETRuntime") : amended,
+ guid("{e13c0d23-ccbc-4e12-931b-d9cc2eee27e4}"),
+ locale("MS\\0x409")]
+class Microsoft_Windows_DotNETRuntime : EventTrace
+{
+    [Description ("Enable Flags") : amended,
+        ValueDescriptions{ 
+             "GC ",
+             "Binder ",
+             "Loader ",
+             "Jit ",
+             "NGen ",
+             "StartEnumeration ",
+             "StopEnumeration ",
+             "Security ",
+             "AppDomainResourceManagement ",
+             "JitTracing ",
+             "Interop ",
+             "Contention ",
+             "Exception ",
+             "Threading ",
+             "Stack "},
+        DefineValues{ 
+             "GCKeyword",
+             "FusionKeyword",
+             "LoaderKeyword",
+             "JitKeyword",
+             "NGenKeyword",
+             "StartEnumerationKeyword",
+             "EndEnumerationKeyword",
+             "SecurityKeyword",
+             "AppDomainResourceManagementKeyword",
+             "JitTracingKeyword",
+             "InteropKeyword",
+             "ContentionKeyword",
+             "ExceptionKeyword",
+             "ThreadingKeyword",
+             "StackKeyword"},
+        Values{ 
+             "GCKeyword",
+             "FusionKeyword",
+             "LoaderKeyword",
+             "JitKeyword",
+             "NGenKeyword",
+             "StartEnumerationKeyword",
+             "EndEnumerationKeyword",
+             "SecurityKeyword",
+             "AppDomainResourceManagementKeyword",
+             "JitTracingKeyword",
+             "InteropKeyword",
+             "ContentionKeyword",
+             "ExceptionKeyword",
+             "ThreadingKeyword",
+             "StackKeyword"},
+        ValueMap{ 
+             "0x00000001",
+             "0x00000004",
+             "0x00000008",
+             "0x00000010",
+             "0x00000020",
+             "0x00000040",
+             "0x00000080",
+             "0x00000400",
+             "0x00000800",
+             "0x00001000",
+             "0x00002000",
+             "0x00004000",
+             "0x00008000",
+             "0x00010000",
+             "0x40000000"}: amended
+    ]
+    uint32 Flags;
+    [Description ("Levels") : amended,
+        ValueDescriptions{
+            "Abnormal exit or termination",
+            "Severe errors that need logging",
+            "Warnings such as allocation failure",
+            "Includes non-error cases",
+            "Detailed traces from intermediate steps" } : amended,
+         DefineValues{
+            "TRACE_LEVEL_FATAL",
+            "TRACE_LEVEL_ERROR",
+            "TRACE_LEVEL_WARNING"
+            "TRACE_LEVEL_INFORMATION",
+            "TRACE_LEVEL_VERBOSE" },
+        Values{
+            "Fatal",
+            "Error",
+            "Warning",
+            "Information",
+            "Verbose" },
+        ValueMap{
+            "0x1",
+            "0x2",
+            "0x3",
+            "0x4",
+            "0x5" },
+        ValueType("index")
+    ]
+    uint32 Level;
+};
+[Dynamic,
+ Description("GC") : amended,
+ guid("{044973cd-251f-4dff-a3e9-9d6307286b05}"),
+ EventVersion(0),
+ DisplayName("GarbageCollection") : amended
+]
+class CLR_GC_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("GCStart") : amended,
+ EventType(1),
+ EventTypeName(  "GCStart") : amended
+]
+class GCStart_V0:CLR_GC_TASK_V0
+{
+    [WmiDataId(1),
+     Description("Count") : amended,
+     read]
+     uint32 Count;
+    [WmiDataId(2),
+     Description("Reason") : amended,
+
+    Values{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    ValueMap{    "0", 
+    "1", 
+    "2", 
+    "3", 
+    "4", 
+    "5", 
+    "6"
+    }
+    ]
+     uint32  Reason;
+
+};
+
+[Dynamic,
+ Description("GCEnd") : amended,
+ EventType(2),
+ EventTypeName(  "GCEnd") : amended
+]
+class GCEnd_V0:CLR_GC_TASK_V0
+{
+    [WmiDataId(1),
+     Description("Count") : amended,
+     read]
+     uint32 Count;
+    [WmiDataId(2),
+     Description("Depth") : amended,
+     read]
+     uint16 Depth;
+};
+
+[Dynamic,
+ Description("GCHeapStats") : amended,
+ EventType(133),
+ EventTypeName(  "GCHeapStats") : amended
+]
+class GCHeapStats_V0:CLR_GC_TASK_V0
+{
+    [WmiDataId(1),
+     Description("GenerationSize0") : amended,
+     read]
+     uint64 GenerationSize0;
+    [WmiDataId(2),
+     Description("TotalPromotedSize0") : amended,
+     read]
+     uint64 TotalPromotedSize0;
+    [WmiDataId(3),
+     Description("GenerationSize1") : amended,
+     read]
+     uint64 GenerationSize1;
+    [WmiDataId(4),
+     Description("TotalPromotedSize1") : amended,
+     read]
+     uint64 TotalPromotedSize1;
+    [WmiDataId(5),
+     Description("GenerationSize2") : amended,
+     read]
+     uint64 GenerationSize2;
+    [WmiDataId(6),
+     Description("TotalPromotedSize2") : amended,
+     read]
+     uint64 TotalPromotedSize2;
+    [WmiDataId(7),
+     Description("GenerationSize3") : amended,
+     read]
+     uint64 GenerationSize3;
+    [WmiDataId(8),
+     Description("TotalPromotedSize3") : amended,
+     read]
+     uint64 TotalPromotedSize3;
+    [WmiDataId(9),
+     Description("FinalizationPromotedSize") : amended,
+     read]
+     uint64 FinalizationPromotedSize;
+    [WmiDataId(10),
+     Description("FinalizationPromotedCount") : amended,
+     read]
+     uint64 FinalizationPromotedCount;
+    [WmiDataId(11),
+     Description("PinnedObjectCount") : amended,
+     read]
+     uint32 PinnedObjectCount;
+    [WmiDataId(12),
+     Description("SinkBlockCount") : amended,
+     read]
+     uint32 SinkBlockCount;
+    [WmiDataId(13),
+     Description("GCHandleCount") : amended,
+     read]
+     uint32 GCHandleCount;
+};
+
+[Dynamic,
+ Description("GCCreateSegment") : amended,
+ EventType(134),
+ EventTypeName(  "GCCreateSegment") : amended
+]
+class GCCreateSegment_V0:CLR_GC_TASK_V0
+{
+    [WmiDataId(1),
+     Description("Address") : amended,
+     read]
+     uint64 Address;
+    [WmiDataId(2),
+     Description("Size") : amended,
+     read]
+     uint64 Size;
+    [WmiDataId(3),
+     Description("Type") : amended,
+
+    Values{    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    ValueMap{    "0", 
+    "1", 
+    "2"
+    }
+    ]
+     uint32  Type;
+
+};
+
+[Dynamic,
+ Description("GCFreeSegment") : amended,
+ EventType(135),
+ EventTypeName(  "GCFreeSegment") : amended
+]
+class GCFreeSegment_V0:CLR_GC_TASK_V0
+{
+    [WmiDataId(1),
+     Description("Address") : amended,
+     read]
+     uint64 Address;
+};
+
+[Dynamic,
+ Description("GCSuspendEE") : amended,
+ EventType(10),
+ EventTypeName(  "GCSuspendEEBegin") : amended
+]
+class GCSuspendEE_V0:CLR_GC_TASK_V0
+{
+    [WmiDataId(1),
+     Description("Reason") : amended,
+
+    Values{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    ValueMap{    "0", 
+    "1", 
+    "2", 
+    "3", 
+    "4", 
+    "5", 
+    "6"
+    }
+    ]
+     uint32  Reason;
+
+};
+
+[Dynamic,
+ Description("GCAllocationTick") : amended,
+ EventType(11),
+ EventTypeName(  "GCAllocationTick") : amended
+]
+class GCAllocationTick_V0:CLR_GC_TASK_V0
+{
+    [WmiDataId(1),
+     Description("AllocationAmount") : amended,
+     read]
+     uint32 AllocationAmount;
+    [WmiDataId(2),
+     Description("AllocationKind") : amended,
+
+    Values{    "(null)",
+    "(null)"
+    }:amended,
+
+    ValueMap{    "0", 
+    "1"
+    }
+    ]
+     uint32  AllocationKind;
+
+};
+
+[Dynamic,
+ Description("GCFinalizersEnd") : amended,
+ EventType(15),
+ EventTypeName(  "GCFinalizersEnd") : amended
+]
+class GCFinalizersEnd_V0:CLR_GC_TASK_V0
+{
+    [WmiDataId(1),
+     Description("Count") : amended,
+     read]
+     uint32 Count;
+};
+
+[Dynamic,
+ Description("GCRestartEEEnd") : amended,
+ EventType(132),
+ EventTypeName("GCRestartEEEnd") : amended
+]
+class GCRestartEEEnd_V0:CLR_GC_TASK_V0
+{
+
+};
+
+[Dynamic,
+ Description("GCRestartEEBegin") : amended,
+ EventType(136),
+ EventTypeName("GCRestartEEBegin") : amended
+]
+class GCRestartEEBegin_V0:CLR_GC_TASK_V0
+{
+
+};
+
+[Dynamic,
+ Description("GCSuspendEEEnd") : amended,
+ EventType(137),
+ EventTypeName("GCSuspendEEEnd") : amended
+]
+class GCSuspendEEEnd_V0:CLR_GC_TASK_V0
+{
+
+};
+
+[Dynamic,
+ Description("GCCreateConcurrentThread") : amended,
+ EventType(12),
+ EventTypeName("GCCreateConcurrentThread") : amended
+]
+class GCCreateConcurrentThread_V0:CLR_GC_TASK_V0
+{
+
+};
+
+[Dynamic,
+ Description("GCTerminateConcurrentThread") : amended,
+ EventType(13),
+ EventTypeName("GCTerminateConcurrentThread") : amended
+]
+class GCTerminateConcurrentThread_V0:CLR_GC_TASK_V0
+{
+
+};
+
+[Dynamic,
+ Description("GCFinalizersBegin") : amended,
+ EventType(19),
+ EventTypeName("GCFinalizersBegin") : amended
+]
+class GCFinalizersBegin_V0:CLR_GC_TASK_V0
+{
+
+};
+
+[Dynamic,
+ Description("GC") : amended,
+ guid("{044973cd-251f-4dff-a3e9-9d6307286b05}"),
+ EventVersion(1),
+ DisplayName("GarbageCollection") : amended
+]
+class CLR_GC_TASK_V1:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("GCStart_V1") : amended,
+ EventType(1),
+ EventTypeName(  "GCStart_V1") : amended
+]
+class GCStart_V1_V1:CLR_GC_TASK_V1
+{
+    [WmiDataId(1),
+     Description("Count") : amended,
+     read]
+     uint32 Count;
+    [WmiDataId(2),
+     Description("Depth") : amended,
+     read]
+     uint32 Depth;
+    [WmiDataId(3),
+     Description("Reason") : amended,
+
+    Values{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    ValueMap{    "0", 
+    "1", 
+    "2", 
+    "3", 
+    "4", 
+    "5", 
+    "6"
+    }
+    ]
+     uint32  Reason;
+
+    [WmiDataId(4),
+     Description("Type") : amended,
+
+    Values{    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    ValueMap{    "0", 
+    "1", 
+    "2"
+    }
+    ]
+     uint32  Type;
+
+    [WmiDataId(5),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("GCEnd_V1") : amended,
+ EventType(2),
+ EventTypeName(  "GCEnd_V1") : amended
+]
+class GCEnd_V1_V1:CLR_GC_TASK_V1
+{
+    [WmiDataId(1),
+     Description("Count") : amended,
+     read]
+     uint32 Count;
+    [WmiDataId(2),
+     Description("Depth") : amended,
+     read]
+     uint32 Depth;
+    [WmiDataId(3),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("GCHeapStats_V1") : amended,
+ EventType(133),
+ EventTypeName(  "GCHeapStats_V1") : amended
+]
+class GCHeapStats_V1_V1:CLR_GC_TASK_V1
+{
+    [WmiDataId(1),
+     Description("GenerationSize0") : amended,
+     read]
+     uint64 GenerationSize0;
+    [WmiDataId(2),
+     Description("TotalPromotedSize0") : amended,
+     read]
+     uint64 TotalPromotedSize0;
+    [WmiDataId(3),
+     Description("GenerationSize1") : amended,
+     read]
+     uint64 GenerationSize1;
+    [WmiDataId(4),
+     Description("TotalPromotedSize1") : amended,
+     read]
+     uint64 TotalPromotedSize1;
+    [WmiDataId(5),
+     Description("GenerationSize2") : amended,
+     read]
+     uint64 GenerationSize2;
+    [WmiDataId(6),
+     Description("TotalPromotedSize2") : amended,
+     read]
+     uint64 TotalPromotedSize2;
+    [WmiDataId(7),
+     Description("GenerationSize3") : amended,
+     read]
+     uint64 GenerationSize3;
+    [WmiDataId(8),
+     Description("TotalPromotedSize3") : amended,
+     read]
+     uint64 TotalPromotedSize3;
+    [WmiDataId(9),
+     Description("FinalizationPromotedSize") : amended,
+     read]
+     uint64 FinalizationPromotedSize;
+    [WmiDataId(10),
+     Description("FinalizationPromotedCount") : amended,
+     read]
+     uint64 FinalizationPromotedCount;
+    [WmiDataId(11),
+     Description("PinnedObjectCount") : amended,
+     read]
+     uint32 PinnedObjectCount;
+    [WmiDataId(12),
+     Description("SinkBlockCount") : amended,
+     read]
+     uint32 SinkBlockCount;
+    [WmiDataId(13),
+     Description("GCHandleCount") : amended,
+     read]
+     uint32 GCHandleCount;
+    [WmiDataId(14),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("GCCreateSegment_V1") : amended,
+ EventType(134),
+ EventTypeName(  "GCCreateSegment_V1") : amended
+]
+class GCCreateSegment_V1_V1:CLR_GC_TASK_V1
+{
+    [WmiDataId(1),
+     Description("Address") : amended,
+     read]
+     uint64 Address;
+    [WmiDataId(2),
+     Description("Size") : amended,
+     read]
+     uint64 Size;
+    [WmiDataId(3),
+     Description("Type") : amended,
+
+    Values{    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    ValueMap{    "0", 
+    "1", 
+    "2"
+    }
+    ]
+     uint32  Type;
+
+    [WmiDataId(4),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("GCFreeSegment_V1") : amended,
+ EventType(135),
+ EventTypeName(  "GCFreeSegment_V1") : amended
+]
+class GCFreeSegment_V1_V1:CLR_GC_TASK_V1
+{
+    [WmiDataId(1),
+     Description("Address") : amended,
+     read]
+     uint64 Address;
+    [WmiDataId(2),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("GCNoUserData") : amended,
+ EventType{132, 136, 137, 19},
+ EventTypeName{  "GCRestartEEEnd_V1", "GCRestartEEBegin_V1", "GCSuspendEEEnd_V1", "GCFinalizersBegin_V1"} : amended
+]
+class GCNoUserData_V1:CLR_GC_TASK_V1
+{
+    [WmiDataId(1),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("GCSuspendEE_V1") : amended,
+ EventType(10),
+ EventTypeName(  "GCSuspendEEBegin_V1") : amended
+]
+class GCSuspendEE_V1_V1:CLR_GC_TASK_V1
+{
+    [WmiDataId(1),
+     Description("Reason") : amended,
+
+    Values{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    ValueMap{    "0", 
+    "1", 
+    "2", 
+    "3", 
+    "4", 
+    "5", 
+    "6"
+    }
+    ]
+     uint32  Reason;
+
+    [WmiDataId(2),
+     Description("Count") : amended,
+     read]
+     uint32 Count;
+    [WmiDataId(3),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("GCAllocationTick_V1") : amended,
+ EventType(11),
+ EventTypeName(  "GCAllocationTick_V1") : amended
+]
+class GCAllocationTick_V1_V1:CLR_GC_TASK_V1
+{
+    [WmiDataId(1),
+     Description("AllocationAmount") : amended,
+     read]
+     uint32 AllocationAmount;
+    [WmiDataId(2),
+     Description("AllocationKind") : amended,
+
+    Values{    "(null)",
+    "(null)"
+    }:amended,
+
+    ValueMap{    "0", 
+    "1"
+    }
+    ]
+     uint32  AllocationKind;
+
+    [WmiDataId(3),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("GCCreateConcurrentThread") : amended,
+ EventType(12),
+ EventTypeName(  "GCCreateConcurrentThread_V1") : amended
+]
+class GCCreateConcurrentThread_V1:CLR_GC_TASK_V1
+{
+    [WmiDataId(1),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("GCTerminateConcurrentThread") : amended,
+ EventType(13),
+ EventTypeName(  "GCTerminateConcurrentThread_V1") : amended
+]
+class GCTerminateConcurrentThread_V1:CLR_GC_TASK_V1
+{
+    [WmiDataId(1),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("GCFinalizersEnd_V1") : amended,
+ EventType(15),
+ EventTypeName(  "GCFinalizersEnd_V1") : amended
+]
+class GCFinalizersEnd_V1_V1:CLR_GC_TASK_V1
+{
+    [WmiDataId(1),
+     Description("Count") : amended,
+     read]
+     uint32 Count;
+    [WmiDataId(2),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("WorkerThreadCreationV2") : amended,
+ guid("{cfc4ba53-fb42-4757-8b70-5f5d51fee2f4}"),
+ EventVersion(0),
+ DisplayName("WorkerThreadCreation") : amended
+]
+class CLR_WORKERTHREADCREATE_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("ClrWorkerThread") : amended,
+ EventType{1, 2},
+ EventTypeName{  "WorkerThreadCreate", "WorkerThreadTerminate"} : amended
+]
+class ClrWorkerThread_V0:CLR_WORKERTHREADCREATE_TASK_V0
+{
+    [WmiDataId(1),
+     Description("WorkerThreadCount") : amended,
+     read]
+     uint32 WorkerThreadCount;
+    [WmiDataId(2),
+     Description("RetiredWorkerThreads") : amended,
+     read]
+     uint32 RetiredWorkerThreads;
+};
+
+[Dynamic,
+ Description("IOThreadCreation") : amended,
+ guid("{c71408de-42cc-4f81-9c93-b8912abf2a0f}"),
+ EventVersion(0),
+ DisplayName("IOThreadCreation") : amended
+]
+class CLR_IOTHREADCREATE_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("IOThread") : amended,
+ EventType{1, 2},
+ EventTypeName{  "IOThreadCreate", "IOThreadTerminate"} : amended
+]
+class IOThread_V0:CLR_IOTHREADCREATE_TASK_V0
+{
+    [WmiDataId(1),
+     Description("IOThreadCount") : amended,
+     read]
+     uint32 IOThreadCount;
+    [WmiDataId(2),
+     Description("RetiredIOThreads") : amended,
+     read]
+     uint32 RetiredIOThreads;
+};
+
+[Dynamic,
+ Description("IOThreadCreation") : amended,
+ guid("{c71408de-42cc-4f81-9c93-b8912abf2a0f}"),
+ EventVersion(1),
+ DisplayName("IOThreadCreation") : amended
+]
+class CLR_IOTHREADCREATE_TASK_V1:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("IOThread_V1") : amended,
+ EventType{1, 2},
+ EventTypeName{  "IOThreadCreate_V1", "IOThreadTerminate_V1"} : amended
+]
+class IOThread_V1_V1:CLR_IOTHREADCREATE_TASK_V1
+{
+    [WmiDataId(1),
+     Description("IOThreadCount") : amended,
+     read]
+     uint32 IOThreadCount;
+    [WmiDataId(2),
+     Description("RetiredIOThreads") : amended,
+     read]
+     uint32 RetiredIOThreads;
+    [WmiDataId(3),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("WorkerThreadRetirementV2") : amended,
+ guid("{efdf1eac-1d5d-4e84-893a-19b80f692176}"),
+ EventVersion(0),
+ DisplayName("WorkerThreadRetirement") : amended
+]
+class CLR_WORKERTHREADRETIRE_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("ClrWorkerThread") : amended,
+ EventType{1, 2},
+ EventTypeName{  "WorkerThreadRetire", "WorkerThreadUnretire"} : amended
+]
+class ClrWorkerThread_V0:CLR_WORKERTHREADRETIRE_TASK_V0
+{
+    [WmiDataId(1),
+     Description("WorkerThreadCount") : amended,
+     read]
+     uint32 WorkerThreadCount;
+    [WmiDataId(2),
+     Description("RetiredWorkerThreads") : amended,
+     read]
+     uint32 RetiredWorkerThreads;
+};
+
+[Dynamic,
+ Description("IOThreadRetirement") : amended,
+ guid("{840c8456-6457-4eb7-9cd0-d28f01c64f5e}"),
+ EventVersion(0),
+ DisplayName("IOThreadRetirement") : amended
+]
+class CLR_IOTHREADRETIRE_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("IOThread") : amended,
+ EventType{1, 2},
+ EventTypeName{  "IOThreadRetire", "IOThreadUnretire"} : amended
+]
+class IOThread_V0:CLR_IOTHREADRETIRE_TASK_V0
+{
+    [WmiDataId(1),
+     Description("IOThreadCount") : amended,
+     read]
+     uint32 IOThreadCount;
+    [WmiDataId(2),
+     Description("RetiredIOThreads") : amended,
+     read]
+     uint32 RetiredIOThreads;
+};
+
+[Dynamic,
+ Description("IOThreadRetirement") : amended,
+ guid("{840c8456-6457-4eb7-9cd0-d28f01c64f5e}"),
+ EventVersion(1),
+ DisplayName("IOThreadRetirement") : amended
+]
+class CLR_IOTHREADRETIRE_TASK_V1:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("IOThread_V1") : amended,
+ EventType{1, 2},
+ EventTypeName{  "IOThreadRetire_V1", "IOThreadUnretire_V1"} : amended
+]
+class IOThread_V1_V1:CLR_IOTHREADRETIRE_TASK_V1
+{
+    [WmiDataId(1),
+     Description("IOThreadCount") : amended,
+     read]
+     uint32 IOThreadCount;
+    [WmiDataId(2),
+     Description("RetiredIOThreads") : amended,
+     read]
+     uint32 RetiredIOThreads;
+    [WmiDataId(3),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("ThreadpoolSuspensionV2") : amended,
+ guid("{c424b3e3-2ae0-416e-a039-410c5d8e5f14}"),
+ EventVersion(0),
+ DisplayName("ThreadpoolSuspension") : amended
+]
+class CLR_THREADPOOLSUSPEND_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("ClrThreadPoolSuspend") : amended,
+ EventType{1, 2},
+ EventTypeName{  "ThreadpoolSuspensionSuspendThread", "ThreadpoolSuspensionResumeThread"} : amended
+]
+class ClrThreadPoolSuspend_V0:CLR_THREADPOOLSUSPEND_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ClrThreadID") : amended,
+     read]
+     uint32 ClrThreadID;
+    [WmiDataId(2),
+     Description("CpuUtilization") : amended,
+     read]
+     uint32 CpuUtilization;
+};
+
+[Dynamic,
+ Description("Exception") : amended,
+ guid("{300ce105-86d1-41f8-b9d2-83fcbff32d99}"),
+ EventVersion(0),
+ DisplayName("Exception") : amended
+]
+class CLR_EXCEPTION_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("ExceptionThrown") : amended,
+ EventType(1),
+ EventTypeName("ExceptionThrown") : amended
+]
+class ExceptionThrown_V0:CLR_EXCEPTION_TASK_V0
+{
+
+};
+
+[Dynamic,
+ Description("Exception") : amended,
+ guid("{300ce105-86d1-41f8-b9d2-83fcbff32d99}"),
+ EventVersion(1),
+ DisplayName("Exception") : amended
+]
+class CLR_EXCEPTION_TASK_V1:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("Exception") : amended,
+ EventType(1),
+ EventTypeName(  "ExceptionThrown_V1") : amended
+]
+class Exception_V1:CLR_EXCEPTION_TASK_V1
+{
+    [WmiDataId(1),
+     Description("ExceptionType") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ExceptionType;
+    [WmiDataId(2),
+     Description("ExceptionMessage") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ExceptionMessage;
+    [WmiDataId(3),
+     Description("ExceptionEIP") : amended,
+     pointer,
+     read]
+     pointer ExceptionEIP;
+    [WmiDataId(4),
+     Description("ExceptionHRESULT") : amended,
+     read]
+     uint32 ExceptionHRESULT;
+    [WmiDataId(5),
+     Description("ExceptionFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8", 
+    "16"
+    }
+    ]
+     uint32  ExceptionFlags;
+
+    [WmiDataId(6),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("Contention") : amended,
+ guid("{561410f5-a138-4ab3-945e-516483cddfbc}"),
+ EventVersion(0),
+ DisplayName("Contention") : amended
+]
+class CLR_CONTENTION_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("Contention") : amended,
+ EventType(2),
+ EventTypeName(  "ContentionStop") : amended
+]
+class Contention_V0:CLR_CONTENTION_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ContentionFlags") : amended,
+
+    Values{    "(null)",
+    "(null)"
+    }:amended,
+
+    ValueMap{    "0", 
+    "1"
+    }
+    ]
+     uint32  ContentionFlags;
+
+    [WmiDataId(2),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("Contention") : amended,
+ EventType(1),
+ EventTypeName("Contention") : amended
+]
+class Contention_V0:CLR_CONTENTION_TASK_V0
+{
+
+};
+
+[Dynamic,
+ Description("Contention") : amended,
+ guid("{561410f5-a138-4ab3-945e-516483cddfbc}"),
+ EventVersion(1),
+ DisplayName("Contention") : amended
+]
+class CLR_CONTENTION_TASK_V1:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("Contention") : amended,
+ EventType(1),
+ EventTypeName(  "ContentionStart_V1") : amended
+]
+class Contention_V1:CLR_CONTENTION_TASK_V1
+{
+    [WmiDataId(1),
+     Description("ContentionFlags") : amended,
+
+    Values{    "(null)",
+    "(null)"
+    }:amended,
+
+    ValueMap{    "0", 
+    "1"
+    }
+    ]
+     uint32  ContentionFlags;
+
+    [WmiDataId(2),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("Method") : amended,
+ guid("{3044f61a-99b0-4c21-b203-d39423c73b00}"),
+ EventVersion(0),
+ DisplayName("CLRMethod") : amended
+]
+class CLR_METHOD_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("MethodLoadUnload") : amended,
+ EventType{35, 36, 33, 34},
+ EventTypeName{  "MethodDCStartV2", "MethodDCEndV2", "MethodLoad", "MethodUnload"} : amended
+]
+class MethodLoadUnload_V0:CLR_METHOD_TASK_V0
+{
+    [WmiDataId(1),
+     Description("MethodID") : amended,
+     read]
+     uint64 MethodID;
+    [WmiDataId(2),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(3),
+     Description("MethodStartAddress") : amended,
+     read]
+     uint64 MethodStartAddress;
+    [WmiDataId(4),
+     Description("MethodSize") : amended,
+     read]
+     uint32 MethodSize;
+    [WmiDataId(5),
+     Description("MethodToken") : amended,
+     read]
+     uint32 MethodToken;
+    [WmiDataId(6),
+     Description("MethodFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  MethodFlags;
+
+};
+
+[Dynamic,
+ Description("MethodLoadUnloadVerbose") : amended,
+ EventType{39, 40, 37, 38},
+ EventTypeName{  "MethodDCStartVerboseV2", "MethodDCEndVerboseV2", "MethodLoadVerbose", "MethodUnloadVerbose"} : amended
+]
+class MethodLoadUnloadVerbose_V0:CLR_METHOD_TASK_V0
+{
+    [WmiDataId(1),
+     Description("MethodID") : amended,
+     read]
+     uint64 MethodID;
+    [WmiDataId(2),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(3),
+     Description("MethodStartAddress") : amended,
+     read]
+     uint64 MethodStartAddress;
+    [WmiDataId(4),
+     Description("MethodSize") : amended,
+     read]
+     uint32 MethodSize;
+    [WmiDataId(5),
+     Description("MethodToken") : amended,
+     read]
+     uint32 MethodToken;
+    [WmiDataId(6),
+     Description("MethodFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  MethodFlags;
+
+    [WmiDataId(7),
+     Description("MethodNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodNamespace;
+    [WmiDataId(8),
+     Description("MethodName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodName;
+    [WmiDataId(9),
+     Description("MethodSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodSignature;
+};
+
+[Dynamic,
+ Description("MethodJittingStarted") : amended,
+ EventType(42),
+ EventTypeName(  "MethodJittingStarted") : amended
+]
+class MethodJittingStarted_V0:CLR_METHOD_TASK_V0
+{
+    [WmiDataId(1),
+     Description("MethodID") : amended,
+     read]
+     uint64 MethodID;
+    [WmiDataId(2),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(3),
+     Description("MethodToken") : amended,
+     read]
+     uint32 MethodToken;
+    [WmiDataId(4),
+     Description("MethodILSize") : amended,
+     read]
+     uint32 MethodILSize;
+    [WmiDataId(5),
+     Description("MethodNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodNamespace;
+    [WmiDataId(6),
+     Description("MethodName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodName;
+    [WmiDataId(7),
+     Description("MethodSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodSignature;
+};
+
+[Dynamic,
+ Description("MethodJitInliningSucceeded") : amended,
+ EventType(83),
+ EventTypeName(  "MethodJitInliningSucceeded") : amended
+]
+class MethodJitInliningSucceeded_V0:CLR_METHOD_TASK_V0
+{
+    [WmiDataId(1),
+     Description("MethodBeingCompiledNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodBeingCompiledNamespace;
+    [WmiDataId(2),
+     Description("MethodBeingCompiledName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodBeingCompiledName;
+    [WmiDataId(3),
+     Description("MethodBeingCompiledNameSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodBeingCompiledNameSignature;
+    [WmiDataId(4),
+     Description("InlinerNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string InlinerNamespace;
+    [WmiDataId(5),
+     Description("InlinerName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string InlinerName;
+    [WmiDataId(6),
+     Description("InlinerNameSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string InlinerNameSignature;
+    [WmiDataId(7),
+     Description("InlineeNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string InlineeNamespace;
+    [WmiDataId(8),
+     Description("InlineeName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string InlineeName;
+    [WmiDataId(9),
+     Description("InlineeNameSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string InlineeNameSignature;
+    [WmiDataId(10),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("MethodJitInliningFailed") : amended,
+ EventType(84),
+ EventTypeName(  "MethodJitInliningFailed") : amended
+]
+class MethodJitInliningFailed_V0:CLR_METHOD_TASK_V0
+{
+    [WmiDataId(1),
+     Description("MethodBeingCompiledNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodBeingCompiledNamespace;
+    [WmiDataId(2),
+     Description("MethodBeingCompiledName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodBeingCompiledName;
+    [WmiDataId(3),
+     Description("MethodBeingCompiledNameSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodBeingCompiledNameSignature;
+    [WmiDataId(4),
+     Description("InlinerNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string InlinerNamespace;
+    [WmiDataId(5),
+     Description("InlinerName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string InlinerName;
+    [WmiDataId(6),
+     Description("InlinerNameSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string InlinerNameSignature;
+    [WmiDataId(7),
+     Description("InlineeNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string InlineeNamespace;
+    [WmiDataId(8),
+     Description("InlineeName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string InlineeName;
+    [WmiDataId(9),
+     Description("InlineeNameSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string InlineeNameSignature;
+    [WmiDataId(10),
+     Description("FailAlways") : amended,
+     read]
+     uint32 FailAlways;
+    [WmiDataId(11),
+     Description("FailReason") : amended,
+     read]
+     string FailReason;
+    [WmiDataId(12),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("MethodJitTailCallSucceeded") : amended,
+ EventType(85),
+ EventTypeName(  "MethodJitTailCallSucceeded") : amended
+]
+class MethodJitTailCallSucceeded_V0:CLR_METHOD_TASK_V0
+{
+    [WmiDataId(1),
+     Description("MethodBeingCompiledNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodBeingCompiledNamespace;
+    [WmiDataId(2),
+     Description("MethodBeingCompiledName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodBeingCompiledName;
+    [WmiDataId(3),
+     Description("MethodBeingCompiledNameSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodBeingCompiledNameSignature;
+    [WmiDataId(4),
+     Description("CallerNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string CallerNamespace;
+    [WmiDataId(5),
+     Description("CallerName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string CallerName;
+    [WmiDataId(6),
+     Description("CallerNameSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string CallerNameSignature;
+    [WmiDataId(7),
+     Description("CalleeNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string CalleeNamespace;
+    [WmiDataId(8),
+     Description("CalleeName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string CalleeName;
+    [WmiDataId(9),
+     Description("CalleeNameSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string CalleeNameSignature;
+    [WmiDataId(10),
+     Description("TailPrefix") : amended,
+     read]
+     uint32 TailPrefix;
+    [WmiDataId(11),
+     Description("TailCallType") : amended,
+
+    Values{    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    ValueMap{    "0", 
+    "1", 
+    "2"
+    }
+    ]
+     uint32  TailCallType;
+
+    [WmiDataId(12),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("MethodJitTailCallFailed") : amended,
+ EventType(86),
+ EventTypeName(  "MethodJitTailCallFailed") : amended
+]
+class MethodJitTailCallFailed_V0:CLR_METHOD_TASK_V0
+{
+    [WmiDataId(1),
+     Description("MethodBeingCompiledNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodBeingCompiledNamespace;
+    [WmiDataId(2),
+     Description("MethodBeingCompiledName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodBeingCompiledName;
+    [WmiDataId(3),
+     Description("MethodBeingCompiledNameSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodBeingCompiledNameSignature;
+    [WmiDataId(4),
+     Description("CallerNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string CallerNamespace;
+    [WmiDataId(5),
+     Description("CallerName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string CallerName;
+    [WmiDataId(6),
+     Description("CallerNameSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string CallerNameSignature;
+    [WmiDataId(7),
+     Description("CalleeNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string CalleeNamespace;
+    [WmiDataId(8),
+     Description("CalleeName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string CalleeName;
+    [WmiDataId(9),
+     Description("CalleeNameSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string CalleeNameSignature;
+    [WmiDataId(10),
+     Description("TailPrefix") : amended,
+     read]
+     uint32 TailPrefix;
+    [WmiDataId(11),
+     Description("FailReason") : amended,
+     read]
+     string FailReason;
+    [WmiDataId(12),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("DCStartCompleteV2") : amended,
+ EventType(14),
+ EventTypeName("DCStartCompleteV2") : amended
+]
+class DCStartCompleteV2_V0:CLR_METHOD_TASK_V0
+{
+
+};
+
+[Dynamic,
+ Description("DCEndCompleteV2") : amended,
+ EventType(15),
+ EventTypeName("DCEndCompleteV2") : amended
+]
+class DCEndCompleteV2_V0:CLR_METHOD_TASK_V0
+{
+
+};
+
+[Dynamic,
+ Description("Method") : amended,
+ guid("{3044f61a-99b0-4c21-b203-d39423c73b00}"),
+ EventVersion(1),
+ DisplayName("CLRMethod") : amended
+]
+class CLR_METHOD_TASK_V1:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("MethodLoadUnload_V1") : amended,
+ EventType{33, 34},
+ EventTypeName{  "MethodLoad_V1", "MethodUnload_V1"} : amended
+]
+class MethodLoadUnload_V1_V1:CLR_METHOD_TASK_V1
+{
+    [WmiDataId(1),
+     Description("MethodID") : amended,
+     read]
+     uint64 MethodID;
+    [WmiDataId(2),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(3),
+     Description("MethodStartAddress") : amended,
+     read]
+     uint64 MethodStartAddress;
+    [WmiDataId(4),
+     Description("MethodSize") : amended,
+     read]
+     uint32 MethodSize;
+    [WmiDataId(5),
+     Description("MethodToken") : amended,
+     read]
+     uint32 MethodToken;
+    [WmiDataId(6),
+     Description("MethodFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  MethodFlags;
+
+    [WmiDataId(7),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("MethodLoadUnloadVerbose_V1") : amended,
+ EventType{37, 38},
+ EventTypeName{  "MethodLoadVerbose_V1", "MethodUnloadVerbose_V1"} : amended
+]
+class MethodLoadUnloadVerbose_V1_V1:CLR_METHOD_TASK_V1
+{
+    [WmiDataId(1),
+     Description("MethodID") : amended,
+     read]
+     uint64 MethodID;
+    [WmiDataId(2),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(3),
+     Description("MethodStartAddress") : amended,
+     read]
+     uint64 MethodStartAddress;
+    [WmiDataId(4),
+     Description("MethodSize") : amended,
+     read]
+     uint32 MethodSize;
+    [WmiDataId(5),
+     Description("MethodToken") : amended,
+     read]
+     uint32 MethodToken;
+    [WmiDataId(6),
+     Description("MethodFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  MethodFlags;
+
+    [WmiDataId(7),
+     Description("MethodNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodNamespace;
+    [WmiDataId(8),
+     Description("MethodName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodName;
+    [WmiDataId(9),
+     Description("MethodSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodSignature;
+    [WmiDataId(10),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("MethodJittingStarted_V1") : amended,
+ EventType(42),
+ EventTypeName(  "MethodJittingStarted_V1") : amended
+]
+class MethodJittingStarted_V1_V1:CLR_METHOD_TASK_V1
+{
+    [WmiDataId(1),
+     Description("MethodID") : amended,
+     read]
+     uint64 MethodID;
+    [WmiDataId(2),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(3),
+     Description("MethodToken") : amended,
+     read]
+     uint32 MethodToken;
+    [WmiDataId(4),
+     Description("MethodILSize") : amended,
+     read]
+     uint32 MethodILSize;
+    [WmiDataId(5),
+     Description("MethodNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodNamespace;
+    [WmiDataId(6),
+     Description("MethodName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodName;
+    [WmiDataId(7),
+     Description("MethodSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodSignature;
+    [WmiDataId(8),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("Loader") : amended,
+ guid("{d00792da-07b7-40f5-97eb-5d974e054740}"),
+ EventVersion(0),
+ DisplayName("CLRLoader") : amended
+]
+class CLR_LOADER_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("DomainModuleLoadUnload") : amended,
+ EventType(45),
+ EventTypeName(  "DomainModuleLoad") : amended
+]
+class DomainModuleLoadUnload_V0:CLR_LOADER_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(2),
+     Description("AssemblyID") : amended,
+     read]
+     uint64 AssemblyID;
+    [WmiDataId(3),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(4),
+     Description("ModuleFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  ModuleFlags;
+
+    [WmiDataId(5),
+     Description("Reserved1") : amended,
+     read]
+     uint32 Reserved1;
+    [WmiDataId(6),
+     Description("ModuleILPath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleILPath;
+    [WmiDataId(7),
+     Description("ModuleNativePath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleNativePath;
+};
+
+[Dynamic,
+ Description("ModuleLoadUnload") : amended,
+ EventType{35, 36, 33, 34},
+ EventTypeName{  "ModuleDCStartV2", "ModuleDCEndV2", "ModuleLoad", "ModuleUnload"} : amended
+]
+class ModuleLoadUnload_V0:CLR_LOADER_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(2),
+     Description("AssemblyID") : amended,
+     read]
+     uint64 AssemblyID;
+    [WmiDataId(3),
+     Description("ModuleFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  ModuleFlags;
+
+    [WmiDataId(4),
+     Description("Reserved1") : amended,
+     read]
+     uint32 Reserved1;
+    [WmiDataId(5),
+     Description("ModuleILPath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleILPath;
+    [WmiDataId(6),
+     Description("ModuleNativePath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleNativePath;
+};
+
+[Dynamic,
+ Description("AssemblyLoadUnload") : amended,
+ EventType{37, 38},
+ EventTypeName{  "AssemblyLoad", "AssemblyUnload"} : amended
+]
+class AssemblyLoadUnload_V0:CLR_LOADER_TASK_V0
+{
+    [WmiDataId(1),
+     Description("AssemblyID") : amended,
+     read]
+     uint64 AssemblyID;
+    [WmiDataId(2),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(3),
+     Description("AssemblyFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  AssemblyFlags;
+
+    [WmiDataId(4),
+     Description("FullyQualifiedAssemblyName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string FullyQualifiedAssemblyName;
+};
+
+[Dynamic,
+ Description("AppDomainLoadUnload") : amended,
+ EventType{41, 42},
+ EventTypeName{  "AppDomainLoad", "AppDomainUnload"} : amended
+]
+class AppDomainLoadUnload_V0:CLR_LOADER_TASK_V0
+{
+    [WmiDataId(1),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(2),
+     Description("AppDomainFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4"
+    }
+    ]
+     uint32  AppDomainFlags;
+
+    [WmiDataId(3),
+     Description("AppDomainName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string AppDomainName;
+};
+
+[Dynamic,
+ Description("Loader") : amended,
+ guid("{d00792da-07b7-40f5-97eb-5d974e054740}"),
+ EventVersion(1),
+ DisplayName("CLRLoader") : amended
+]
+class CLR_LOADER_TASK_V1:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("DomainModuleLoadUnload_V1") : amended,
+ EventType(45),
+ EventTypeName(  "DomainModuleLoad_V1") : amended
+]
+class DomainModuleLoadUnload_V1_V1:CLR_LOADER_TASK_V1
+{
+    [WmiDataId(1),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(2),
+     Description("AssemblyID") : amended,
+     read]
+     uint64 AssemblyID;
+    [WmiDataId(3),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(4),
+     Description("ModuleFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  ModuleFlags;
+
+    [WmiDataId(5),
+     Description("Reserved1") : amended,
+     read]
+     uint32 Reserved1;
+    [WmiDataId(6),
+     Description("ModuleILPath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleILPath;
+    [WmiDataId(7),
+     Description("ModuleNativePath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleNativePath;
+    [WmiDataId(8),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("ModuleLoadUnload_V1") : amended,
+ EventType{33, 34},
+ EventTypeName{  "ModuleLoad_V1", "ModuleUnload_V1"} : amended
+]
+class ModuleLoadUnload_V1_V1:CLR_LOADER_TASK_V1
+{
+    [WmiDataId(1),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(2),
+     Description("AssemblyID") : amended,
+     read]
+     uint64 AssemblyID;
+    [WmiDataId(3),
+     Description("ModuleFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  ModuleFlags;
+
+    [WmiDataId(4),
+     Description("Reserved1") : amended,
+     read]
+     uint32 Reserved1;
+    [WmiDataId(5),
+     Description("ModuleILPath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleILPath;
+    [WmiDataId(6),
+     Description("ModuleNativePath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleNativePath;
+    [WmiDataId(7),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("AssemblyLoadUnload_V1") : amended,
+ EventType{37, 38},
+ EventTypeName{  "AssemblyLoad_V1", "AssemblyUnload_V1"} : amended
+]
+class AssemblyLoadUnload_V1_V1:CLR_LOADER_TASK_V1
+{
+    [WmiDataId(1),
+     Description("AssemblyID") : amended,
+     read]
+     uint64 AssemblyID;
+    [WmiDataId(2),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(3),
+     Description("BindingID") : amended,
+     read]
+     uint64 BindingID;
+    [WmiDataId(4),
+     Description("AssemblyFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  AssemblyFlags;
+
+    [WmiDataId(5),
+     Description("FullyQualifiedAssemblyName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string FullyQualifiedAssemblyName;
+    [WmiDataId(6),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("AppDomainLoadUnload_V1") : amended,
+ EventType{41, 42},
+ EventTypeName{  "AppDomainLoad_V1", "AppDomainUnload_V1"} : amended
+]
+class AppDomainLoadUnload_V1_V1:CLR_LOADER_TASK_V1
+{
+    [WmiDataId(1),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(2),
+     Description("AppDomainFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4"
+    }
+    ]
+     uint32  AppDomainFlags;
+
+    [WmiDataId(3),
+     Description("AppDomainName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string AppDomainName;
+    [WmiDataId(4),
+     Description("AppDomainIndex") : amended,
+     read]
+     uint32 AppDomainIndex;
+    [WmiDataId(5),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("ClrStack") : amended,
+ guid("{d3363dc0-243a-4620-a4d0-8a07d772f533}"),
+ EventVersion(0),
+ DisplayName("CLRStack") : amended
+]
+class CLR_STACK_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("ClrStackWalk") : amended,
+ EventType(82),
+ EventTypeName(  "CLRStackWalk") : amended
+]
+class ClrStackWalk_V0:CLR_STACK_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+    [WmiDataId(2),
+     Description("Reserved1") : amended,
+     read]
+     uint8 Reserved1;
+    [WmiDataId(3),
+     Description("Reserved2") : amended,
+     read]
+     uint8 Reserved2;
+    [WmiDataId(4),
+     Description("FrameCount") : amended,
+     read]
+     uint32 FrameCount;
+    [WmiDataId(5),
+     Description("Stack0") : amended,
+     pointer,
+     read]
+     pointer Stack0;
+    [WmiDataId(6),
+     Description("Stack1") : amended,
+     pointer,
+     read]
+     pointer Stack1;
+};
+
+[Dynamic,
+ Description("StrongNameVerification") : amended,
+ guid("{15447a14-b523-46ae-b75b-023f900b4393}"),
+ EventVersion(0),
+ DisplayName("CLRStrongNameVerification") : amended
+]
+class CLR_STRONGNAMEVERIFICATION_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("StrongNameVerification") : amended,
+ EventType{1, 2},
+ EventTypeName{  "StrongNameVerificationStart", "StrongNameVerificationStop"} : amended
+]
+class StrongNameVerification_V0:CLR_STRONGNAMEVERIFICATION_TASK_V0
+{
+    [WmiDataId(1),
+     Description("VerificationFlags") : amended,
+     read]
+     uint32 VerificationFlags;
+    [WmiDataId(2),
+     Description("ErrorCode") : amended,
+     read]
+     uint32 ErrorCode;
+    [WmiDataId(3),
+     Description("FullyQualifiedAssemblyName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string FullyQualifiedAssemblyName;
+};
+
+[Dynamic,
+ Description("StrongNameVerification") : amended,
+ guid("{15447a14-b523-46ae-b75b-023f900b4393}"),
+ EventVersion(1),
+ DisplayName("CLRStrongNameVerification") : amended
+]
+class CLR_STRONGNAMEVERIFICATION_TASK_V1:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("StrongNameVerification_V1") : amended,
+ EventType{1, 2},
+ EventTypeName{  "StrongNameVerificationStart_V1", "StrongNameVerificationStop_V1"} : amended
+]
+class StrongNameVerification_V1_V1:CLR_STRONGNAMEVERIFICATION_TASK_V1
+{
+    [WmiDataId(1),
+     Description("VerificationFlags") : amended,
+     read]
+     uint32 VerificationFlags;
+    [WmiDataId(2),
+     Description("ErrorCode") : amended,
+     read]
+     uint32 ErrorCode;
+    [WmiDataId(3),
+     Description("FullyQualifiedAssemblyName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string FullyQualifiedAssemblyName;
+    [WmiDataId(4),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("AuthenticodeVerification") : amended,
+ guid("{b17304d9-5afa-4da6-9f7b-5a4fa73129b6}"),
+ EventVersion(0),
+ DisplayName("CLRAuthenticodeVerification") : amended
+]
+class CLR_AUTHENTICODEVERIFICATION_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("AuthenticodeVerification") : amended,
+ EventType{1, 2},
+ EventTypeName{  "AuthenticodeVerificationStart", "AuthenticodeVerificationStop"} : amended
+]
+class AuthenticodeVerification_V0:CLR_AUTHENTICODEVERIFICATION_TASK_V0
+{
+    [WmiDataId(1),
+     Description("VerificationFlags") : amended,
+     read]
+     uint32 VerificationFlags;
+    [WmiDataId(2),
+     Description("ErrorCode") : amended,
+     read]
+     uint32 ErrorCode;
+    [WmiDataId(3),
+     Description("ModulePath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModulePath;
+};
+
+[Dynamic,
+ Description("AuthenticodeVerification") : amended,
+ guid("{b17304d9-5afa-4da6-9f7b-5a4fa73129b6}"),
+ EventVersion(1),
+ DisplayName("CLRAuthenticodeVerification") : amended
+]
+class CLR_AUTHENTICODEVERIFICATION_TASK_V1:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("AuthenticodeVerification_V1") : amended,
+ EventType{1, 2},
+ EventTypeName{  "AuthenticodeVerificationStart_V1", "AuthenticodeVerificationStop_V1"} : amended
+]
+class AuthenticodeVerification_V1_V1:CLR_AUTHENTICODEVERIFICATION_TASK_V1
+{
+    [WmiDataId(1),
+     Description("VerificationFlags") : amended,
+     read]
+     uint32 VerificationFlags;
+    [WmiDataId(2),
+     Description("ErrorCode") : amended,
+     read]
+     uint32 ErrorCode;
+    [WmiDataId(3),
+     Description("ModulePath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModulePath;
+    [WmiDataId(4),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("AppDomainResourceManagement") : amended,
+ guid("{88e83959-6185-4e0b-95b8-0e4a35df6122}"),
+ EventVersion(0),
+ DisplayName("AppDomainResourceManagement") : amended
+]
+class CLR_APPDOMAINRESOURCEMANAGEMENT_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("AppDomainMemAllocated") : amended,
+ EventType(48),
+ EventTypeName(  "AppDomainMemAllocated") : amended
+]
+class AppDomainMemAllocated_V0:CLR_APPDOMAINRESOURCEMANAGEMENT_TASK_V0
+{
+    [WmiDataId(1),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(2),
+     Description("Allocated") : amended,
+     read]
+     uint64 Allocated;
+    [WmiDataId(3),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("AppDomainMemSurvived") : amended,
+ EventType(49),
+ EventTypeName(  "AppDomainMemSurvived") : amended
+]
+class AppDomainMemSurvived_V0:CLR_APPDOMAINRESOURCEMANAGEMENT_TASK_V0
+{
+    [WmiDataId(1),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(2),
+     Description("Survived") : amended,
+     read]
+     uint64 Survived;
+    [WmiDataId(3),
+     Description("ProcessSurvived") : amended,
+     read]
+     uint64 ProcessSurvived;
+    [WmiDataId(4),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("ThreadCreated") : amended,
+ EventType(50),
+ EventTypeName(  "ThreadCreated") : amended
+]
+class ThreadCreated_V0:CLR_APPDOMAINRESOURCEMANAGEMENT_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ManagedThreadID") : amended,
+     read]
+     uint64 ManagedThreadID;
+    [WmiDataId(2),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(3),
+     Description("Flags") : amended,
+     read]
+     uint32 Flags;
+    [WmiDataId(4),
+     Description("ManagedThreadIndex") : amended,
+     read]
+     uint32 ManagedThreadIndex;
+    [WmiDataId(5),
+     Description("OSThreadID") : amended,
+     read]
+     uint32 OSThreadID;
+    [WmiDataId(6),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("ThreadTerminatedOrTransition") : amended,
+ EventType{51, 52},
+ EventTypeName{  "ThreadTerminated", "ThreadDomainEnter"} : amended
+]
+class ThreadTerminatedOrTransition_V0:CLR_APPDOMAINRESOURCEMANAGEMENT_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ManagedThreadID") : amended,
+     read]
+     uint64 ManagedThreadID;
+    [WmiDataId(2),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(3),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("ILStub") : amended,
+ guid("{d00792da-07b7-40f5-0000-5d974e054740}"),
+ EventVersion(0),
+ DisplayName("CLRILStub") : amended
+]
+class CLR_IL_STUB_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("ILStubGenerated") : amended,
+ EventType(88),
+ EventTypeName(  "ILStubGenerated") : amended
+]
+class ILStubGenerated_V0:CLR_IL_STUB_V0
+{
+    [WmiDataId(1),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+    [WmiDataId(2),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(3),
+     Description("StubMethodID") : amended,
+     read]
+     uint64 StubMethodID;
+    [WmiDataId(4),
+     Description("StubFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8", 
+    "16", 
+    "32"
+    }
+    ]
+     uint32  StubFlags;
+
+    [WmiDataId(5),
+     Description("ManagedInteropMethodToken") : amended,
+     read]
+     uint32 ManagedInteropMethodToken;
+    [WmiDataId(6),
+     Description("ManagedInteropMethodNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ManagedInteropMethodNamespace;
+    [WmiDataId(7),
+     Description("ManagedInteropMethodName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ManagedInteropMethodName;
+    [WmiDataId(8),
+     Description("ManagedInteropMethodSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ManagedInteropMethodSignature;
+    [WmiDataId(9),
+     Description("NativeMethodSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string NativeMethodSignature;
+    [WmiDataId(10),
+     Description("StubMethodSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string StubMethodSignature;
+    [WmiDataId(11),
+     Description("StubMethodILCode") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string StubMethodILCode;
+};
+
+[Dynamic,
+ Description("ILStubCacheHit") : amended,
+ EventType(89),
+ EventTypeName(  "ILStubCacheHit") : amended
+]
+class ILStubCacheHit_V0:CLR_IL_STUB_V0
+{
+    [WmiDataId(1),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+    [WmiDataId(2),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(3),
+     Description("StubMethodID") : amended,
+     read]
+     uint64 StubMethodID;
+    [WmiDataId(4),
+     Description("ManagedInteropMethodToken") : amended,
+     read]
+     uint32 ManagedInteropMethodToken;
+    [WmiDataId(5),
+     Description("ManagedInteropMethodNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ManagedInteropMethodNamespace;
+    [WmiDataId(6),
+     Description("ManagedInteropMethodName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ManagedInteropMethodName;
+    [WmiDataId(7),
+     Description("ManagedInteropMethodSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ManagedInteropMethodSignature;
+};
+
+[Dynamic,
+ Description("ThreadPoolWorkerThread") : amended,
+ guid("{8a9a44ab-f681-4271-8810-830dab9f5621}"),
+ EventVersion(0),
+ DisplayName("ThreadPoolWorkerThread") : amended
+]
+class CLR_THREADPOOLWORKERTHREAD_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("ThreadPoolWorkerThread") : amended,
+ EventType{1, 2},
+ EventTypeName{  "ThreadPoolWorkerThreadStart", "ThreadPoolWorkerThreadStop"} : amended
+]
+class ThreadPoolWorkerThread_V0:CLR_THREADPOOLWORKERTHREAD_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ActiveWorkerThreadCount") : amended,
+     read]
+     uint32 ActiveWorkerThreadCount;
+    [WmiDataId(2),
+     Description("RetiredWorkerThreadCount") : amended,
+     read]
+     uint32 RetiredWorkerThreadCount;
+    [WmiDataId(3),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("ThreadPoolWorkerThreadRetirement") : amended,
+ guid("{402ee399-c137-4dc0-a5ab-3c2dea64ac9c}"),
+ EventVersion(0),
+ DisplayName("ThreadPoolWorkerThreadRetirement") : amended
+]
+class CLR_THREADPOOLWORKERTHREADRETIREMENT_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("ThreadPoolWorkerThread") : amended,
+ EventType{1, 2},
+ EventTypeName{  "ThreadPoolWorkerThreadRetirementStart", "ThreadPoolWorkerThreadRetirementStop"} : amended
+]
+class ThreadPoolWorkerThread_V0:CLR_THREADPOOLWORKERTHREADRETIREMENT_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ActiveWorkerThreadCount") : amended,
+     read]
+     uint32 ActiveWorkerThreadCount;
+    [WmiDataId(2),
+     Description("RetiredWorkerThreadCount") : amended,
+     read]
+     uint32 RetiredWorkerThreadCount;
+    [WmiDataId(3),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("ThreadPoolWorkerThreadAdjustment") : amended,
+ guid("{94179831-e99a-4625-8824-23ca5e00ca7d}"),
+ EventVersion(0),
+ DisplayName("ThreadPoolWorkerThreadAdjustment") : amended
+]
+class CLR_THREADPOOLWORKERTHREADADJUSTMENT_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("ThreadPoolWorkerThreadAdjustmentSample") : amended,
+ EventType(100),
+ EventTypeName(  "ThreadPoolWorkerThreadAdjustmentSample") : amended
+]
+class ThreadPoolWorkerThreadAdjustmentSample_V0:CLR_THREADPOOLWORKERTHREADADJUSTMENT_TASK_V0
+{
+    [WmiDataId(1),
+     Description("Throughput") : amended,
+     read]
+     real64 Throughput;
+    [WmiDataId(2),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("ThreadPoolWorkerThreadAdjustmentAdjustment") : amended,
+ EventType(101),
+ EventTypeName(  "ThreadPoolWorkerThreadAdjustmentAdjustment") : amended
+]
+class ThreadPoolWorkerThreadAdjustmentAdjustment_V0:CLR_THREADPOOLWORKERTHREADADJUSTMENT_TASK_V0
+{
+    [WmiDataId(1),
+     Description("AverageThroughput") : amended,
+     read]
+     real64 AverageThroughput;
+    [WmiDataId(2),
+     Description("NewWorkerThreadCount") : amended,
+     read]
+     uint32 NewWorkerThreadCount;
+    [WmiDataId(3),
+     Description("Reason") : amended,
+
+    Values{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    ValueMap{    "0", 
+    "1", 
+    "2", 
+    "3", 
+    "4", 
+    "5", 
+    "6", 
+    "7"
+    }
+    ]
+     uint32  Reason;
+
+    [WmiDataId(4),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("ThreadPoolWorkerThreadAdjustmentStats") : amended,
+ EventType(102),
+ EventTypeName(  "ThreadPoolWorkerThreadAdjustmentStats") : amended
+]
+class ThreadPoolWorkerThreadAdjustmentStats_V0:CLR_THREADPOOLWORKERTHREADADJUSTMENT_TASK_V0
+{
+    [WmiDataId(1),
+     Description("Duration") : amended,
+     read]
+     real64 Duration;
+    [WmiDataId(2),
+     Description("Throughput") : amended,
+     read]
+     real64 Throughput;
+    [WmiDataId(3),
+     Description("ThreadWave") : amended,
+     read]
+     real64 ThreadWave;
+    [WmiDataId(4),
+     Description("ThroughputWave") : amended,
+     read]
+     real64 ThroughputWave;
+    [WmiDataId(5),
+     Description("ThroughputErrorEstimate") : amended,
+     read]
+     real64 ThroughputErrorEstimate;
+    [WmiDataId(6),
+     Description("AverageThroughputErrorEstimate") : amended,
+     read]
+     real64 AverageThroughputErrorEstimate;
+    [WmiDataId(7),
+     Description("ThroughputRatio") : amended,
+     read]
+     real64 ThroughputRatio;
+    [WmiDataId(8),
+     Description("Confidence") : amended,
+     read]
+     real64 Confidence;
+    [WmiDataId(9),
+     Description("NewControlSetting") : amended,
+     read]
+     real64 NewControlSetting;
+    [WmiDataId(10),
+     Description("NewThreadWaveMagnitude") : amended,
+     read]
+     uint16 NewThreadWaveMagnitude;
+    [WmiDataId(11),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("Runtime") : amended,
+ guid("{cd7d3e32-65fe-40cd-9225-a2577d203fc3}"),
+ EventVersion(0),
+ DisplayName("CLRRuntimeInformation") : amended
+]
+class CLR_EEStartup_TASK_V0:Microsoft_Windows_DotNETRuntime
+{
+
+};
+
+[Dynamic,
+ Description("RuntimeInformation") : amended,
+ EventType(1),
+ EventTypeName(  "RuntimeInformationStart") : amended
+]
+class RuntimeInformation_V0:CLR_EEStartup_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+    [WmiDataId(2),
+     Description("Sku") : amended,
+
+    BitValues{    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2"
+    }
+    ]
+     uint32  Sku;
+
+    [WmiDataId(3),
+     Description("BclMajorVersion") : amended,
+     read]
+     uint16 BclMajorVersion;
+    [WmiDataId(4),
+     Description("BclMinorVersion") : amended,
+     read]
+     uint16 BclMinorVersion;
+    [WmiDataId(5),
+     Description("BclBuildNumber") : amended,
+     read]
+     uint16 BclBuildNumber;
+    [WmiDataId(6),
+     Description("BclQfeNumber") : amended,
+     read]
+     uint16 BclQfeNumber;
+    [WmiDataId(7),
+     Description("VMMajorVersion") : amended,
+     read]
+     uint16 VMMajorVersion;
+    [WmiDataId(8),
+     Description("VMMinorVersion") : amended,
+     read]
+     uint16 VMMinorVersion;
+    [WmiDataId(9),
+     Description("VMBuildNumber") : amended,
+     read]
+     uint16 VMBuildNumber;
+    [WmiDataId(10),
+     Description("VMQfeNumber") : amended,
+     read]
+     uint16 VMQfeNumber;
+    [WmiDataId(11),
+     Description("StartupFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "16", 
+    "256", 
+    "4096", 
+    "8192", 
+    "16384", 
+    "65536", 
+    "131072", 
+    "262144", 
+    "524288", 
+    "1048576", 
+    "2097152", 
+    "4194304"
+    }
+    ]
+     uint32  StartupFlags;
+
+    [WmiDataId(12),
+     Description("StartupMode") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8", 
+    "16"
+    }
+    ]
+     uint32  StartupMode;
+
+    [WmiDataId(13),
+     Description("CommandLine") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string CommandLine;
+    [WmiDataId(14),
+     Description("ComObjectGuid") : amended,
+     extension("Guid"),
+     read]
+     object ComObjectGuid;
+    [WmiDataId(15),
+     Description("RuntimeDllPath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string RuntimeDllPath;
+};
+
+#pragma autorecover
+#pragma classflags("forceupdate")
+#pragma namespace("\\\\.\\root\\WMI")
+//
+// ETW Generated File from Manifest
+// MC:  Microsoft_Windows_DotNETRuntimeRundown Event Count 35
+[Dynamic,
+ Description("Microsoft_Windows_DotNETRuntimeRundown") : amended,
+ guid("{a669021c-c450-4609-a035-5af59af4df18}"),
+ locale("MS\\0x409")]
+class Microsoft_Windows_DotNETRuntimeRundown : EventTrace
+{
+    [Description ("Enable Flags") : amended,
+        ValueDescriptions{ 
+             "Loader ",
+             "Jit ",
+             "NGen ",
+             "Start ",
+             "End ",
+             "AppDomainResourceManagement ",
+             "Stack "},
+        DefineValues{ 
+             "LoaderRundownKeyword",
+             "JitRundownKeyword",
+             "NGenRundownKeyword",
+             "StartRundownKeyword",
+             "EndRundownKeyword",
+             "AppDomainResourceManagementRundownKeyword",
+             "StackKeyword"},
+        Values{ 
+             "LoaderRundownKeyword",
+             "JitRundownKeyword",
+             "NGenRundownKeyword",
+             "StartRundownKeyword",
+             "EndRundownKeyword",
+             "AppDomainResourceManagementRundownKeyword",
+             "StackKeyword"},
+        ValueMap{ 
+             "0x00000008",
+             "0x00000010",
+             "0x00000020",
+             "0x00000040",
+             "0x00000100",
+             "0x00000800",
+             "0x40000000"}: amended
+    ]
+    uint32 Flags;
+    [Description ("Levels") : amended,
+        ValueDescriptions{
+            "Abnormal exit or termination",
+            "Severe errors that need logging",
+            "Warnings such as allocation failure",
+            "Includes non-error cases",
+            "Detailed traces from intermediate steps" } : amended,
+         DefineValues{
+            "TRACE_LEVEL_FATAL",
+            "TRACE_LEVEL_ERROR",
+            "TRACE_LEVEL_WARNING"
+            "TRACE_LEVEL_INFORMATION",
+            "TRACE_LEVEL_VERBOSE" },
+        Values{
+            "Fatal",
+            "Error",
+            "Warning",
+            "Information",
+            "Verbose" },
+        ValueMap{
+            "0x1",
+            "0x2",
+            "0x3",
+            "0x4",
+            "0x5" },
+        ValueType("index")
+    ]
+    uint32 Level;
+};
+[Dynamic,
+ Description("Method") : amended,
+ guid("{0bcd91db-f943-454a-a662-6edbcfbb76d2}"),
+ EventVersion(0),
+ DisplayName("CLRMethodRundown") : amended
+]
+class CLR_METHODRUNDOWN_TASK_V0:Microsoft_Windows_DotNETRuntimeRundown
+{
+
+};
+
+[Dynamic,
+ Description("MethodLoadUnloadRundown") : amended,
+ EventType{35, 36},
+ EventTypeName{  "MethodDCStart", "MethodDCEnd"} : amended
+]
+class MethodLoadUnloadRundown_V0:CLR_METHODRUNDOWN_TASK_V0
+{
+    [WmiDataId(1),
+     Description("MethodID") : amended,
+     read]
+     uint64 MethodID;
+    [WmiDataId(2),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(3),
+     Description("MethodStartAddress") : amended,
+     read]
+     uint64 MethodStartAddress;
+    [WmiDataId(4),
+     Description("MethodSize") : amended,
+     read]
+     uint32 MethodSize;
+    [WmiDataId(5),
+     Description("MethodToken") : amended,
+     read]
+     uint32 MethodToken;
+    [WmiDataId(6),
+     Description("MethodFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  MethodFlags;
+
+};
+
+[Dynamic,
+ Description("MethodLoadUnloadRundownVerbose") : amended,
+ EventType{39, 40},
+ EventTypeName{  "MethodDCStartVerbose", "MethodDCEndVerbose"} : amended
+]
+class MethodLoadUnloadRundownVerbose_V0:CLR_METHODRUNDOWN_TASK_V0
+{
+    [WmiDataId(1),
+     Description("MethodID") : amended,
+     read]
+     uint64 MethodID;
+    [WmiDataId(2),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(3),
+     Description("MethodStartAddress") : amended,
+     read]
+     uint64 MethodStartAddress;
+    [WmiDataId(4),
+     Description("MethodSize") : amended,
+     read]
+     uint32 MethodSize;
+    [WmiDataId(5),
+     Description("MethodToken") : amended,
+     read]
+     uint32 MethodToken;
+    [WmiDataId(6),
+     Description("MethodFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  MethodFlags;
+
+    [WmiDataId(7),
+     Description("MethodNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodNamespace;
+    [WmiDataId(8),
+     Description("MethodName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodName;
+    [WmiDataId(9),
+     Description("MethodSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodSignature;
+};
+
+[Dynamic,
+ Description("DCStartComplete") : amended,
+ EventType(14),
+ EventTypeName("DCStartComplete") : amended
+]
+class DCStartComplete_V0:CLR_METHODRUNDOWN_TASK_V0
+{
+
+};
+
+[Dynamic,
+ Description("DCEndComplete") : amended,
+ EventType(15),
+ EventTypeName("DCEndComplete") : amended
+]
+class DCEndComplete_V0:CLR_METHODRUNDOWN_TASK_V0
+{
+
+};
+
+[Dynamic,
+ Description("DCStartInit") : amended,
+ EventType(16),
+ EventTypeName("DCStartInit") : amended
+]
+class DCStartInit_V0:CLR_METHODRUNDOWN_TASK_V0
+{
+
+};
+
+[Dynamic,
+ Description("DCEndInit") : amended,
+ EventType(17),
+ EventTypeName("DCEndInit") : amended
+]
+class DCEndInit_V0:CLR_METHODRUNDOWN_TASK_V0
+{
+
+};
+
+[Dynamic,
+ Description("Method") : amended,
+ guid("{0bcd91db-f943-454a-a662-6edbcfbb76d2}"),
+ EventVersion(1),
+ DisplayName("CLRMethodRundown") : amended
+]
+class CLR_METHODRUNDOWN_TASK_V1:Microsoft_Windows_DotNETRuntimeRundown
+{
+
+};
+
+[Dynamic,
+ Description("MethodLoadUnloadRundown_V1") : amended,
+ EventType{35, 36},
+ EventTypeName{  "MethodDCStart_V1", "MethodDCEnd_V1"} : amended
+]
+class MethodLoadUnloadRundown_V1_V1:CLR_METHODRUNDOWN_TASK_V1
+{
+    [WmiDataId(1),
+     Description("MethodID") : amended,
+     read]
+     uint64 MethodID;
+    [WmiDataId(2),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(3),
+     Description("MethodStartAddress") : amended,
+     read]
+     uint64 MethodStartAddress;
+    [WmiDataId(4),
+     Description("MethodSize") : amended,
+     read]
+     uint32 MethodSize;
+    [WmiDataId(5),
+     Description("MethodToken") : amended,
+     read]
+     uint32 MethodToken;
+    [WmiDataId(6),
+     Description("MethodFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  MethodFlags;
+
+    [WmiDataId(7),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("MethodLoadUnloadRundownVerbose_V1") : amended,
+ EventType{39, 40},
+ EventTypeName{  "MethodDCStartVerbose_V1", "MethodDCEndVerbose_V1"} : amended
+]
+class MethodLoadUnloadRundownVerbose_V1_V1:CLR_METHODRUNDOWN_TASK_V1
+{
+    [WmiDataId(1),
+     Description("MethodID") : amended,
+     read]
+     uint64 MethodID;
+    [WmiDataId(2),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(3),
+     Description("MethodStartAddress") : amended,
+     read]
+     uint64 MethodStartAddress;
+    [WmiDataId(4),
+     Description("MethodSize") : amended,
+     read]
+     uint32 MethodSize;
+    [WmiDataId(5),
+     Description("MethodToken") : amended,
+     read]
+     uint32 MethodToken;
+    [WmiDataId(6),
+     Description("MethodFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  MethodFlags;
+
+    [WmiDataId(7),
+     Description("MethodNamespace") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodNamespace;
+    [WmiDataId(8),
+     Description("MethodName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodName;
+    [WmiDataId(9),
+     Description("MethodSignature") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string MethodSignature;
+    [WmiDataId(10),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("DCStartEnd") : amended,
+ EventType{14, 15, 16, 17},
+ EventTypeName{  "DCStartComplete_V1", "DCEndComplete_V1", "DCStartInit_V1", "DCEndInit_V1"} : amended
+]
+class DCStartEnd_V1:CLR_METHODRUNDOWN_TASK_V1
+{
+    [WmiDataId(1),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("Loader") : amended,
+ guid("{5a54f4df-d302-4fee-a211-6c2c0c1dcb1a}"),
+ EventVersion(0),
+ DisplayName("CLRLoaderRundown") : amended
+]
+class CLR_LOADERRUNDOWN_TASK_V0:Microsoft_Windows_DotNETRuntimeRundown
+{
+
+};
+
+[Dynamic,
+ Description("DomainModuleLoadUnloadRundown") : amended,
+ EventType{46, 47},
+ EventTypeName{  "DomainModuleDCStart", "DomainModuleDCEnd"} : amended
+]
+class DomainModuleLoadUnloadRundown_V0:CLR_LOADERRUNDOWN_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(2),
+     Description("AssemblyID") : amended,
+     read]
+     uint64 AssemblyID;
+    [WmiDataId(3),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(4),
+     Description("ModuleFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  ModuleFlags;
+
+    [WmiDataId(5),
+     Description("Reserved1") : amended,
+     read]
+     uint32 Reserved1;
+    [WmiDataId(6),
+     Description("ModuleILPath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleILPath;
+    [WmiDataId(7),
+     Description("ModuleNativePath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleNativePath;
+};
+
+[Dynamic,
+ Description("ModuleLoadUnloadRundown") : amended,
+ EventType{35, 36},
+ EventTypeName{  "ModuleDCStart", "ModuleDCEnd"} : amended
+]
+class ModuleLoadUnloadRundown_V0:CLR_LOADERRUNDOWN_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(2),
+     Description("AssemblyID") : amended,
+     read]
+     uint64 AssemblyID;
+    [WmiDataId(3),
+     Description("ModuleFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  ModuleFlags;
+
+    [WmiDataId(4),
+     Description("Reserved1") : amended,
+     read]
+     uint32 Reserved1;
+    [WmiDataId(5),
+     Description("ModuleILPath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleILPath;
+    [WmiDataId(6),
+     Description("ModuleNativePath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleNativePath;
+};
+
+[Dynamic,
+ Description("AssemblyLoadUnloadRundown") : amended,
+ EventType{39, 40},
+ EventTypeName{  "AssemblyDCStart", "AssemblyDCEnd"} : amended
+]
+class AssemblyLoadUnloadRundown_V0:CLR_LOADERRUNDOWN_TASK_V0
+{
+    [WmiDataId(1),
+     Description("AssemblyID") : amended,
+     read]
+     uint64 AssemblyID;
+    [WmiDataId(2),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(3),
+     Description("AssemblyFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  AssemblyFlags;
+
+    [WmiDataId(4),
+     Description("FullyQualifiedAssemblyName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string FullyQualifiedAssemblyName;
+};
+
+[Dynamic,
+ Description("AppDomainLoadUnloadRundown") : amended,
+ EventType{43, 44},
+ EventTypeName{  "AppDomainDCStart", "AppDomainDCEnd"} : amended
+]
+class AppDomainLoadUnloadRundown_V0:CLR_LOADERRUNDOWN_TASK_V0
+{
+    [WmiDataId(1),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(2),
+     Description("AppDomainFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4"
+    }
+    ]
+     uint32  AppDomainFlags;
+
+    [WmiDataId(3),
+     Description("AppDomainName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string AppDomainName;
+};
+
+[Dynamic,
+ Description("ThreadCreatedRundown") : amended,
+ EventType(48),
+ EventTypeName(  "ThreadDC") : amended
+]
+class ThreadCreatedRundown_V0:CLR_LOADERRUNDOWN_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ManagedThreadID") : amended,
+     read]
+     uint64 ManagedThreadID;
+    [WmiDataId(2),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(3),
+     Description("Flags") : amended,
+     read]
+     uint32 Flags;
+    [WmiDataId(4),
+     Description("ManagedThreadIndex") : amended,
+     read]
+     uint32 ManagedThreadIndex;
+    [WmiDataId(5),
+     Description("OSThreadID") : amended,
+     read]
+     uint32 OSThreadID;
+    [WmiDataId(6),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("Loader") : amended,
+ guid("{5a54f4df-d302-4fee-a211-6c2c0c1dcb1a}"),
+ EventVersion(1),
+ DisplayName("CLRLoaderRundown") : amended
+]
+class CLR_LOADERRUNDOWN_TASK_V1:Microsoft_Windows_DotNETRuntimeRundown
+{
+
+};
+
+[Dynamic,
+ Description("DomainModuleLoadUnloadRundown_V1") : amended,
+ EventType{46, 47},
+ EventTypeName{  "DomainModuleDCStart_V1", "DomainModuleDCEnd_V1"} : amended
+]
+class DomainModuleLoadUnloadRundown_V1_V1:CLR_LOADERRUNDOWN_TASK_V1
+{
+    [WmiDataId(1),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(2),
+     Description("AssemblyID") : amended,
+     read]
+     uint64 AssemblyID;
+    [WmiDataId(3),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(4),
+     Description("ModuleFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  ModuleFlags;
+
+    [WmiDataId(5),
+     Description("Reserved1") : amended,
+     read]
+     uint32 Reserved1;
+    [WmiDataId(6),
+     Description("ModuleILPath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleILPath;
+    [WmiDataId(7),
+     Description("ModuleNativePath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleNativePath;
+    [WmiDataId(8),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("ModuleLoadUnloadRundown_V1") : amended,
+ EventType{35, 36},
+ EventTypeName{  "ModuleDCStart_V1", "ModuleDCEnd_V1"} : amended
+]
+class ModuleLoadUnloadRundown_V1_V1:CLR_LOADERRUNDOWN_TASK_V1
+{
+    [WmiDataId(1),
+     Description("ModuleID") : amended,
+     read]
+     uint64 ModuleID;
+    [WmiDataId(2),
+     Description("AssemblyID") : amended,
+     read]
+     uint64 AssemblyID;
+    [WmiDataId(3),
+     Description("ModuleFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  ModuleFlags;
+
+    [WmiDataId(4),
+     Description("Reserved1") : amended,
+     read]
+     uint32 Reserved1;
+    [WmiDataId(5),
+     Description("ModuleILPath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleILPath;
+    [WmiDataId(6),
+     Description("ModuleNativePath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string ModuleNativePath;
+    [WmiDataId(7),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("AssemblyLoadUnloadRundown_V1") : amended,
+ EventType{39, 40},
+ EventTypeName{  "AssemblyDCStart_V1", "AssemblyDCEnd_V1"} : amended
+]
+class AssemblyLoadUnloadRundown_V1_V1:CLR_LOADERRUNDOWN_TASK_V1
+{
+    [WmiDataId(1),
+     Description("AssemblyID") : amended,
+     read]
+     uint64 AssemblyID;
+    [WmiDataId(2),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(3),
+     Description("BindingID") : amended,
+     read]
+     uint64 BindingID;
+    [WmiDataId(4),
+     Description("AssemblyFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8"
+    }
+    ]
+     uint32  AssemblyFlags;
+
+    [WmiDataId(5),
+     Description("FullyQualifiedAssemblyName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string FullyQualifiedAssemblyName;
+    [WmiDataId(6),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("AppDomainLoadUnloadRundown_V1") : amended,
+ EventType{43, 44},
+ EventTypeName{  "AppDomainDCStart_V1", "AppDomainDCEnd_V1"} : amended
+]
+class AppDomainLoadUnloadRundown_V1_V1:CLR_LOADERRUNDOWN_TASK_V1
+{
+    [WmiDataId(1),
+     Description("AppDomainID") : amended,
+     read]
+     uint64 AppDomainID;
+    [WmiDataId(2),
+     Description("AppDomainFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4"
+    }
+    ]
+     uint32  AppDomainFlags;
+
+    [WmiDataId(3),
+     Description("AppDomainName") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string AppDomainName;
+    [WmiDataId(4),
+     Description("AppDomainIndex") : amended,
+     read]
+     uint32 AppDomainIndex;
+    [WmiDataId(5),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+};
+
+[Dynamic,
+ Description("ClrStack") : amended,
+ guid("{d3363dc0-243a-4620-a4d0-8a07d772f533}"),
+ EventVersion(0),
+ DisplayName("CLRStackRundown") : amended
+]
+class CLR_STACKRUNDOWN_TASK_V0:Microsoft_Windows_DotNETRuntimeRundown
+{
+
+};
+
+[Dynamic,
+ Description("ClrStackWalk") : amended,
+ EventType(82),
+ EventTypeName(  "CLRStackWalkDCStart") : amended
+]
+class ClrStackWalk_V0:CLR_STACKRUNDOWN_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+    [WmiDataId(2),
+     Description("Reserved1") : amended,
+     read]
+     uint8 Reserved1;
+    [WmiDataId(3),
+     Description("Reserved2") : amended,
+     read]
+     uint8 Reserved2;
+    [WmiDataId(4),
+     Description("FrameCount") : amended,
+     read]
+     uint32 FrameCount;
+    [WmiDataId(5),
+     Description("Stack0") : amended,
+     pointer,
+     read]
+     pointer Stack0;
+    [WmiDataId(6),
+     Description("Stack1") : amended,
+     pointer,
+     read]
+     pointer Stack1;
+};
+
+[Dynamic,
+ Description("Runtime") : amended,
+ guid("{cd7d3e32-65fe-40cd-9225-a2577d203fc3}"),
+ EventVersion(0),
+ DisplayName("CLRRuntimeInformationRundown") : amended
+]
+class CLR_RuntimeInformation_TASK_V0:Microsoft_Windows_DotNETRuntimeRundown
+{
+
+};
+
+[Dynamic,
+ Description("RuntimeInformationRundown") : amended,
+ EventType(1),
+ EventTypeName(  "RuntimeInformationDCStart") : amended
+]
+class RuntimeInformationRundown_V0:CLR_RuntimeInformation_TASK_V0
+{
+    [WmiDataId(1),
+     Description("ClrInstanceID") : amended,
+     read]
+     uint16 ClrInstanceID;
+    [WmiDataId(2),
+     Description("Sku") : amended,
+
+    BitValues{    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2"
+    }
+    ]
+     uint32  Sku;
+
+    [WmiDataId(3),
+     Description("BclMajorVersion") : amended,
+     read]
+     uint16 BclMajorVersion;
+    [WmiDataId(4),
+     Description("BclMinorVersion") : amended,
+     read]
+     uint16 BclMinorVersion;
+    [WmiDataId(5),
+     Description("BclBuildNumber") : amended,
+     read]
+     uint16 BclBuildNumber;
+    [WmiDataId(6),
+     Description("BclQfeNumber") : amended,
+     read]
+     uint16 BclQfeNumber;
+    [WmiDataId(7),
+     Description("VMMajorVersion") : amended,
+     read]
+     uint16 VMMajorVersion;
+    [WmiDataId(8),
+     Description("VMMinorVersion") : amended,
+     read]
+     uint16 VMMinorVersion;
+    [WmiDataId(9),
+     Description("VMBuildNumber") : amended,
+     read]
+     uint16 VMBuildNumber;
+    [WmiDataId(10),
+     Description("VMQfeNumber") : amended,
+     read]
+     uint16 VMQfeNumber;
+    [WmiDataId(11),
+     Description("StartupFlags") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "16", 
+    "256", 
+    "4096", 
+    "8192", 
+    "16384", 
+    "65536", 
+    "131072", 
+    "262144", 
+    "524288", 
+    "1048576", 
+    "2097152", 
+    "4194304"
+    }
+    ]
+     uint32  StartupFlags;
+
+    [WmiDataId(12),
+     Description("StartupMode") : amended,
+
+    BitValues{    "(null)",
+    "(null)",
+    "(null)",
+    "(null)",
+    "(null)"
+    }:amended,
+
+    BitMap{    "1", 
+    "2", 
+    "4", 
+    "8", 
+    "16"
+    }
+    ]
+     uint32  StartupMode;
+
+    [WmiDataId(13),
+     Description("CommandLine") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string CommandLine;
+    [WmiDataId(14),
+     Description("ComObjectGuid") : amended,
+     extension("Guid"),
+     read]
+     object ComObjectGuid;
+    [WmiDataId(15),
+     Description("RuntimeDllPath") : amended,
+     StringTermination("NullTerminated"),
+     format("w"),
+     read]
+     string RuntimeDllPath;
+};
+

@@ -1,0 +1,343 @@
+<!--
+***********************************************************************************************
+Microsoft.Xaml.targets
+
+WARNING:  DO NOT MODIFY this file unless you are knowledgeable about MSBuild and have
+          created a backup copy.  Incorrect changes to this file will make it
+          impossible to load or build your projects from the command-line or the IDE.
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+***********************************************************************************************
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LoadTimeSensitiveTargets>
+      $(LoadTimeSensitiveTargets);
+      XamlMarkupCompilePass1;
+    </LoadTimeSensitiveTargets>
+    <LoadTimeSensitiveProperties>
+      $(LoadTimeSensitiveProperties);
+    </LoadTimeSensitiveProperties>
+
+    <TaskVersion>4.0.0.0</TaskVersion>
+    <TaskKeyToken>31bf3856ad364e35</TaskKeyToken>
+    <XamlBuildTaskAssemblyName Condition="'$(XamlBuildTaskAssemblyName)'==''">XamlBuildTask, Version=$(TaskVersion), Culture=neutral, PublicKeyToken=$(TaskKeyToken)</XamlBuildTaskAssemblyName>
+    <XamlRequiresCompilationPass2 Condition="'$(XamlRequiresCompilationPass2)'==''">false</XamlRequiresCompilationPass2>
+    <XamlTemporaryAssemblyName Condition="'$(XamlTemporaryAssemblyName)'==''">_XamlTemporaryAssembly_</XamlTemporaryAssemblyName>
+    <CompileTargetNameForTemporaryAssembly Condition="'$(CompileTargetNameForTemporaryAssembly)' == ''">CompileTemporaryAssembly</CompileTargetNameForTemporaryAssembly>
+    
+  <!-- Microsoft.Xaml.targets needs to be included after Microsoft.Fx.targets and Microsoft.DevDiv.targets
+       to have a chance to add these tasks to the PrepareResources target's dependencies. 
+       Unfortunately, Microsoft.DevDiv.targets completely overwrites the PrepareResourcesDependsOnProperty 
+       (as a bug workaround-see comment there).
+  -->
+    <PrepareResourcesDependsOn>
+      XamlMarkupCompilePass1;
+      XamlMarkupCompilePass2;
+      $(PrepareResourcesDependsOn) 
+    </PrepareResourcesDependsOn>
+    
+  </PropertyGroup>
+  <PropertyGroup>
+    <XamlBuildTaskLocation Condition="'$(XamlBuildTaskPath)'==''">$(MSBuildBinPath)</XamlBuildTaskLocation>
+    <XamlBuildTaskLocation Condition="'$(XamlBuildTaskPath)'!=''">$(XamlBuildTaskPath)</XamlBuildTaskLocation>
+  </PropertyGroup>
+        
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildToolsPath)\Microsoft.Xaml.targets</MSBuildAllProjects>
+  </PropertyGroup>
+    
+  <PropertyGroup>
+    <XamlGenCodeFileNames Condition="'$(XamlGenCodeFileNames)'==''">$(MSBuildProjectFile).XamlGeneratedCodeFileListAbsolute.txt</XamlGenCodeFileNames>
+    <XamlGenMarkupFileNames Condition="'$(XamlGenMarkupFileNames)'==''">$(MSBuildProjectFile).XamlGeneratedXamlFileListAbsolute.txt</XamlGenMarkupFileNames>
+  </PropertyGroup>
+    
+  <UsingTask Condition="'$(XamlBuildTaskPath)'==''" TaskName="Microsoft.Build.Tasks.Xaml.PartialClassGenerationTask" AssemblyName="$(XamlBuildTaskAssemblyName)" />
+  <UsingTask Condition="'$(XamlBuildTaskPath)'!=''" TaskName="Microsoft.Build.Tasks.Xaml.PartialClassGenerationTask" AssemblyFile="$(XamlBuildTaskPath)\XamlBuildTask.dll" />
+  <UsingTask Condition="'$(XamlBuildTaskPath)'==''" TaskName="Microsoft.Build.Tasks.Xaml.GenerateTemporaryAssemblyTask" AssemblyName="$(XamlBuildTaskAssemblyName)" />
+  <UsingTask Condition="'$(XamlBuildTaskPath)'!=''" TaskName="Microsoft.Build.Tasks.Xaml.GenerateTemporaryAssemblyTask" AssemblyFile="$(XamlBuildTaskPath)\XamlBuildTask.dll" />  
+  <UsingTask Condition="'$(XamlBuildTaskPath)'==''" TaskName="Microsoft.Build.Tasks.Xaml.CompilationPass2Task" AssemblyName="$(XamlBuildTaskAssemblyName)" />
+  <UsingTask Condition="'$(XamlBuildTaskPath)'!=''" TaskName="Microsoft.Build.Tasks.Xaml.CompilationPass2Task" AssemblyFile="$(XamlBuildTaskPath)\XamlBuildTask.dll" />  
+
+  <!--
+  ================================================================
+                         DesignTimeXamlMarkupCompilation
+  ================================================================
+  -->
+
+  <PropertyGroup>
+
+    <CoreCompileDependsOn Condition="'$(BuildingInsideVisualStudio)' == 'true'">
+        DesignTimeXamlMarkupCompilation;
+        $(CoreCompileDependsOn)
+    </CoreCompileDependsOn>
+    
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DesignTimeIntermediateOutputPath Condition="'$(DesignTimeIntermediateOutputPath)' == ''">$(IntermediateOutputPath)InProcessTempFiles\</DesignTimeIntermediateOutputPath>
+  </PropertyGroup>
+ 
+  <Target Name="DesignTimeXamlMarkupCompilation">
+
+    <!-- Make sure the directory exists. -->
+    <MakeDir Directories="$(DesignTimeIntermediateOutputPath)" Condition="'@(XamlAppDef)' != ''"/>
+
+    <CallTarget Condition="'$(BuildingProject)' != 'true' and '@(XamlAppDef)' != ''"
+        Targets="InProcessXamlMarkupCompilePass1" />
+       
+  </Target>
+  
+  <!--
+  ================================================================
+                         InProcessXamlMarkupCompilePass1
+  ================================================================
+  -->
+
+  <Target Name="InProcessXamlMarkupCompilePass1" 
+          Condition="'@(XamlAppDef)' != '' and '$(BuildingProject)' != 'true'">
+   
+    <PartialClassGenerationTask
+      BuildTaskPath="$(XamlBuildTaskLocation)"
+      OutputPath="$(DesignTimeIntermediateOutputPath)"
+      Language="$(Language)" 
+      ApplicationMarkup="@(XamlAppDef)" 
+      References="@(ReferencePath)"
+      RootNamespace="$(RootNamespace)" 
+      SourceCodeFiles="@(Compile)"
+      AssemblyName="$(AssemblyName)"
+      IsInProcessXamlMarkupCompile="true">
+
+      <Output ItemName="XamlInProcessGeneratedCodeFiles" TaskParameter="GeneratedCodeFiles" />
+      <Output ItemName="XamlInProcessGeneratedResources" TaskParameter="GeneratedResources" />
+      <!-- This property is not required. However we need to populate it as the output of the task. -->
+      <Output PropertyName="XamlInProcessRequiresCompilationPass2" TaskParameter="RequiresCompilationPass2" />
+
+    </PartialClassGenerationTask>
+   
+    <ItemGroup>
+      <Compile Include="@(XamlInProcessGeneratedCodeFiles)" />
+    </ItemGroup>
+
+  </Target>
+ 
+  <!--
+  ================================================================
+                         CleanInProcessXamlGeneratedFiles
+  ================================================================
+  -->
+
+  <Target Name="CleanInProcessXamlGeneratedFiles" 
+          Condition="'@(XamlAppDef)' != ''"
+          AfterTargets="DesignTimeXamlMarkupCompilation">
+     
+    <ItemGroup>
+      <FileWrites Include="$(DesignTimeIntermediateOutputPath)\*" />
+    </ItemGroup>
+                   
+  </Target>
+   
+  <!--
+  ================================================================
+                         XamlMarkupCompileReadGeneratedFileList
+  ================================================================
+  -->
+
+  <Target Name="XamlMarkupCompileReadGeneratedFileList" 
+          Condition="'@(XamlPage)' != '' or '@(XamlAppDef)' != ''"
+          BeforeTargets="XamlMarkupCompilePass1">
+ 
+    <ReadLinesFromFile File="$(IntermediateOutputPath)$(XamlGenCodeFileNames)">
+      <Output TaskParameter="Lines" ItemName="XamlOutputCodeFilesList"/>
+    </ReadLinesFromFile>
+	
+	<ReadLinesFromFile File="$(IntermediateOutputPath)$(XamlGenMarkupFileNames)">
+      <Output TaskParameter="Lines" ItemName="XamlOutputMarkupFilesList"/>
+    </ReadLinesFromFile>
+   
+  </Target> 
+
+  <!--
+  ================================================================
+                         XamlMarkupCompilePass1
+  ================================================================
+  -->
+
+  <Target Name="XamlMarkupCompilePass1" 
+          Condition="'@(XamlPage)' != '' or '@(XamlAppDef)' != ''"
+          Inputs="@(XamlAppDef);@(Compile);$(MSBuildAllProjects);@(ReferencePath)"
+          Outputs="@(XamlOutputMarkupFilesList);
+                  @(XamlOutputCodeFilesList);
+                  $(IntermediateOutputPath)$(XamlGenCodeFileNames);
+                  $(IntermediateOutputPath)$(XamlGenMarkupFileNames)">
+
+    <Message Text="(in) XamlPage: '@(XamlPage)'" Condition="'$(MSBuildTargetsVerbose)'=='true'"/>
+    <Message Text="(in) XamlAppDef: '@(XamlAppDef)'" Condition="'$(MSBuildTargetsVerbose)'=='true'"/>
+    <Message Text="(in) SourceCodeFiles: '@(Compile)'" Condition="'$(MSBuildTargetsVerbose)'=='true'"/>
+
+    <ItemGroup>
+        <XamlGeneratedResources Remove="@(XamlGeneratedResources)" />
+        <XamlGeneratedCodeFiles Remove="@(XamlGeneratedCodeFiles)" />
+    </ItemGroup>
+     
+    <PartialClassGenerationTask
+      BuildTaskPath="$(XamlBuildTaskLocation)"
+      OutputPath="$(IntermediateOutputPath)"
+      Language="$(Language)" 
+      ApplicationMarkup="@(XamlAppDef)" 
+      References="@(ReferencePath)"
+      RootNamespace="$(RootNamespace)" 
+      SourceCodeFiles="@(Compile)"
+      AssemblyName="$(AssemblyName)"
+      IsInProcessXamlMarkupCompile="false">
+
+      <Output ItemName="XamlGeneratedCodeFiles" TaskParameter="GeneratedCodeFiles" />
+      <Output ItemName="XamlGeneratedResources" TaskParameter="GeneratedResources" />
+
+      <Output PropertyName="XamlRequiresCompilationPass2" TaskParameter="RequiresCompilationPass2" />
+
+    </PartialClassGenerationTask>
+    
+    <WriteLinesToFile
+      File="$(IntermediateOutputPath)$(XamlGenCodeFileNames)"
+      Lines="@(XamlGeneratedCodeFiles)"
+      Overwrite="true"/>
+	  
+    <WriteLinesToFile
+      File="$(IntermediateOutputPath)$(XamlGenMarkupFileNames)"
+      Lines="@(XamlGeneratedResources)"
+      Overwrite="true"/>
+
+    <Message Text="(out) XamlGeneratedCodeFiles: '@(XamlGeneratedCodeFiles)'" Condition="'$(MSBuildTargetsVerbose)'=='true'"/>
+    <Message Text="(out) XamlGeneratedResources: '@(XamlGeneratedResources)'" Condition="'$(MSBuildTargetsVerbose)'=='true'"/>
+    <Message Text="(out) XamlRequiresCompilationPass2 : '$(XamlRequiresCompilationPass2)'" Condition="'$(MSBuildTargetsVerbose)'=='true'"/>
+
+  </Target>
+
+  <!--
+  ================================================================
+                         XamlMarkupCompileAddFilesGenerated
+  ================================================================
+  -->
+
+  <Target Name="XamlMarkupCompileAddFilesGenerated" 
+          Condition="'@(XamlPage)' != '' or '@(XamlAppDef)' != ''"
+          AfterTargets="XamlMarkupCompilePass1">
+      
+    <ItemGroup>
+      <XamlGeneratedCodeFiles Condition="'@(XamlGeneratedCodeFiles)' == ''"
+                              Include="@(XamlOutputCodeFilesList)" />
+    </ItemGroup> 
+
+	<ItemGroup>
+      <XamlGeneratedResources Condition="'@(XamlGeneratedResources)' == ''"
+                              Include="@(XamlOutputMarkupFilesList)" />
+    </ItemGroup> 	
+      
+    <ItemGroup>
+      <FileWrites Include="@(XamlGeneratedResources);
+                           @(XamlGeneratedCodeFiles);
+                           $(IntermediateOutputPath)$(XamlGenCodeFileNames);
+                           $(IntermediateOutputPath)$(XamlGenMarkupFileNames)" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Compile Include="@(XamlGeneratedCodeFiles)" />
+    </ItemGroup>
+                  
+    <ItemGroup>
+        <EmbeddedResource Include="@(XamlGeneratedResources)">
+          <GenerateResource>false</GenerateResource>
+          <Type>Non-Resx</Type>
+          <WithCulture>false</WithCulture>
+        </EmbeddedResource>
+    </ItemGroup>
+
+  </Target>
+                  
+  <!--
+  ================================================================
+                         XamlTemporaryAssemblyGeneration
+  ================================================================
+  -->
+  <Target Name="XamlTemporaryAssemblyGeneration" 
+          Condition="'$(XamlRequiresCompilationPass2)' == 'true' "
+          Inputs="@(XamlAppDef);@(Compile);$(MSBuildAllProjects);@(XamlGeneratedCodeFiles);@(ReferencePath)"
+          Outputs="$(IntermediateOutputPath)$(XamlTemporaryAssemblyName).dll;
+                   $(IntermediateOutputPath)$(XamlTemporaryAssemblyName).pdb"
+          DependsOnTargets="XamlMarkupCompilePass1;MarkupCompilePass1">
+
+    <Message Text="(in) MSBuildProjectFile: '$(MSBuildProjectFile)'" Condition="'$(MSBuildTargetsVerbose)' == 'true'" />
+    <Message Text="(in) CompileTargetName: '$(CompileTargetName)'" Condition="'$(MSBuildTargetsVerbose)'=='true'"/>
+    <Message Text="(in) SourceCodeFiles: '@(XamlGeneratedCodeFiles)'" Condition="'$(MSBuildTargetsVerbose)'=='true'"/>
+
+    <GenerateTemporaryAssemblyTask
+             OutputPath="$(IntermediateOutputPath)"
+             CurrentProject="$(MSBuildProjectFullPath)"
+             SourceCodeFiles="@(XamlGeneratedCodeFiles);@(_GeneratedCodeFiles)"
+             AssemblyName="$(XamlTemporaryAssemblyName)"
+             ApplicationMarkupTypeName="XamlAppDef"
+             CompileTargetName="$(CompileTargetNameForTemporaryAssembly)"
+             ReferencePaths="@(ReferencePath)">
+    </GenerateTemporaryAssemblyTask>
+
+    <PropertyGroup>
+      <_XamlTemporaryAssemblyPath_>$(IntermediateOutputPath)$(XamlTemporaryAssemblyName).dll</_XamlTemporaryAssemblyPath_>
+    </PropertyGroup>
+    
+    <ItemGroup>
+      <FileWrites Include="$(IntermediateOutputPath)$(XamlTemporaryAssemblyName).*" />
+    </ItemGroup>
+
+    <OnError ExecuteTargets="XamlDeleteFilesOnFail"/>
+	
+  </Target>
+
+  <Target Name="CompileTemporaryAssembly" DependsOnTargets="BuildOnlySettings;ResolveKeySource;CoreCompile" />
+
+  <!--
+  ================================================================
+                         XamlMarkupCompilePass2
+  ================================================================
+  -->
+  <Target Name="XamlMarkupCompilePass2" 
+          Condition="'$(XamlRequiresCompilationPass2)' == 'true' "
+          DependsOnTargets="XamlTemporaryAssemblyGeneration"> 
+
+    <Message Text="(in) XamlPage: '@(XamlPage)'" Condition="'$(MSBuildTargetsVerbose)'=='true'"/>
+    <Message Text="(in) XamlAppDef: '@(XamlAppDef)'" Condition="'$(MSBuildTargetsVerbose)'=='true'"/>
+    <Message Text="(in) References: '@(ReferencePath);$(_XamlTemporaryAssemblyPath_)'" Condition="'$(MSBuildTargetsVerbose)'=='true'"/>
+
+    <CompilationPass2Task
+      BuildTaskPath="$(XamlBuildTaskLocation)"    
+      ApplicationMarkup="@(XamlAppDef)"
+      References="@(ReferencePath)"
+      LocalAssemblyReference="$(_XamlTemporaryAssemblyPath_)"
+      AssemblyName="$(AssemblyName)"
+      RootNamespace="$(RootNamespace)">
+
+    </CompilationPass2Task>
+
+    <OnError ExecuteTargets="XamlDeleteFilesOnFail"/>
+
+  </Target>
+
+  <!--
+  ================================================================
+                         XamlDeleteFilesOnFail
+  ================================================================
+  -->
+
+  <Target Name="XamlDeleteFilesOnFail" 
+          Condition="'$(XamlRequiresCompilationPass2)' == 'true' ">
+ 
+    <Delete Files="@(XamlGeneratedResources);
+                   @(XamlGeneratedCodeFiles);
+                   $(IntermediateOutputPath)$(XamlGenCodeFileNames);
+                   $(IntermediateOutputPath)$(XamlGenMarkupFileNames);
+                   $(IntermediateOutputPath)$(XamlTemporaryAssemblyName).dll;
+                   $(IntermediateOutputPath)$(XamlTemporaryAssemblyName).pdb" />
+  </Target>
+  
+</Project>

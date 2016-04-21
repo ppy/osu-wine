@@ -1,0 +1,11 @@
+#!/bin/bash
+cd "$(dirname "$0")/../"
+CONTENTSFOLD="$PWD"
+####################################################
+# this script will run when Wineskin is shutting down
+# before clean up
+# $CONTENTSFOLD is the full path to the current
+#       contents folder in the wrapper.
+####################################################
+
+# ENTER COMMANDS HERE

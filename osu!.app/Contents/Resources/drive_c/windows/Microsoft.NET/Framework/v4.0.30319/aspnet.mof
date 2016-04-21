@@ -1,0 +1,2242 @@
+//**************************************************
+// *** ASP.NET Trace Data Layout
+//**************************************************
+#pragma classflags("forceupdate")
+#pragma namespace ("\\\\.\\Root\\WMI")
+#pragma autorecover
+
+Qualifier Description : ToSubClass Amended; 
+Qualifier Values : ToSubClass Amended; 
+Qualifier DisplayName : Amended; 
+
+[Dynamic,
+  Description("ASP.NET Events") : amended,
+  Guid("{AFF081FE-0247-4275-9C4E-021F3DC1DA35}"),
+  locale("MS\\0x409")]
+class AspNetTrace : EventTrace
+{
+    [Description ("Enable Flags") : amended,
+        ValueDescriptions{
+            "Infrastructure Events",
+            "Pipeline Module Events",
+            "Page Events",
+            "Application Services Events" } : amended,
+        DefineValues{
+            "ETW_ASPNET_INFRASTRUCTURE",
+            "ETW_ASPNET_MODULE",    
+            "ETW_ASPNET_PAGE",          
+            "ETW_ASPNET_APPSVC" },
+        Values{
+            "Infrastructure",
+            "Module",
+            "Page",
+            "AppServices" },
+        ValueMap{
+            "0x0001",
+            "0x0002",
+            "0x0004",
+            "0x0008"}
+    ]
+    uint32 Flags;
+
+    [Description ("Levels") : amended,
+        ValueDescriptions{
+            "Abnormal exit or termination",
+            "Severe errors",
+            "Warnings",
+            "Information",
+            "Detailed information" } : amended,
+        DefineValues{
+            "TRACE_LEVEL_FATAL",
+            "TRACE_LEVEL_ERROR", 
+            "TRACE_LEVEL_WARNING",
+            "TRACE_LEVEL_INFORMATION",           
+            "TRACE_LEVEL_VERBOSE" },                   
+        Values{
+            "Fatal",
+            "Error",
+            "Warning",
+            "Information",
+            "Verbose" },
+        ValueMap{
+            "0x1",
+            "0x2",
+            "0x3",
+            "0x4",
+            "0x5" },
+        ValueType("index")
+    ]
+    uint32 Level;
+};
+
+[Dynamic,
+ Description("ASP.NET Request") : amended,
+ Guid("{06A01367-79D3-4594-8EB3-C721603C4679}"),
+ DisplayName("AspNetReq"),
+ locale("MS\\0x409")
+]
+class AspNetTraceEvent : AspNetTrace
+{
+
+};
+
+[Dynamic,
+ Description("Start") : amended,
+ EventType(1),
+ EventLevel(0),
+ EventTypeName("Start") : amended
+]
+class AspNetStart : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended,
+    read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId; 
+
+    [WmiDataId(3),
+    Description("Method") : amended,
+    StringTermination("NullTerminated"),
+    read]
+    string  Method;
+
+    [WmiDataId(4),
+    Description("Path") : amended,
+    StringTermination("NullTerminated"),
+    read]
+    string  Path;
+
+    [WmiDataId(5),
+    Description("QueryString") : amended,
+    StringTermination("NullTerminated"),
+    read]
+    string  QueryString;
+};
+
+[Dynamic,
+ Description("End") : amended,
+ EventType(2),
+ EventLevel(0),
+ EventTypeName("End") : amended
+]
+class AspNetStop : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended,
+    read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId; 
+};
+
+/***** New Whidbey Event Tracing Events ******/
+
+[Dynamic,
+ Description("RequestQueued") : amended,
+ EventType(3), 
+ EventLevel(4),
+ EventTypeName("RequestQueued") : amended
+]
+class AspNetRequestQueued : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId; 
+};
+
+[Dynamic, Description("RequestDequeued") : amended,
+ EventType(4), 
+ EventLevel(4),
+ EventTypeName("RequestDequeued") : amended]
+class AspNetRequestDequeued : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic,
+ Description("GetAppDomainEnter") : amended,
+ EventType(5), 
+ EventLevel(5),
+ EventTypeName("GetAppDomainEnter") : amended
+]
+class AspNetGetAppDomainEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic,
+ Description("GetAppDomainLeave") : amended,
+ EventType(6), 
+ EventLevel(5),
+ EventTypeName("GetAppDomainLeave") : amended
+]
+class AspNetGetAppDomainLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic,
+ Description("AppDomainEnter") : amended,
+ EventType(7), 
+ EventLevel(5),
+ EventTypeName("AppDomainEnter") : amended
+]
+class AspNetAppDomainEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(3),
+    Description("DomainId") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  DomainId;
+};
+
+[Dynamic, Description("StartHandler") : amended,
+ EventType(8), 
+ EventLevel(5),
+ EventTypeName("StartHandler") : amended]
+class AspNetStartHandler : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(3),
+    Description("HandlerName") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  HandlerName;
+
+    [WmiDataId(4),
+    Description("EventName") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  EventName;
+};
+
+[Dynamic, Description("EndHandler") : amended,
+ EventType(9), 
+ EventLevel(5),
+ EventTypeName("EndHandler") : amended]
+class AspNetEndHandler : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PipelineModuleEnter") : amended,
+ EventType(10), 
+ EventLevel(5),
+ EventTypeName("PipelineModuleEnter") : amended]
+class AspNetPipelineModuleEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(3),
+    Description("ModuleName") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  ModuleName;
+};
+
+[Dynamic, Description("PipelineModuleLeave") : amended,
+ EventType(11), 
+ EventLevel(5),
+ EventTypeName("PipelineModuleLeave") : amended]
+class AspNetPipelineModuleLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(3),
+    Description("ModuleName") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  ModuleName;
+};
+
+[Dynamic, Description("MapHandlerEnter") : amended,
+ EventType(12), 
+ EventLevel(5),
+ EventTypeName("MapHandlerEnter") : amended]
+class AspNetMapHandlerEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("MapHandlerLeave") : amended,
+ EventType(13), 
+ EventLevel(5),
+ EventTypeName("MapHandlerLeave") : amended]
+class AspNetMapHandlerLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("ParseEnter") : amended,
+ EventType(14), 
+ EventLevel(5),
+ EventTypeName("ParseEnter") : amended]
+class AspNetParseEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("ParseLeave") : amended,
+ EventType(15), 
+ EventLevel(5),
+ EventTypeName("ParseLeave") : amended]
+class AspNetParseLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("CompileEnter") : amended,
+ EventType(16), 
+ EventLevel(5),
+ EventTypeName("CompileEnter") : amended]
+class AspNetCompileEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("CompileLeave") : amended,
+ EventType(17), 
+ EventLevel(5),
+ EventTypeName("CompileLeave") : amended]
+class AspNetCompileLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(3),
+    Description("Files") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  Files;
+
+    [WmiDataId(4),
+    Description("Status") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  Status;
+};
+
+[Dynamic, Description("HttpHandlerEnter") : amended,
+ EventType(18), 
+ EventLevel(4),
+ EventTypeName("HttpHandlerEnter") : amended]
+class AspNetHttpHandlerEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("HttpHandlerLeave") : amended,
+ EventType(19), 
+ EventLevel(4),
+ EventTypeName("HttpHandlerLeave") : amended]
+class AspNetHttpHandlerLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("SessionStatePartitionStart") : amended,
+ EventType(20), 
+ EventLevel(5),
+ EventTypeName("SessionStatePartitionStart") : amended]
+class AspNetSessionStatePartitionStart : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(3),
+    Description("ResolverType") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  ResolverType;
+
+    [WmiDataId(4),
+    Description("SessionId") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  SessionId;
+};
+
+[Dynamic, Description("SessionStatePartitionEnd") : amended,
+ EventType(21), 
+ EventLevel(5),
+ EventTypeName("SessionStatePartitionEnd") : amended]
+class AspNetSessionStatePartitionEnd : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(3),
+    Description("ResolverResult") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  ResolverResult;
+};
+
+[Dynamic, Description("PagePreInitEnter") : amended,
+ EventType(22), 
+ EventLevel(5),
+ EventTypeName("PagePreInitEnter") : amended]
+class AspNetPagePreInitEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PagePreInitLeave") : amended,
+ EventType(23), 
+ EventLevel(5),
+ EventTypeName("PagePreInitLeave") : amended]
+class AspNetPagePreInitLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PageInitEnter") : amended,
+ EventType(24), 
+ EventLevel(5),
+ EventTypeName("PageInitEnter") : amended]
+class AspNetPageInitEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PageInitLeave") : amended,
+ EventType(25), 
+ EventLevel(5),
+ EventTypeName("PageInitLeave") : amended]
+class AspNetPageInitLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PageLoadViewstateEnter") : amended,
+ EventType(26), 
+ EventLevel(5),
+ EventTypeName("PageLoadViewstateEnter") : amended]
+class AspNetPageLoadViewstateEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PageLoadViewstateLeave") : amended,
+ EventType(27), 
+ EventLevel(5),
+ EventTypeName("PageLoadViewstateLeave") : amended]
+class AspNetPageLoadViewstateLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PageLoadPostDataEnter") : amended,
+ EventType(28), 
+ EventLevel(5),
+ EventTypeName("PageLoadPostDataEnter") : amended]
+class AspNetPageLoadPostDataEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PageLoadPostDataLeave") : amended,
+ EventType(29), 
+ EventLevel(5),
+ EventTypeName("PageLoadPostDataLeave") : amended]
+class AspNetPageLoadPostDataLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PageLoadEnter") : amended,
+ EventType(30), 
+ EventLevel(5),
+ EventTypeName("PageLoadEnter") : amended]
+class AspNetPageLoadEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PageLoadLeave") : amended,
+ EventType(31), 
+ EventLevel(5),
+ EventTypeName("PageLoadLeave") : amended]
+class AspNetPageLoadLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PagePostDataChangedEnter") : amended,
+ EventType(32), 
+ EventLevel(5),
+ EventTypeName("PagePostDataChangedEnter") : amended]
+class AspNetPagePostDataChangedEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PagePostDataChangedLeave") : amended,
+ EventType(33), 
+ EventLevel(5),
+ EventTypeName("PagePostDataChangedLeave") : amended]
+class AspNetPagePostDataChangedLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PageRaisePostbackEnter") : amended,
+ EventType(34), 
+ EventLevel(5),
+ EventTypeName("PageRaisePostbackEnter") : amended]
+class AspNetPageRaisePostbackEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PageRaisePostbackLeave") : amended,
+ EventType(35), 
+ EventLevel(5),
+ EventTypeName("PageRaisePostbackLeave") : amended]
+class AspNetPageRaisePostbackLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PagePreRenderEnter") : amended,
+ EventType(36), 
+ EventLevel(5),
+ EventTypeName("PagePreRenderEnter") : amended]
+class AspNetPagePreRenderEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PagePreRenderLeave") : amended,
+ EventType(37), 
+ EventLevel(5),
+ EventTypeName("PagePreRenderLeave") : amended]
+class AspNetPagePreRenderLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PageSaveViewstateEnter") : amended,
+ EventType(38), 
+ EventLevel(5),
+ EventTypeName("PageSaveViewstateEnter") : amended]
+class AspNetPageSaveViewstateEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PageSaveViewstateLeave") : amended,
+ EventType(39), 
+ EventLevel(5),
+ EventTypeName("PageSaveViewstateLeave") : amended]
+class AspNetPageSaveViewstateLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PageRenderEnter") : amended,
+ EventType(40), 
+ EventLevel(5),
+ EventTypeName("PageRenderEnter") : amended]
+class AspNetPageRenderEnter : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("PageRenderLeave") : amended,
+ EventType(41), 
+ EventLevel(5),
+ EventTypeName("PageRenderLeave") : amended]
+class AspNetPageRenderLeave : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("SessionDataBegin") : amended,
+ EventType(42), 
+ EventLevel(4),
+ EventTypeName("SessionDataBegin") : amended]
+class AspNetAcquireSessionBegin : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("SessionDataEnd") : amended,
+ EventType(43), 
+ EventLevel(4),
+ EventTypeName("SessionDataEnd") : amended]
+class AspNetAcquireSessionEnd : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("ProfileBegin") : amended,
+ EventType(44), 
+ EventLevel(4),
+ EventTypeName("ProfileBegin") : amended]
+class AspNetProfileBegin : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("ProfileEnd") : amended,
+ EventType(45), 
+ EventLevel(4),
+ EventTypeName("ProfileEnd") : amended]
+class AspNetProfileEnd : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(3),
+    Description("User") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  User;
+};
+
+[Dynamic, Description("RoleManagerIsUserInRole") : amended,
+ EventType(46), 
+ EventLevel(4),
+ EventTypeName("RoleManagerIsUserInRole") : amended]
+class AspNetRoleManagerIsUserInRole : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(3),
+    Description("Provider") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  Provider;
+
+    [WmiDataId(4),
+    Description("User") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  User;
+
+    [WmiDataId(5),
+    Description("Role") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  Role;
+
+    [WmiDataId(6),
+    Description("Status") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  Status;
+};
+
+[Dynamic, Description("RoleManagerGetUserRoles") : amended,
+ EventType(47), 
+ EventLevel(4),
+ EventTypeName("RoleManagerGetUserRoles") : amended]
+class AspNetRoleManagerGetUserRoles : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(3),
+    Description("Provider") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  Provider;
+
+    [WmiDataId(4),
+    Description("User") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  User;
+
+    [WmiDataId(5),
+    Description("Roles") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  Roles;
+};
+
+[Dynamic, Description("RoleManagerBegin") : amended,
+ EventType(48), 
+ EventLevel(4),
+ EventTypeName("RoleManagerBegin") : amended]
+class AspNetRoleManagerBegin : AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("RoleManagerEnd") : amended,
+ EventType(49), 
+ EventLevel(4),
+ EventTypeName("RoleManagerEnd") : amended]
+class AspNetRoleManagerEnd: AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(3),
+    Description("Provider") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  Provider;
+
+    [WmiDataId(4),
+    Description("User") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  User;
+};
+
+[Dynamic, Description("WebEventRaiseStart") : amended,
+ EventType(50), 
+ EventLevel(5),
+ EventTypeName("WebEventRaiseStart") : amended]
+class AspNetWebEventRaiseStart: AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(3),
+    Description("EventClassName") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  EventClassName;
+
+    [WmiDataId(4),
+    Description("EventCode") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  EventCode;
+
+    [WmiDataId(5),
+    Description("EventDetailCode") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  EventDetailCode;
+};
+
+[Dynamic, Description("WebEventRaiseEnd") : amended,
+ EventType(51), 
+ EventLevel(5),
+ EventTypeName("WebEventRaiseEnd") : amended]
+class AspNetWebEventRaiseEnd: AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("WebEventDeliverStart") : amended,
+ EventType(52), 
+ EventLevel(5),
+ EventTypeName("WebEventDeliverStart") : amended]
+class AspNetWebEventDeliverStart: AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(3),
+    Description("ProviderName") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  ProviderName;
+
+    [WmiDataId(4),
+    Description("RuleName") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  RuleName;
+
+    [WmiDataId(5),
+    Description("EventGroupName") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),
+    read]
+    string  EventGroupName;
+};
+
+[Dynamic, Description("WebEventDeliverEnd") : amended,
+ EventType(53), 
+ EventLevel(5),
+ EventTypeName("WebEventDeliverEnd") : amended]
+class AspNetWebEventDeliverEnd: AspNetTraceEvent
+{
+    [WmiDataId(1),
+    Description("ConnID") : amended, read]
+    uint64 ConnID;
+
+    [WmiDataId(2),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+};
+
+[Dynamic, Description("TraceContext Warning Trace") : amended,
+ EventType(59), 
+ EventLevel(3),
+ EventVersion(0),
+ EventTypeName("TraceContextWarning") : amended]
+class AspNetPageTraceWarnEvent : AspNetTraceEvent
+{
+
+    [WmiDataId(1),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(2),
+    Description("uri") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  Uri;
+
+    [WmiDataId(3),
+    Description("eventData") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  TraceWarningMsg;
+};
+
+[Dynamic, Description("TraceContext Write Trace") : amended,
+ EventType(60), 
+ EventLevel(5),
+ EventVersion(0),
+ EventTypeName("TraceContextWrite") : amended]
+class AspNetPageTraceWriteEvent : AspNetTraceEvent
+{
+
+    [WmiDataId(1),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(2),
+    Description("uri") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  Uri;
+
+    [WmiDataId(3),
+    Description("eventData") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  TraceWriteMsg;
+};
+
+[Dynamic, Description("Diagnostic Trace Critical") : amended,
+ EventType(61), 
+ EventLevel(1),
+ EventVersion(0),
+ EventTypeName("DiagnosticTraceCritical") : amended]
+class AspNetModuleDiagCriticalEvent : AspNetTraceEvent
+{
+
+    [WmiDataId(1),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(2),
+    Description("uri") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  Uri;
+
+    [WmiDataId(3),
+    Description("eventData") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  TraceWriteMsg;
+};
+
+[Dynamic, Description("Diagnostic Trace Error") : amended,
+ EventType(62), 
+ EventLevel(3),
+ EventVersion(0),
+ EventTypeName("DiagnosticTraceError") : amended]
+class AspNetModuleDiagErrorEvent : AspNetTraceEvent
+{
+
+    [WmiDataId(1),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(2),
+    Description("uri") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  Uri;
+
+    [WmiDataId(3),
+    Description("eventData") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  TraceWriteMsg;
+};
+
+[Dynamic, Description("Diagnostic Trace Warning") : amended,
+ EventType(63), 
+ EventLevel(3),
+ EventVersion(0),
+ EventTypeName("DiagnosticTraceWarning") : amended]
+class AspNetModuleDiagWarningEvent : AspNetTraceEvent
+{
+
+    [WmiDataId(1),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(2),
+    Description("uri") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  Uri;
+
+    [WmiDataId(3),
+    Description("eventData") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  TraceWriteMsg;
+};
+
+[Dynamic, Description("Diagnostic Trace Info") : amended,
+ EventType(64), 
+ EventLevel(4),
+ EventVersion(0),
+ EventTypeName("DiagnosticTraceInfo") : amended]
+class AspNetModuleDiagInfoEvent : AspNetTraceEvent
+{
+
+    [WmiDataId(1),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(2),
+    Description("uri") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  Uri;
+
+    [WmiDataId(3),
+    Description("eventData") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  TraceWriteMsg;
+};
+
+[Dynamic, Description("Diagnostic Trace Verbose") : amended,
+ EventType(65), 
+ EventLevel(5),
+ EventVersion(0),
+ EventTypeName("DiagnosticTraceVerbose") : amended]
+class AspNetModuleDiagVerboseEvent : AspNetTraceEvent
+{
+
+    [WmiDataId(1),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(2),
+    Description("uri") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  Uri;
+
+    [WmiDataId(3),
+    Description("eventData") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  TraceWriteMsg;
+};
+
+[Dynamic, Description("Diagnostic Trace Start") : amended,
+ EventType(66), 
+ EventLevel(5),
+ EventVersion(0),
+ EventTypeName("DiagnosticTraceStart") : amended]
+class AspNetModuleDiagStartEvent : AspNetTraceEvent
+{
+
+    [WmiDataId(1),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(2),
+    Description("uri") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  Uri;
+
+    [WmiDataId(3),
+    Description("eventData") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  TraceWriteMsg;
+};
+
+[Dynamic, Description("Diagnostic Trace Stop") : amended,
+ EventType(67), 
+ EventLevel(5),
+ EventVersion(0),
+ EventTypeName("DiagnosticTraceStop") : amended]
+class AspNetModuleDiagStopEvent : AspNetTraceEvent
+{
+
+    [WmiDataId(1),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(2),
+    Description("uri") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  Uri;
+
+    [WmiDataId(3),
+    Description("eventData") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  TraceWriteMsg;
+};
+
+[Dynamic, Description("Diagnostic Trace Suspend") : amended,
+ EventType(68), 
+ EventLevel(5),
+ EventVersion(0),
+ EventTypeName("DiagnosticTraceSuspend") : amended]
+class AspNetModuleDiagSuspendEvent : AspNetTraceEvent
+{
+
+    [WmiDataId(1),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(2),
+    Description("uri") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  Uri;
+
+    [WmiDataId(3),
+    Description("eventData") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  TraceWriteMsg;
+};
+
+[Dynamic, Description("Diagnostic Trace Resume") : amended,
+ EventType(69), 
+ EventLevel(5),
+ EventVersion(0),
+ EventTypeName("DiagnosticTraceResume") : amended]
+class AspNetModuleDiagResumeEvent : AspNetTraceEvent
+{
+
+    [WmiDataId(1),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(2),
+    Description("uri") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  Uri;
+
+    [WmiDataId(3),
+    Description("eventData") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  TraceWriteMsg;
+};
+
+[Dynamic, Description("Diagnostic Trace Transfer") : amended,
+ EventType(70), 
+ EventLevel(5),
+ EventVersion(0),
+ EventTypeName("DiagnosticTraceTransfer") : amended]
+class AspNetModuleDiagTransferEvent : AspNetTraceEvent
+{
+
+    [WmiDataId(1),
+     Description("Context ID") : amended,
+     extension("Guid"),
+     ActivityID,
+     read]
+     object  ContextId;
+
+    [WmiDataId(2),
+    Description("uri") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  Uri;
+
+    [WmiDataId(3),
+    Description("eventData") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string  TraceWriteMsg;
+};
+
+//**************************************************
+// *** ASP.NET Web Event Data Layout
+//**************************************************
+#pragma classflags("createonly")
+#pragma namespace("\\\\.\\Root")
+
+instance of __Namespace 
+{
+    Name = "aspnet";
+};
+
+#pragma classflags("forceupdate")
+#pragma namespace ("\\\\.\\Root\\aspnet")
+#pragma autorecover
+
+[Dynamic, Description("Base Event") : amended,
+ EventType(71), 
+ EventLevel(5),
+ EventVersion(1),
+ EventTypeName("BaseEvent") : amended]
+class BaseEvent : __ExtrinsicEvent
+{
+    [WmiDataId(1),
+    Description("Event Time") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      EventTime;
+    
+    [WmiDataId(2),
+    Description("EventID") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      EventID;
+    
+    [WmiDataId(3),
+     Description("Sequence Number") : amended, read]
+    sint64      SequenceNumber;
+    
+    [WmiDataId(4),
+     Description("Occurrence") : amended, read]
+    sint64      Occurrence;
+    
+    [WmiDataId(5),
+     Description("Event Code") : amended, read]
+    sint32      EventCode;
+    
+    [WmiDataId(6),
+     Description("Event Detail Code") : amended, read]
+    sint32      EventDetailCode;    
+    
+    [WmiDataId(7),
+    Description("Event Message") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      EventMessage;
+    
+    /*
+     * WebApplicationInformation
+     */
+    [WmiDataId(8),
+    Description("Application Domain") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      ApplicationDomain;
+    
+    [WmiDataId(9),
+    Description("Trust Level") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      TrustLevel;
+
+    [WmiDataId(10),
+    Description("Application Virtual Path") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      ApplicationVirtualPath;
+
+    [WmiDataId(11),
+    Description("Application Path") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      ApplicationPath;
+    
+    [WmiDataId(12),
+    Description("Machine Name") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      MachineName;
+
+    [WmiDataId(13),
+    Description("Custom Event Details") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      CustomEventDetails;
+    
+    string SecurityDescriptor =
+    "O:BAG:BAD:(A;;0x10000001;;;S-1-5-11)";
+    
+};
+
+[Dynamic, Description("Management Event") : amended,
+ EventType(72), 
+ EventLevel(5),
+ EventVersion(1),
+ EventTypeName("ManagementEvent") : amended]
+class ManagementEvent : BaseEvent {
+    /*
+     * WebProcessEventInformation
+     */
+    [WmiDataId(1),
+    Description("Process ID") : amended, read]
+    sint32      ProcessID;
+    
+    [WmiDataId(2),
+    Description("Process Name") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      ProcessName;
+    
+    [WmiDataId(3),
+    Description("Account Name") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      AccountName;
+};
+
+[Dynamic, Description("Application Lifetime Event") : amended,
+ EventType(73), 
+ EventLevel(5),
+ EventVersion(1),
+ EventTypeName("ApplicationLifetimeEvent") : amended]
+class ApplicationLifetimeEvent : ManagementEvent {
+};
+
+[Dynamic, Description("Request Event") : amended,
+ EventType(74), 
+ EventLevel(5),
+ EventVersion(1),
+ EventTypeName("RequestEvent") : amended]
+class RequestEvent : ManagementEvent {
+    /*
+     * WebRequestInformation
+     */
+    [WmiDataId(1),
+    Description("Request Url") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      RequestUrl;
+    
+    [WmiDataId(2),
+    Description("Request Path") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      RequestPath;
+    
+    [WmiDataId(3),
+    Description("User Host Address") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      UserHostAddress;
+    
+    [WmiDataId(4),
+    Description("User Name") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      UserName;
+    
+    [WmiDataId(5),
+    Description("User Authenticated") : amended, read]
+    boolean     UserAuthenticated;
+    
+    [WmiDataId(6),
+    Description("User Authentication Type") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      UserAuthenticationType;
+    
+    [WmiDataId(7),
+    Description("Request Thread Account Name") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      RequestThreadAccountName;
+};
+
+[Dynamic, Description("Heartbeat Event") : amended,
+ EventType(75), 
+ EventLevel(5),
+ EventVersion(1),
+ EventTypeName("HeartbeatEvent") : amended]
+class HeartbeatEvent : ManagementEvent {
+    /*
+     * ProcessStatistics    
+     */
+    [WmiDataId(1),
+    Description("Process Start Time") : amended, read]
+    DATETIME    ProcessStartTime;
+    
+    [WmiDataId(2),
+    Description("Thread Count") : amended, read]
+    sint32      ThreadCount;
+    
+    [WmiDataId(3),
+    Description("Working Set") : amended, read]
+    sint64      WorkingSet;
+    
+    [WmiDataId(4),
+    Description("Peak Working Set") : amended, read]
+    sint64      PeakWorkingSet;
+    
+    [WmiDataId(5),
+    Description("Managed Heap Size") : amended, read]
+    sint64      ManagedHeapSize;
+    
+    [WmiDataId(6),
+    Description("Appdomain Count") : amended, read]
+    sint32      AppdomainCount;    
+    
+    [WmiDataId(7),
+    Description("Requests Executing") : amended, read]
+    sint32      RequestsExecuting;
+    
+    [WmiDataId(8),
+    Description("Requests Queued") : amended, read]
+    sint32      RequestsQueued;
+    
+    [WmiDataId(9),
+    Description("Requests Rejected") : amended, read]
+    sint32      RequestsRejected;
+};
+
+[Dynamic, Description("Base Error Event") : amended,
+ EventType(76), 
+ EventLevel(3),
+ EventVersion(1),
+ EventTypeName("BaseErrorEvent") : amended]
+class BaseErrorEvent : ManagementEvent {
+    /*
+     * Exception
+     */
+    [WmiDataId(1),
+    Description("Exception Type") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      ExceptionType;
+    
+    [WmiDataId(2),
+    Description("Exception Message") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      ExceptionMessage;
+};
+
+[Dynamic, Description("Request Error Event") : amended,
+ EventType(77), 
+ EventLevel(3),
+ EventVersion(1),
+ EventTypeName("RequestErrorEvent") : amended]
+class RequestErrorEvent : BaseErrorEvent {
+    /*
+     * WebRequestInformation
+     */
+    [WmiDataId(1),
+    Description("Request Url") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      RequestUrl;
+    
+    [WmiDataId(2),
+    Description("Request Path") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      RequestPath;
+    
+    [WmiDataId(3),
+    Description("User Host Address") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      UserHostAddress;
+
+    [WmiDataId(4),
+    Description("User Name") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      UserName;
+
+    [WmiDataId(5),
+    Description("User Authenticated") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    boolean     UserAuthenticated;
+
+    [WmiDataId(6),
+    Description("User Authentication Type") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      UserAuthenticationType;
+
+    [WmiDataId(7),
+    Description("Request Thread Account Name") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      RequestThreadAccountName;
+
+    /*
+     * WebThreadInformation
+     */
+    [WmiDataId(8),
+    Description("Thread ID") : amended, read]
+    sint32      ThreadID;
+
+    [WmiDataId(9),
+    Description("Thread Account Name") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      ThreadAccountName;
+
+    [WmiDataId(10),
+    Description("Stack Trace") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      StackTrace;
+    
+    [WmiDataId(11),
+    Description("Requests Rejected") : amended, read]
+    boolean     IsImpersonating;
+};
+
+[Dynamic, Description("Error Event") : amended,
+ EventType(78), 
+ EventLevel(3),
+ EventVersion(1),
+ EventTypeName("ErrorEvent") : amended]
+class ErrorEvent : BaseErrorEvent {
+    /*
+     * WebRequestInformation
+     */
+
+    [WmiDataId(1),
+    Description("Request Url") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      RequestUrl;
+
+    [WmiDataId(2),
+    Description("Request Path") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      RequestPath;
+
+    [WmiDataId(3),
+    Description("User Host Address") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      UserHostAddress;
+
+    [WmiDataId(4),
+    Description("User Name") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      UserName;
+
+    [WmiDataId(5),
+    Description("User Authenticated") : amended, read]
+    boolean     UserAuthenticated;
+
+    [WmiDataId(6),
+    Description("User Authentication Type") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      UserAuthenticationType;
+
+    [WmiDataId(7),
+    Description("Request Thread Account Name") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      RequestThreadAccountName;
+
+    /*
+     * WebThreadInformation
+     */
+    [WmiDataId(8),
+    Description("Thread ID") : amended, read]
+    sint32      ThreadID;
+
+    [WmiDataId(9),
+    Description("Thread Account Name") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      ThreadAccountName;
+
+    [WmiDataId(10),
+    Description("Stack Trace") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      StackTrace;
+
+    [WmiDataId(11),
+    Description("Is Impersonating") : amended, read]
+    boolean     IsImpersonating;
+};
+
+[Dynamic, Description("Audit Event") : amended,
+ EventType(79), 
+ EventLevel(4),
+ EventVersion(1),
+ EventTypeName("AuditEvent") : amended]
+class AuditEvent : ManagementEvent {
+    /*
+     * WebRequestInformation
+     */
+
+    [WmiDataId(1),
+    Description("Request Url") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      RequestUrl;
+
+    [WmiDataId(2),
+    Description("Request Path") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      RequestPath;
+
+    [WmiDataId(3),
+    Description("User Host Address") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      UserHostAddress;
+
+    [WmiDataId(4),
+    Description("User Name") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      UserName;
+
+    [WmiDataId(5),
+    Description("User Authenticated") : amended, read]
+    boolean     UserAuthenticated;
+
+    [WmiDataId(6),
+    Description("User Authentication Type") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      UserAuthenticationType;
+
+    [WmiDataId(7),
+    Description("Request Thread Account Name") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      RequestThreadAccountName;
+};
+
+[Dynamic, Description("Success Audit Event") : amended,
+ EventType(80), 
+ EventLevel(4),
+ EventVersion(1),
+ EventTypeName("SuccessAuditEvent") : amended]
+class SuccessAuditEvent : AuditEvent {
+};
+
+[Dynamic, Description("Failure Audit Event") : amended,
+ EventType(81), 
+ EventLevel(4),
+ EventVersion(1),
+ EventTypeName("FailureAuditEvent") : amended]
+class FailureAuditEvent : AuditEvent {
+};
+
+[Dynamic, Description("Authentication Success Audit Event") : amended,
+ EventType(82), 
+ EventLevel(4),
+ EventVersion(1),
+ EventTypeName("AuthenticationSuccessAuditEvent") : amended]
+class AuthenticationSuccessAuditEvent : SuccessAuditEvent {
+    [WmiDataId(1),
+    Description("Name To Authenticate") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      NameToAuthenticate;
+};
+
+[Dynamic, Description("Authentication Failure Audit Event") : amended,
+ EventType(83), 
+ EventLevel(3),
+ EventVersion(1),
+ EventTypeName("AuthenticationFailureAuditEvent") : amended]
+class AuthenticationFailureAuditEvent : FailureAuditEvent {
+    [WmiDataId(1),
+    Description("Name To Authenticate") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      NameToAuthenticate;
+};
+
+[Dynamic, Description("View State Failure Audit Event") : amended,
+ EventType(84), 
+ EventLevel(3),
+ EventVersion(1),
+ EventTypeName("ViewStateFailureAuditEvent") : amended]
+class ViewStateFailureAuditEvent : FailureAuditEvent {
+    [WmiDataId(1),
+    Description("View State Exception Message") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      ViewStateExceptionMessage;
+
+    [WmiDataId(2),
+    Description("Remote Address") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      RemoteAddress;
+
+    [WmiDataId(3),
+    Description("Remote Port") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      RemotePort;
+
+    [WmiDataId(4),
+    Description("User Agent") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      UserAgent;
+
+    [WmiDataId(5),
+    Description("Persisted State") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      PersistedState;
+
+    [WmiDataId(6),
+    Description("Referer") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      Referer;
+
+    [WmiDataId(7),
+    Description("Path") : amended,
+    StringTermination("NullTerminated"),
+    format("w"),    
+    read]
+    string      Path;
+};
+
+
+/*
+ *  Registrations
+ */
+
+
+class MSFT_DecoupledProvider : __Win32Provider
+{
+    [Description ( "Decoupled provider CLSID, do not change. Do not override" ) : amended, Override("Clsid")] 
+    String Clsid = "{54D8502C-527D-43F7-A506-A9DA075E229C}" ;
+    [Description ( "Hosting Model, provides compatibility with Windows XP and Windows Server .NET. Do not override." ) : amended, Override("HostingModel")]
+    string HostingModel = "Decoupled:Com";
+    [Description("...") : amended, Override("SecurityDescriptor")] 
+    string SecurityDescriptor;      
+} ;
+
+instance of MSFT_DecoupledProvider as $PDecoupledEvent
+{
+    Name = "DecoupledEventProvider";
+    HostingModel = "Decoupled:Com" ;
+    SecurityDescriptor = 
+    "O:BAG:BAD:(A;;0x10000001;;;S-1-5-11)";
+};    
+
+instance of __EventProviderRegistration
+{
+    Provider = $PDecoupledEvent ;
+
+    EventQueryList = { 
+
+        "Select * from BaseEvent"
+    };
+};
+
+
