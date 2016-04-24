@@ -2,7 +2,7 @@
 
 Make sure you install [XQuartz 2.7.7 or higher](http://www.xquartz.org) first.	
 You will need to download the latest version of osu! from [here](https://osu.ppy.sh/p/download) and place it inside the .app (`osu!.app/drive_c/osu!/`)	
-Something like: ```curl -ks https://m1.ppy.sh/r/osu\!.exe\?`date +%s` > osu\!.app/drive_c/osu\!/osu\!.exe```
+Something like: ```curl -ks 'https://m1.ppy.sh/r/osu!.exe?'"$(date +%s)" > 'osu!.app/drive_c/osu!/osu!.exe'```
 
 # On first run
 Ignore this error:	
