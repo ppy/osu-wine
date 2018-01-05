@@ -15,13 +15,15 @@ EXPORTS
   IsPwrHibernateAllowed@0 @10
   IsPwrShutdownAllowed@0 @11
   IsPwrSuspendAllowed@0 @12
-  PowerGetActiveScheme@8 @13
-  PowerReadDCValue@28 @14
-  ReadGlobalPwrPolicy@4 @15
-  ReadProcessorPwrScheme@8 @16
-  ReadPwrScheme@8 @17
-  SetActivePwrScheme@12 @18
-  SetSuspendState@12 @19
-  WriteGlobalPwrPolicy@4 @20
-  WriteProcessorPwrScheme@8 @21
-  WritePwrScheme@16 @22
+  PowerDeterminePlatformRole@0 @13
+  PowerGetActiveScheme@8 @14
+  PowerSetActiveScheme@8 @15
+  PowerReadDCValue@28 @16
+  ReadGlobalPwrPolicy@4 @17
+  ReadProcessorPwrScheme@8 @18
+  ReadPwrScheme@8 @19
+  SetActivePwrScheme@12 @20
+  SetSuspendState@12 @21
+  WriteGlobalPwrPolicy@4 @22
+  WriteProcessorPwrScheme@8 @23
+  WritePwrScheme@16 @24

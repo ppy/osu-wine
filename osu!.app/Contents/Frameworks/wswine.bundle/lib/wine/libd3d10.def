@@ -9,6 +9,7 @@ EXPORTS
   D3D10CreateDevice@24 @4
   D3D10CreateDeviceAndSwapChain@32 @5
   D3D10CreateEffectFromMemory@24 @6
+  D3D10CreateEffectPoolFromMemory@20 @7
   D3D10CreateStateBlock@12 @8
   D3D10DisassembleShader@20 @10
   D3D10GetGeometryShaderProfile@4 @11

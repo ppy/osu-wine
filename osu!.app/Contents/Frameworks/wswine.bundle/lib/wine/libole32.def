@@ -68,6 +68,8 @@ EXPORTS
   CoRegisterMallocSpy@4 @66
   CoRegisterMessageFilter@8 @67
   CoRegisterPSClsid@8 @68
+  CoRegisterSurrogate@4 @69
+  CoRegisterSurrogateEx@8 @70
   CoReleaseMarshalData@4 @71
   CoReleaseServerProcess@0 @72
   CoResumeClassObjects@0 @73
@@ -190,6 +192,7 @@ EXPORTS
   OleGetAutoConvert@8 @207
   OleGetClipboard@4 @208
   OleGetIconOfClass@12 @209
+  OleGetIconOfFile@8 @210
   OleInitialize@4 @211
   OleInitializeWOW@8 @212
   OleIsCurrentClipboard@4 @213
@@ -241,20 +244,22 @@ EXPORTS
   StgCreateDocfile@16 @263
   StgCreateDocfileOnILockBytes@16 @264
   StgCreatePropSetStg@12 @265
-  StgCreateStorageEx@32 @266
-  StgIsStorageFile@4 @269
-  StgIsStorageILockBytes@4 @270
-  StgOpenStorage@24 @272
-  StgOpenStorageEx@32 @273
-  StgOpenStorageOnILockBytes@24 @274
-  StgSetTimes@16 @275
-  StringFromCLSID@8 @276
-  StringFromGUID2@12 @277
-  StringFromIID@8=StringFromCLSID@8 @278
-  WdtpInterfacePointer_UserFree@4 @284
-  WdtpInterfacePointer_UserMarshal@20 @285
-  WdtpInterfacePointer_UserSize@20 @286
-  WdtpInterfacePointer_UserUnmarshal@16 @287
-  WriteClassStg@8 @288
-  WriteClassStm@8 @289
-  WriteFmtUserTypeStg@12 @290
+  StgCreatePropStg@24 @266
+  StgCreateStorageEx@32 @267
+  StgIsStorageFile@4 @270
+  StgIsStorageILockBytes@4 @271
+  StgOpenPropStg@20 @273
+  StgOpenStorage@24 @274
+  StgOpenStorageEx@32 @275
+  StgOpenStorageOnILockBytes@24 @276
+  StgSetTimes@16 @277
+  StringFromCLSID@8 @278
+  StringFromGUID2@12 @279
+  StringFromIID@8=StringFromCLSID@8 @280
+  WdtpInterfacePointer_UserFree@4 @286
+  WdtpInterfacePointer_UserMarshal@20 @287
+  WdtpInterfacePointer_UserSize@20 @288
+  WdtpInterfacePointer_UserUnmarshal@16 @289
+  WriteClassStg@8 @290
+  WriteClassStm@8 @291
+  WriteFmtUserTypeStg@12 @292

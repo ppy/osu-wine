@@ -49,7 +49,7 @@
 	<key>wm_click_through</key>
 	<false/>
 	<key>wm_ffm</key>
-	<false/>
+	<true/>
 	<key>wm_focus_on_new_window</key>
 	<true/>
 </dict>

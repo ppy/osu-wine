@@ -71,10 +71,11 @@ EXPORTS
   GetWindowTheme@4 @97
   HitTestThemeBackground@40 @98
   IsAppThemed@0 @99
-  IsThemeActive@0 @100
-  IsThemeBackgroundPartiallyTransparent@12 @101
-  IsThemeDialogTextureEnabled@4 @102
-  IsThemePartDefined@12 @103
-  OpenThemeData@8 @104
-  SetThemeAppProperties@4 @105
-  SetWindowTheme@12 @106
+  IsCompositionActive@0 @100
+  IsThemeActive@0 @101
+  IsThemeBackgroundPartiallyTransparent@12 @102
+  IsThemeDialogTextureEnabled@4 @103
+  IsThemePartDefined@12 @104
+  OpenThemeData@8 @105
+  SetThemeAppProperties@4 @106
+  SetWindowTheme@12 @107

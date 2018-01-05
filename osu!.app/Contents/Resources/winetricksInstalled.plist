@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>WS-Installed</key>
+	<array>
+		<string></string>
+		<string>dotnet40</string>
+		<string>gdiplus</string>
+		<string>gdiplus_winxp</string>
+		<string>msxml3</string>
+		<string>takao</string>
+		<string>wenquanyi</string>
+	</array>
+</dict>
+</plist>

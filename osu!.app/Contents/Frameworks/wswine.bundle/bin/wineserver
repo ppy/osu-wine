@@ -1,2 +1,2 @@
 #!/bin/bash
-DYLD_FALLBACK_LIBRARY_PATH="${WINESKIN_LIB_PATH_FOR_FALLBACK}" "$(dirname "$0")/osu!92068297Wineserver" "$@"
+DYLD_FALLBACK_LIBRARY_PATH="${WINESKIN_LIB_PATH_FOR_FALLBACK}" "$(dirname "$0")/osu!597972518Wineserver" "$@"

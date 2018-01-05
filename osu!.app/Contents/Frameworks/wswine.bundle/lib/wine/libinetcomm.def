@@ -10,6 +10,7 @@ EXPORTS
   DllGetClassObject@12 @9 PRIVATE
   DllRegisterServer@0 @10 PRIVATE
   DllUnregisterServer@0 @11 PRIVATE
+  MimeGetAddressFormatW@20 @45
   MimeOleCreateMessage@8 @54
   MimeOleCreateSecurity@4 @57
   MimeOleCreateVirtualStream@4 @58
@@ -18,4 +19,6 @@ EXPORTS
   MimeOleGetCharsetInfo@8 @70
   MimeOleGetDefaultCharset@4 @74
   MimeOleGetInternat@4 @79
+  MimeOleGetPropertySchema@4 @82
+  MimeOleObjectFromMoniker@24 @85
   MimeOleSetCompatMode@4 @101

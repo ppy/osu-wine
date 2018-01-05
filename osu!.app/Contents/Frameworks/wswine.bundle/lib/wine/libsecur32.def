@@ -8,6 +8,8 @@ EXPORTS
   AcquireCredentialsHandleW@36 @5
   AddCredentialsA@32 @6
   AddCredentialsW@32 @7
+  AddSecurityPackageA@8 @8
+  AddSecurityPackageW@8 @9
   ApplyControlToken@8 @10
   CompleteAuthToken@8 @11
   DecryptMessage@16 @12
@@ -50,12 +52,13 @@ EXPORTS
   SealMessage@16=EncryptMessage@16 @63
   SetContextAttributesA@16 @69
   SetContextAttributesW@16 @70
-  SspiEncodeAuthIdentityAsStrings@16 @71
-  SspiEncodeStringsAsAuthIdentity@16 @72
-  SspiFreeAuthIdentity@4 @73
-  SspiLocalFree@4 @74
-  SspiZeroAuthIdentity@4 @75
-  TranslateNameA@20 @76
-  TranslateNameW@20 @77
-  UnsealMessage@16=DecryptMessage@16 @78
-  VerifySignature@16 @79
+  SspiEncodeAuthIdentityAsStrings@16=sspicli.SspiEncodeAuthIdentityAsStrings @71
+  SspiEncodeStringsAsAuthIdentity@16=sspicli.SspiEncodeStringsAsAuthIdentity @72
+  SspiFreeAuthIdentity@4=sspicli.SspiFreeAuthIdentity @73
+  SspiLocalFree@4=sspicli.SspiLocalFree @74
+  SspiPrepareForCredWrite@28=sspicli.SspiPrepareForCredWrite @75
+  SspiZeroAuthIdentity@4=sspicli.SspiZeroAuthIdentity @76
+  TranslateNameA@20 @77
+  TranslateNameW@20 @78
+  UnsealMessage@16=DecryptMessage@16 @79
+  VerifySignature@16 @80

@@ -5,6 +5,13 @@ LIBRARY msvcr110.dll
 EXPORTS
   ??0?$_SpinWait@$00@details@Concurrency@@QAE@P6AXXZ@Z=__thiscall_SpinWait_ctor_yield @1
   ??0?$_SpinWait@$0A@@details@Concurrency@@QAE@P6AXXZ@Z=__thiscall_SpinWait_ctor @2
+  ??0SchedulerPolicy@Concurrency@@QAA@IZZ=SchedulerPolicy_ctor_policies @3
+  ??0SchedulerPolicy@Concurrency@@QAE@ABV01@@Z=__thiscall_SchedulerPolicy_copy_ctor @4
+  ??0SchedulerPolicy@Concurrency@@QAE@XZ=__thiscall_SchedulerPolicy_ctor @5
+  ??0_Condition_variable@details@Concurrency@@QAE@XZ=__thiscall__Condition_variable_ctor @8
+  ??0_NonReentrantBlockingLock@details@Concurrency@@QAE@XZ=__thiscall__ReentrantBlockingLock_ctor @12
+  ??0_ReentrantBlockingLock@details@Concurrency@@QAE@XZ=__thiscall__ReentrantBlockingLock_ctor @15
+  ??0_Scheduler@details@Concurrency@@QAE@PAVScheduler@2@@Z=__thiscall__Scheduler_ctor_sched @18
   ??0__non_rtti_object@std@@QAE@ABV01@@Z=__thiscall_MSVCRT___non_rtti_object_copy_ctor @26
   ??0__non_rtti_object@std@@QAE@PBD@Z=__thiscall_MSVCRT___non_rtti_object_ctor @27
   ??0bad_cast@std@@AAE@PBQBD@Z=__thiscall_MSVCRT_bad_cast_ctor @28
@@ -13,21 +20,48 @@ EXPORTS
   ??0bad_typeid@std@@QAE@ABV01@@Z=__thiscall_MSVCRT_bad_typeid_copy_ctor @33
   ??0bad_typeid@std@@QAE@PBD@Z=__thiscall_MSVCRT_bad_typeid_ctor @34
   ??0critical_section@Concurrency@@QAE@XZ=__thiscall_critical_section_ctor @39
+  ??0event@Concurrency@@QAE@XZ=__thiscall_event_ctor @42
   ??0exception@std@@QAE@ABQBD@Z=__thiscall_MSVCRT_exception_ctor @43
   ??0exception@std@@QAE@ABQBDH@Z=__thiscall_MSVCRT_exception_ctor_noalloc @44
   ??0exception@std@@QAE@ABV01@@Z=__thiscall_MSVCRT_exception_copy_ctor @45
   ??0exception@std@@QAE@XZ=__thiscall_MSVCRT_exception_default_ctor @46
+  ??0improper_lock@Concurrency@@QAE@PBD@Z=__thiscall_improper_lock_ctor_str @47
+  ??0improper_lock@Concurrency@@QAE@XZ=__thiscall_improper_lock_ctor @48
+  ??0improper_scheduler_attach@Concurrency@@QAE@PBD@Z=__thiscall_improper_scheduler_attach_ctor_str @49
+  ??0improper_scheduler_attach@Concurrency@@QAE@XZ=__thiscall_improper_scheduler_attach_ctor @50
+  ??0improper_scheduler_detach@Concurrency@@QAE@PBD@Z=__thiscall_improper_scheduler_detach_ctor_str @51
+  ??0improper_scheduler_detach@Concurrency@@QAE@XZ=__thiscall_improper_scheduler_detach_ctor @52
+  ??0invalid_scheduler_policy_key@Concurrency@@QAE@PBD@Z=__thiscall_invalid_scheduler_policy_key_ctor_str @63
+  ??0invalid_scheduler_policy_key@Concurrency@@QAE@XZ=__thiscall_invalid_scheduler_policy_key_ctor @64
+  ??0invalid_scheduler_policy_thread_specification@Concurrency@@QAE@PBD@Z=__thiscall_invalid_scheduler_policy_thread_specification_ctor_str @65
+  ??0invalid_scheduler_policy_thread_specification@Concurrency@@QAE@XZ=__thiscall_invalid_scheduler_policy_thread_specification_ctor @66
+  ??0invalid_scheduler_policy_value@Concurrency@@QAE@PBD@Z=__thiscall_invalid_scheduler_policy_value_ctor_str @67
+  ??0invalid_scheduler_policy_value@Concurrency@@QAE@XZ=__thiscall_invalid_scheduler_policy_value_ctor @68
+  ??0reader_writer_lock@Concurrency@@QAE@XZ=__thiscall_reader_writer_lock_ctor @77
+  ??0scheduler_resource_allocation_error@Concurrency@@QAE@J@Z=__thiscall_scheduler_resource_allocation_error_ctor @80
+  ??0scheduler_resource_allocation_error@Concurrency@@QAE@PBDJ@Z=__thiscall_scheduler_resource_allocation_error_ctor_name @81
   ??0scoped_lock@critical_section@Concurrency@@QAE@AAV12@@Z=__thiscall_critical_section_scoped_lock_ctor @84
+  ??0scoped_lock@reader_writer_lock@Concurrency@@QAE@AAV12@@Z=__thiscall_reader_writer_lock_scoped_lock_ctor @85
+  ??0scoped_lock_read@reader_writer_lock@Concurrency@@QAE@AAV12@@Z=__thiscall_reader_writer_lock_scoped_lock_read_ctor @86
+  ??1SchedulerPolicy@Concurrency@@QAE@XZ=__thiscall_SchedulerPolicy_dtor @91
+  ??1_Condition_variable@details@Concurrency@@QAE@XZ=__thiscall__Condition_variable_dtor @94
+  ??1_NonReentrantBlockingLock@details@Concurrency@@QAE@XZ=__thiscall__ReentrantBlockingLock_dtor @95
+  ??1_ReentrantBlockingLock@details@Concurrency@@QAE@XZ=__thiscall__ReentrantBlockingLock_dtor @96
   ??1__non_rtti_object@std@@UAE@XZ=__thiscall_MSVCRT___non_rtti_object_dtor @102
   ??1bad_cast@std@@UAE@XZ=__thiscall_MSVCRT_bad_cast_dtor @103
   ??1bad_typeid@std@@UAE@XZ=__thiscall_MSVCRT_bad_typeid_dtor @104
   ??1critical_section@Concurrency@@QAE@XZ=__thiscall_critical_section_dtor @105
+  ??1event@Concurrency@@QAE@XZ=__thiscall_event_dtor @106
   ??1exception@std@@UAE@XZ=__thiscall_MSVCRT_exception_dtor @107
+  ??1reader_writer_lock@Concurrency@@QAE@XZ=__thiscall_reader_writer_lock_dtor @108
   ??1scoped_lock@critical_section@Concurrency@@QAE@XZ=__thiscall_critical_section_scoped_lock_dtor @109
+  ??1scoped_lock@reader_writer_lock@Concurrency@@QAE@XZ=__thiscall_reader_writer_lock_scoped_lock_dtor @110
+  ??1scoped_lock_read@reader_writer_lock@Concurrency@@QAE@XZ=__thiscall_reader_writer_lock_scoped_lock_read_dtor @111
   ??1type_info@@UAE@XZ=__thiscall_MSVCRT_type_info_dtor @112
   ??2@YAPAXI@Z=MSVCRT_operator_new @113
   ??2@YAPAXIHPBDH@Z=MSVCRT_operator_new_dbg @114
   ??3@YAXPAX@Z=MSVCRT_operator_delete @115
+  ??4SchedulerPolicy@Concurrency@@QAEAAV01@ABV01@@Z=__thiscall_SchedulerPolicy_op_assign @119
   ??4__non_rtti_object@std@@QAEAAV01@ABV01@@Z=__thiscall_MSVCRT___non_rtti_object_opequals @120
   ??4bad_cast@std@@QAEAAV01@ABV01@@Z=__thiscall_MSVCRT_bad_cast_opequals @121
   ??4bad_typeid@std@@QAEAAV01@ABV01@@Z=__thiscall_MSVCRT_bad_typeid_opequals @122
@@ -40,30 +74,78 @@ EXPORTS
   ??_7exception@std@@6B@=MSVCRT_exception_vtable @129 DATA
   ??_F?$_SpinWait@$00@details@Concurrency@@QAEXXZ=__thiscall_SpinWait_dtor @130
   ??_F?$_SpinWait@$0A@@details@Concurrency@@QAEXXZ=__thiscall_SpinWait_dtor @131
+  ??_F_Scheduler@details@Concurrency@@QAEXXZ=__thiscall__Scheduler_ctor @133
   ??_Fbad_cast@std@@QAEXXZ=__thiscall_MSVCRT_bad_cast_default_ctor @134
   ??_Fbad_typeid@std@@QAEXXZ=__thiscall_MSVCRT_bad_typeid_default_ctor @135
   ??_U@YAPAXI@Z=MSVCRT_operator_new @136
   ??_U@YAPAXIHPBDH@Z=MSVCRT_operator_new_dbg @137
   ??_V@YAXPAX@Z=MSVCRT_operator_delete @138
+  ?Alloc@Concurrency@@YAPAXI@Z=Concurrency_Alloc @140
+  ?Block@Context@Concurrency@@SAXXZ=Context_Block @141
+  ?Create@CurrentScheduler@Concurrency@@SAXABVSchedulerPolicy@2@@Z=CurrentScheduler_Create @142
+  ?Create@Scheduler@Concurrency@@SAPAV12@ABVSchedulerPolicy@2@@Z=Scheduler_Create @143
+  ?CreateScheduleGroup@CurrentScheduler@Concurrency@@SAPAVScheduleGroup@2@AAVlocation@2@@Z=CurrentScheduler_CreateScheduleGroup_loc @145
+  ?CreateScheduleGroup@CurrentScheduler@Concurrency@@SAPAVScheduleGroup@2@XZ=CurrentScheduler_CreateScheduleGroup @146
+  ?CurrentContext@Context@Concurrency@@SAPAV12@XZ=Context_CurrentContext @147
+  ?Detach@CurrentScheduler@Concurrency@@SAXXZ=CurrentScheduler_Detach @148
+  ?Free@Concurrency@@YAXPAX@Z=Concurrency_Free @151
+  ?Get@CurrentScheduler@Concurrency@@SAPAVScheduler@2@XZ=CurrentScheduler_Get @152
+  ?GetNumberOfVirtualProcessors@CurrentScheduler@Concurrency@@SAIXZ=CurrentScheduler_GetNumberOfVirtualProcessors @154
+  ?GetPolicy@CurrentScheduler@Concurrency@@SA?AVSchedulerPolicy@2@XZ=CurrentScheduler_GetPolicy @156
+  ?GetPolicyValue@SchedulerPolicy@Concurrency@@QBEIW4PolicyElementKey@2@@Z=__thiscall_SchedulerPolicy_GetPolicyValue @157
+  ?Id@Context@Concurrency@@SAIXZ=Context_Id @162
+  ?Id@CurrentScheduler@Concurrency@@SAIXZ=CurrentScheduler_Id @163
+  ?IsAvailableLocation@CurrentScheduler@Concurrency@@SA_NABVlocation@2@@Z=CurrentScheduler_IsAvailableLocation @164
+  ?IsCurrentTaskCollectionCanceling@Context@Concurrency@@SA_NXZ=Context_IsCurrentTaskCollectionCanceling @165
+  ?Oversubscribe@Context@Concurrency@@SAX_N@Z=Context_Oversubscribe @167
+  ?RegisterShutdownEvent@CurrentScheduler@Concurrency@@SAXPAX@Z=CurrentScheduler_RegisterShutdownEvent @168
+  ?ResetDefaultSchedulerPolicy@Scheduler@Concurrency@@SAXXZ=Scheduler_ResetDefaultSchedulerPolicy @169
+  ?ScheduleGroupId@Context@Concurrency@@SAIXZ=Context_ScheduleGroupId @170
+  ?ScheduleTask@CurrentScheduler@Concurrency@@SAXP6AXPAX@Z0@Z=CurrentScheduler_ScheduleTask @171
+  ?ScheduleTask@CurrentScheduler@Concurrency@@SAXP6AXPAX@Z0AAVlocation@2@@Z=CurrentScheduler_ScheduleTask_loc @172
+  ?SetConcurrencyLimits@SchedulerPolicy@Concurrency@@QAEXII@Z=__thiscall_SchedulerPolicy_SetConcurrencyLimits @173
+  ?SetDefaultSchedulerPolicy@Scheduler@Concurrency@@SAXABVSchedulerPolicy@2@@Z=Scheduler_SetDefaultSchedulerPolicy @174
+  ?SetPolicyValue@SchedulerPolicy@Concurrency@@QAEIW4PolicyElementKey@2@I@Z=__thiscall_SchedulerPolicy_SetPolicyValue @175
+  ?VirtualProcessorId@Context@Concurrency@@SAIXZ=Context_VirtualProcessorId @176
+  ?Yield@Context@Concurrency@@SAXXZ=Context_Yield @177
+  ?_Acquire@_NonReentrantBlockingLock@details@Concurrency@@QAEXXZ=__thiscall__ReentrantBlockingLock__Acquire @179
+  ?_Acquire@_ReentrantBlockingLock@details@Concurrency@@QAEXXZ=__thiscall__ReentrantBlockingLock__Acquire @181
   ?_DoYield@?$_SpinWait@$00@details@Concurrency@@IAEXXZ=__thiscall_SpinWait__DoYield @202
   ?_DoYield@?$_SpinWait@$0A@@details@Concurrency@@IAEXXZ=__thiscall_SpinWait__DoYield @203
+  ?_Get@_CurrentScheduler@details@Concurrency@@SA?AV_Scheduler@23@XZ=_CurrentScheduler__Get @204
   ?_GetConcurrency@details@Concurrency@@YAIXZ=_GetConcurrency @206
+  ?_GetNumberOfVirtualProcessors@_CurrentScheduler@details@Concurrency@@SAIXZ=_CurrentScheduler__GetNumberOfVirtualProcessors @208
+  ?_GetScheduler@_Scheduler@details@Concurrency@@QAEPAVScheduler@3@XZ=__thiscall__Scheduler__GetScheduler @209
+  ?_Id@_CurrentScheduler@details@Concurrency@@SAIXZ=_CurrentScheduler__Id @210
   ?_NumberOfSpins@?$_SpinWait@$00@details@Concurrency@@IAEKXZ=__thiscall_SpinWait__NumberOfSpins @219
   ?_NumberOfSpins@?$_SpinWait@$0A@@details@Concurrency@@IAEKXZ=__thiscall_SpinWait__NumberOfSpins @220
+  ?_Reference@_Scheduler@details@Concurrency@@QAEIXZ=__thiscall__Scheduler__Reference @222
+  ?_Release@_NonReentrantBlockingLock@details@Concurrency@@QAEXXZ=__thiscall__ReentrantBlockingLock__Release @225
+  ?_Release@_ReentrantBlockingLock@details@Concurrency@@QAEXXZ=__thiscall__ReentrantBlockingLock__Release @227
+  ?_Release@_Scheduler@details@Concurrency@@QAEIXZ=__thiscall__Scheduler__Release @230
   ?_Reset@?$_SpinWait@$00@details@Concurrency@@IAEXXZ=__thiscall_SpinWait__Reset @234
   ?_Reset@?$_SpinWait@$0A@@details@Concurrency@@IAEXXZ=__thiscall_SpinWait__Reset @235
+  ?_ScheduleTask@_CurrentScheduler@details@Concurrency@@SAXP6AXPAX@Z0@Z=_CurrentScheduler__ScheduleTask @242
   ?_SetSpinCount@?$_SpinWait@$00@details@Concurrency@@QAEXI@Z=__thiscall_SpinWait__SetSpinCount @243
   ?_SetSpinCount@?$_SpinWait@$0A@@details@Concurrency@@QAEXI@Z=__thiscall_SpinWait__SetSpinCount @244
   ?_ShouldSpinAgain@?$_SpinWait@$00@details@Concurrency@@IAE_NXZ=__thiscall_SpinWait__ShouldSpinAgain @246
   ?_ShouldSpinAgain@?$_SpinWait@$0A@@details@Concurrency@@IAE_NXZ=__thiscall_SpinWait__ShouldSpinAgain @247
   ?_SpinOnce@?$_SpinWait@$00@details@Concurrency@@QAE_NXZ=__thiscall_SpinWait__SpinOnce @248
   ?_SpinOnce@?$_SpinWait@$0A@@details@Concurrency@@QAE_NXZ=__thiscall_SpinWait__SpinOnce @249
+  ?_SpinYield@Context@Concurrency@@SAXXZ=Context__SpinYield @250
+  ?_Trace_ppl_function@Concurrency@@YAXABU_GUID@@EW4ConcRT_EventType@1@@Z=Concurrency__Trace_ppl_function @255
+  ?_TryAcquire@_NonReentrantBlockingLock@details@Concurrency@@QAE_NXZ=__thiscall__ReentrantBlockingLock__TryAcquire @256
+  ?_TryAcquire@_ReentrantBlockingLock@details@Concurrency@@QAE_NXZ=__thiscall__ReentrantBlockingLock__TryAcquire @257
   ?_Value@_SpinCount@details@Concurrency@@SAIXZ=SpinCount__Value @266
+  ?__ExceptionPtrAssign@@YAXPAXPBX@Z=__ExceptionPtrAssign @268
+  ?__ExceptionPtrCompare@@YA_NPBX0@Z=__ExceptionPtrCompare @269
   ?__ExceptionPtrCopy@@YAXPAXPBX@Z=__ExceptionPtrCopy @270
+  ?__ExceptionPtrCopyException@@YAXPAXPBX1@Z=__ExceptionPtrCopyException @271
   ?__ExceptionPtrCreate@@YAXPAX@Z=__ExceptionPtrCreate @272
   ?__ExceptionPtrCurrentException@@YAXPAX@Z=__ExceptionPtrCurrentException @273
   ?__ExceptionPtrDestroy@@YAXPAX@Z=__ExceptionPtrDestroy @274
   ?__ExceptionPtrRethrow@@YAXPBX@Z=__ExceptionPtrRethrow @275
+  ?__ExceptionPtrToBool@@YA_NPBX@Z=__ExceptionPtrToBool @277
   __uncaught_exception=MSVCRT___uncaught_exception @278
   ?_invalid_parameter@@YAXPBG00II@Z=MSVCRT__invalid_parameter @280
   ?_is_exception_typeof@@YAHABVtype_info@@PAU_EXCEPTION_POINTERS@@@Z=_is_exception_typeof @281
@@ -78,10 +160,17 @@ EXPORTS
   ?_wopen@@YAHPB_WHH@Z=MSVCRT__wopen @293
   ?_wsopen@@YAHPB_WHHH@Z=MSVCRT__wsopen @294
   ?before@type_info@@QBE_NABV1@@Z=__thiscall_MSVCRT_type_info_before @295
+  ?get_error_code@scheduler_resource_allocation_error@Concurrency@@QBEJXZ=__thiscall_scheduler_resource_allocation_error_get_error_code @298
   ?lock@critical_section@Concurrency@@QAEXXZ=__thiscall_critical_section_lock @299
+  ?lock@reader_writer_lock@Concurrency@@QAEXXZ=__thiscall_reader_writer_lock_lock @300
+  ?lock_read@reader_writer_lock@Concurrency@@QAEXXZ=__thiscall_reader_writer_lock_lock_read @301
   ?name@type_info@@QBEPBDPAU__type_info_node@@@Z=__thiscall_type_info_name_internal_method @302
   ?native_handle@critical_section@Concurrency@@QAEAAV12@XZ=__thiscall_critical_section_native_handle @303
+  ?notify_all@_Condition_variable@details@Concurrency@@QAEXXZ=__thiscall__Condition_variable_notify_all @304
+  ?notify_one@_Condition_variable@details@Concurrency@@QAEXXZ=__thiscall__Condition_variable_notify_one @305
   ?raw_name@type_info@@QBEPBDXZ=__thiscall_MSVCRT_type_info_raw_name @306
+  ?reset@event@Concurrency@@QAEXXZ=__thiscall_event_reset @307
+  ?set@event@Concurrency@@QAEXXZ=__thiscall_event_set @308
   ?set_new_handler@@YAP6AXXZP6AXXZ@Z=MSVCRT_set_new_handler @309
   ?set_terminate@@YAP6AXXZP6AXXZ@Z=MSVCRT_set_terminate @313
   ?set_unexpected@@YAP6AXXZP6AXXZ@Z=MSVCRT_set_unexpected @315
@@ -89,10 +178,17 @@ EXPORTS
   ?swprintf@@YAHPA_WIPB_WZZ=MSVCRT__snwprintf @317
   ?terminate@@YAXXZ=MSVCRT_terminate @318
   ?try_lock@critical_section@Concurrency@@QAE_NXZ=__thiscall_critical_section_try_lock @319
+  ?try_lock@reader_writer_lock@Concurrency@@QAE_NXZ=__thiscall_reader_writer_lock_try_lock @320
   ?try_lock_for@critical_section@Concurrency@@QAE_NI@Z=__thiscall_critical_section_try_lock_for @321
+  ?try_lock_read@reader_writer_lock@Concurrency@@QAE_NXZ=__thiscall_reader_writer_lock_try_lock_read @322
   ?unexpected@@YAXXZ=MSVCRT_unexpected @323
   ?unlock@critical_section@Concurrency@@QAEXXZ=__thiscall_critical_section_unlock @324
+  ?unlock@reader_writer_lock@Concurrency@@QAEXXZ=__thiscall_reader_writer_lock_unlock @325
   ?vswprintf@@YAHPA_WIPB_WPAD@Z=MSVCRT_vsnwprintf @326
+  ?wait@_Condition_variable@details@Concurrency@@QAEXAAVcritical_section@3@@Z=__thiscall__Condition_variable_wait @328
+  ?wait@event@Concurrency@@QAEII@Z=__thiscall_event_wait @329
+  ?wait_for@_Condition_variable@details@Concurrency@@QAE_NAAVcritical_section@3@I@Z=__thiscall__Condition_variable_wait_for @330
+  ?wait_for_multiple@event@Concurrency@@SAIPAPAV12@I_NI@Z=event_wait_for_multiple @331
   ?what@exception@std@@UBEPBDXZ=__thiscall_MSVCRT_what_exception @332
   $I10_OUTPUT=MSVCRT_I10_OUTPUT @333
   _CIacos @334
@@ -113,16 +209,22 @@ EXPORTS
   _CItanh @349
   _CRT_RTC_INIT @350
   _CRT_RTC_INITW @351
+  _CreateFrameInfo @352
   _CxxThrowException@8 @353
   _EH_prolog @354
+  _FindAndUnlinkFrame @355
   _Getdays @356
   _Getmonths @357
   _Gettnames @358
   _HUGE=MSVCRT__HUGE @359 DATA
+  _IsExceptionObjectToBeDestroyed @360
+  _Lock_shared_ptr_spin_lock @361
   _Strftime @365
+  _Unlock_shared_ptr_spin_lock @366
   _W_Getdays @367
   _W_Getmonths @368
   _W_Gettnames @369
+  _Wcsftime @370
   _XcptFilter @371
   __AdjustPointer @372
   __CppXcptFilter @375
@@ -133,6 +235,9 @@ EXPORTS
   __CxxFrameHandler3=__CxxFrameHandler @380
   __CxxLongjmpUnwind@4 @381
   __CxxQueryExceptionSize @382
+  __CxxRegisterExceptionObject @383
+  __CxxUnregisterExceptionObject @384
+  __DestructExceptionObject @385
   __RTCastToVoid=MSVCRT___RTCastToVoid @387
   __RTDynamicCast=MSVCRT___RTDynamicCast @388
   __RTtypeid=MSVCRT___RTtypeid @389
@@ -158,6 +263,7 @@ EXPORTS
   __crtLCMapStringW @425
   __crtSetUnhandledExceptionFilter=MSVCR110__crtSetUnhandledExceptionFilter @427
   __crtTerminateProcess=MSVCR110__crtTerminateProcess @428
+  __crtUnhandledException=MSVCRT__crtUnhandledException @429
   __daylight=MSVCRT___p__daylight @430
   __dllonexit @431
   __doserrno=MSVCRT___doserrno @432
@@ -358,6 +464,7 @@ EXPORTS
   _flushall=MSVCRT__flushall @661
   _fmode=MSVCRT__fmode @662 DATA
   _fpclass=MSVCRT__fpclass @663
+  _fpieee_flt @664
   _fpreset @665
   _fputc_nolock=MSVCRT__fputc_nolock @670
   _fputchar=MSVCRT__fputchar @671
@@ -373,6 +480,7 @@ EXPORTS
   _fseeki64_nolock=MSVCRT__fseeki64_nolock @684
   _fsopen=MSVCRT__fsopen @685
   _fstat32=MSVCRT__fstat32 @686
+  _fstat32i64=MSVCRT__fstat32i64 @687
   _fstat64=MSVCRT__fstat64 @688
   _fstat64i32=MSVCRT__fstat64i32 @689
   _ftell_nolock=MSVCRT__ftell_nolock @690
@@ -395,6 +503,7 @@ EXPORTS
   _get_current_locale=MSVCRT__get_current_locale @710
   _get_daylight @711
   _get_doserrno @712
+  _get_dstbias=MSVCRT__get_dstbias @713
   _get_errno @714
   _get_fmode=MSVCRT__get_fmode @715
   _get_heap_handle @716
@@ -403,6 +512,7 @@ EXPORTS
   _get_output_format=MSVCRT__get_output_format @719
   _get_pgmptr @720
   _get_printf_count_output=MSVCRT__get_printf_count_output @721
+  _get_purecall_handler @722
   _get_terminate=MSVCRT__get_terminate @723
   _get_timezone @724
   _get_tzname=MSVCRT__get_tzname @725
@@ -450,6 +560,7 @@ EXPORTS
   _initterm_e @771
   _invalid_parameter=MSVCRT__invalid_parameter @775
   _invalid_parameter_noinfo @776
+  _invalid_parameter_noinfo_noreturn @777
   _iob=MSVCRT__iob @779 DATA
   _isalnum_l=MSVCRT__isalnum_l @780
   _isalpha_l=MSVCRT__isalpha_l @781
@@ -471,6 +582,7 @@ EXPORTS
   _ismbcgraph @818
   _ismbchira @820
   _ismbckata @822
+  _ismbcl0 @824
   _ismbclegal @830
   _ismbcpunct @836
   _ismbcspace @838
@@ -483,6 +595,7 @@ EXPORTS
   _isspace_l=MSVCRT__isspace_l @851
   _isupper_l=MSVCRT__isupper_l @852
   _iswalpha_l=MSVCRT__iswalpha_l @854
+  _iswctype_l=MSVCRT__iswctype_l @858
   _iswdigit_l=MSVCRT__iswdigit_l @859
   _iswpunct_l=MSVCRT__iswpunct_l @863
   _iswspace_l=MSVCRT__iswspace_l @864
@@ -496,6 +609,7 @@ EXPORTS
   _jn=MSVCRT__jn @874
   _kbhit @875
   _lfind @876
+  _lfind_s @877
   _libm_sse2_acos_precise=MSVCRT___libm_sse2_acos @878
   _libm_sse2_asin_precise=MSVCRT___libm_sse2_asin @879
   _libm_sse2_atan_precise=MSVCRT___libm_sse2_atan @880
@@ -534,6 +648,9 @@ EXPORTS
   _mbbtombc @914
   _mbbtype @916
   _mbccpy @918
+  _mbccpy_l @919
+  _mbccpy_s @920
+  _mbccpy_s_l @921
   _mbcjistojms @922
   _mbcjmstojis @924
   _mbclen @926
@@ -559,6 +676,7 @@ EXPORTS
   _mbsicoll_l @959
   _mbsinc @960
   _mbslen @962
+  _mbslen_l @963
   _mbslwr @964
   _mbslwr_s @966
   _mbsnbcat @968
@@ -581,6 +699,8 @@ EXPORTS
   _mbsnextc @1004
   _mbsnicmp @1006
   _mbsninc @1010
+  _mbsnlen @1012
+  _mbsnlen_l @1013
   _mbsnset @1014
   _mbspbrk @1018
   _mbsrchr @1020
@@ -601,7 +721,8 @@ EXPORTS
   _mbsupr_s @1046
   _mbtowc_l=MSVCRT_mbtowc_l @1048
   _memccpy=ntdll._memccpy @1049
-  _memicmp=ntdll._memicmp @1050
+  _memicmp=MSVCRT__memicmp @1050
+  _memicmp_l=MSVCRT__memicmp_l @1051
   _mkdir=MSVCRT__mkdir @1052
   _mkgmtime32=MSVCRT__mkgmtime32 @1053
   _mkgmtime64=MSVCRT__mkgmtime64 @1054
@@ -711,6 +832,7 @@ EXPORTS
   _strdate_s @1177
   _strdup=MSVCRT__strdup @1178
   _strerror=MSVCRT__strerror @1179
+  _strftime_l=MSVCRT__strftime_l @1181
   _stricmp=MSVCRT__stricmp @1182
   _stricmp_l=MSVCRT__stricmp_l @1183
   _stricoll=MSVCRT__stricoll @1184
@@ -788,7 +910,14 @@ EXPORTS
   _utime64 @1261
   _vcprintf @1262
   _vcwprintf @1268
+  _vfprintf_l=MSVCRT__vfprintf_l @1274
+  _vfprintf_p=MSVCRT__vfprintf_p @1275
+  _vfprintf_p_l=MSVCRT__vfprintf_p_l @1276
+  _vfprintf_s_l=MSVCRT__vfprintf_s_l @1277
   _vfwprintf_l=MSVCRT__vfwprintf_l @1278
+  _vfwprintf_p=MSVCRT__vfwprintf_p @1279
+  _vfwprintf_p_l=MSVCRT__vfwprintf_p_l @1280
+  _vfwprintf_s_l=MSVCRT__vfwprintf_s_l @1281
   _vscprintf=MSVCRT__vscprintf @1286
   _vscprintf_p=MSVCRT__vscprintf_p @1288
   _vscprintf_p_l=MSVCRT__vscprintf_p_l @1289
@@ -826,10 +955,12 @@ EXPORTS
   _wchmod=MSVCRT__wchmod @1325
   _wcmdln=MSVCRT__wcmdln @1326 DATA
   _wcreat=MSVCRT__wcreat @1327
+  _wcreate_locale=MSVCRT__wcreate_locale @1328
   _wcscoll_l=MSVCRT__wcscoll_l @1329
   _wcsdup=MSVCRT__wcsdup @1330
   _wcserror=MSVCRT__wcserror @1331
   _wcserror_s=MSVCRT__wcserror_s @1332
+  _wcsftime_l=MSVCRT__wcsftime_l @1333
   _wcsicmp=MSVCRT__wcsicmp @1334
   _wcsicmp_l=MSVCRT__wcsicmp_l @1335
   _wcsicoll=MSVCRT__wcsicoll @1336
@@ -882,6 +1013,7 @@ EXPORTS
   _wfindfirst32=MSVCRT__wfindfirst32 @1384
   _wfindfirst64=MSVCRT__wfindfirst64 @1386
   _wfindfirst64i32=MSVCRT__wfindfirst64i32 @1387
+  _wfindnext32=MSVCRT__wfindnext32 @1388
   _wfindnext64=MSVCRT__wfindnext64 @1390
   _wfindnext64i32=MSVCRT__wfindnext64i32 @1391
   _wfopen=MSVCRT__wfopen @1392
@@ -900,6 +1032,7 @@ EXPORTS
   _wmktemp=MSVCRT__wmktemp @1405
   _wmktemp_s=MSVCRT__wmktemp_s @1406
   _wopen=MSVCRT__wopen @1407
+  _wperror=MSVCRT__wperror @1408
   _wpgmptr=MSVCRT__wpgmptr @1409 DATA
   _wpopen=MSVCRT__wpopen @1410
   _wputenv @1415
@@ -969,6 +1102,7 @@ EXPORTS
   calloc=MSVCRT_calloc @1479
   ceil=MSVCRT_ceil @1480
   clearerr=MSVCRT_clearerr @1481
+  clearerr_s=MSVCRT_clearerr_s @1482
   clock=MSVCRT_clock @1483
   cos=MSVCRT_cos @1484
   cosh=MSVCRT_cosh @1485
@@ -1048,6 +1182,7 @@ EXPORTS
   ldexp=MSVCRT_ldexp @1560
   ldiv=MSVCRT_ldiv @1561
   llabs=MSVCRT_llabs @1562
+  lldiv=MSVCRT_lldiv @1563
   localeconv=MSVCRT_localeconv @1564
   log=MSVCRT_log @1565
   log10=MSVCRT_log10 @1566
@@ -1057,6 +1192,7 @@ EXPORTS
   mbrlen=MSVCRT_mbrlen @1570
   mbrtowc=MSVCRT_mbrtowc @1571
   mbsrtowcs=MSVCRT_mbsrtowcs @1572
+  mbsrtowcs_s=MSVCRT_mbsrtowcs_s @1573
   mbstowcs=MSVCRT_mbstowcs @1574
   mbstowcs_s=MSVCRT__mbstowcs_s @1575
   mbtowc=MSVCRT_mbtowc @1576
@@ -1105,7 +1241,7 @@ EXPORTS
   strchr=MSVCRT_strchr @1619
   strcmp=MSVCRT_strcmp @1620
   strcoll=MSVCRT_strcoll @1621
-  strcpy=ntdll.strcpy @1622
+  strcpy=MSVCRT_strcpy @1622
   strcpy_s=MSVCRT_strcpy_s @1623
   strcspn=ntdll.strcspn @1624
   strerror=MSVCRT_strerror @1625

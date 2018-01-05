@@ -88,3 +88,5 @@ EXPORTS
   ImmUnregisterWordA@16 @107
   ImmUnregisterWordW@16 @108
   __wine_get_ui_window@4 @112
+  __wine_register_window@4 @113
+  __wine_unregister_window@4 @114

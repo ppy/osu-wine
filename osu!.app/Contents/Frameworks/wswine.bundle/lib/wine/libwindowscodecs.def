@@ -107,4 +107,7 @@ EXPORTS
   WICConvertBitmapSource@12 @107
   WICCreateColorContext_Proxy@8 @109
   WICCreateImagingFactory_Proxy@8 @110
+  WICMapGuidToShortName@16 @112
+  WICMapSchemaToName@20 @113
+  WICMapShortNameToGuid@8 @114
   WICSetEncoderFormat_Proxy@16 @117

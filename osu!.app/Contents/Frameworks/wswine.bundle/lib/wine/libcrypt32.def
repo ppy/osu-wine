@@ -45,11 +45,11 @@ EXPORTS
   CertEnumPhysicalStore@16 @40
   CertEnumSystemStore@16 @41
   CertFindAttribute@12 @42
-  CertFindChainInStore@24 @43
-  CertFindCRLInStore@24 @44
-  CertFindCTLInStore@24 @45
+  CertFindCRLInStore@24 @43
+  CertFindCTLInStore@24 @44
+  CertFindCertificateInCRL@20 @45
   CertFindCertificateInStore@24 @46
-  CertFindCertificateInCRL@20 @47
+  CertFindChainInStore@24 @47
   CertFindExtension@12 @48
   CertFindRDNAttr@8 @49
   CertFreeCRLContext@4 @51
@@ -82,34 +82,34 @@ EXPORTS
   CertRDNValueToStrA@16 @78
   CertRDNValueToStrW@16 @79
   CertRegisterPhysicalStore@20 @80
-  CertRemoveEnhancedKeyUsageIdentifier@8 @81
-  CertRemoveStoreFromCollection@8 @82
-  CertSaveStore@24 @83
-  CertSerializeCRLStoreElement@16 @84
-  CertSerializeCTLStoreElement@16 @85
-  CertSerializeCertificateStoreElement@16 @86
-  CertSetCRLContextProperty@16 @87
-  CertSetCTLContextProperty@16 @88
-  CertSetCertificateContextProperty@16 @89
-  CertSetEnhancedKeyUsage@8 @90
-  CertSetStoreProperty@16 @91
-  CertStrToNameA@28 @92
-  CertStrToNameW@28 @93
-  CertVerifyCertificateChainPolicy@16 @94
-  CertVerifyCRLRevocation@16 @95
-  CertVerifyCRLTimeValidity@8 @96
-  CertVerifyCTLUsage@28 @97
-  CertVerifyRevocation@28 @98
-  CertVerifySubjectCertificateContext@12 @99
-  CertVerifyTimeValidity@8 @100
-  CertVerifyValidityNesting@8 @101
-  CreateFileU@28=kernel32.CreateFileW @102
-  CryptBinaryToStringA@20 @103
-  CryptBinaryToStringW@20 @104
-  CryptStringToBinaryA@28 @105
-  CryptStringToBinaryW@28 @106
-  CryptAcquireContextU@20=advapi32.CryptAcquireContextW @107
-  CryptAcquireCertificatePrivateKey@24 @108
+  CertRegisterSystemStore@16 @81
+  CertRemoveEnhancedKeyUsageIdentifier@8 @82
+  CertRemoveStoreFromCollection@8 @83
+  CertSaveStore@24 @84
+  CertSerializeCRLStoreElement@16 @85
+  CertSerializeCTLStoreElement@16 @86
+  CertSerializeCertificateStoreElement@16 @87
+  CertSetCRLContextProperty@16 @88
+  CertSetCTLContextProperty@16 @89
+  CertSetCertificateContextProperty@16 @90
+  CertSetEnhancedKeyUsage@8 @91
+  CertSetStoreProperty@16 @92
+  CertStrToNameA@28 @93
+  CertStrToNameW@28 @94
+  CertUnregisterSystemStore@8 @95
+  CertVerifyCRLRevocation@16 @96
+  CertVerifyCRLTimeValidity@8 @97
+  CertVerifyCTLUsage@28 @98
+  CertVerifyCertificateChainPolicy@16 @99
+  CertVerifyRevocation@28 @100
+  CertVerifySubjectCertificateContext@12 @101
+  CertVerifyTimeValidity@8 @102
+  CertVerifyValidityNesting@8 @103
+  CreateFileU@28=kernel32.CreateFileW @104
+  CryptAcquireCertificatePrivateKey@24 @105
+  CryptAcquireContextU@20=advapi32.CryptAcquireContextW @106
+  CryptBinaryToStringA@20 @107
+  CryptBinaryToStringW@20 @108
   CryptDecodeObject@28 @112
   CryptDecodeObjectEx@32 @113
   CryptEncodeObject@20 @116
@@ -150,6 +150,7 @@ EXPORTS
   CryptMsgOpenToEncode@24 @160
   CryptMsgSignCTL@28 @161
   CryptMsgUpdate@16 @162
+  CryptMsgVerifyCountersignatureEncoded@28 @163
   CryptMsgVerifyCountersignatureEncodedEx@40 @164
   CryptProtectData@28 @165
   CryptProtectMemory@12 @166
@@ -170,38 +171,40 @@ EXPORTS
   CryptSignAndEncodeCertificate@36 @183
   CryptSignCertificate@36 @185
   CryptSignMessage@28 @187
-  CryptUnprotectData@28 @189
-  CryptUnprotectMemory@12 @190
-  CryptUnregisterDefaultOIDFunction@12 @191
-  CryptUnregisterOIDFunction@12 @192
-  CryptVerifyCertificateSignature@20 @194
-  CryptVerifyCertificateSignatureEx@32 @195
-  CryptVerifyDetachedMessageHash@32 @196
-  CryptVerifyDetachedMessageSignature@32 @197
-  CryptVerifyMessageHash@28 @198
-  CryptVerifyMessageSignature@28 @199
-  I_CertUpdateStore@16 @202
-  I_CryptAllocTls@0 @203
-  I_CryptCreateLruCache@8 @204
-  I_CryptCreateLruEntry@12 @205
-  I_CryptDetachTls@4 @206
-  I_CryptFindLruEntry@8 @207
-  I_CryptFindLruEntryData@12 @208
-  I_CryptFlushLruCache@12 @209
-  I_CryptFreeLruCache@12 @210
-  I_CryptFreeTls@8 @211
-  I_CryptGetAsn1Decoder@4 @212
-  I_CryptGetAsn1Encoder@4 @213
-  I_CryptGetDefaultCryptProv@4 @214
-  I_CryptGetOssGlobal@4 @216
-  I_CryptGetTls@4 @217
-  I_CryptInstallAsn1Module@12 @219
-  I_CryptInstallOssGlobal@12 @220
-  I_CryptReadTrustedPublisherDWORDValueFromRegistry@8 @221
-  I_CryptSetTls@8 @223
-  I_CryptUninstallAsn1Module@4 @224
-  PFXExportCertStore@16 @226
-  PFXExportCertStoreEx@20 @227
-  PFXImportCertStore@12 @228
-  PFXIsPFXBlob@4 @229
-  PFXVerifyPassword@12 @230
+  CryptStringToBinaryA@28 @189
+  CryptStringToBinaryW@28 @190
+  CryptUnprotectData@28 @191
+  CryptUnprotectMemory@12 @192
+  CryptUnregisterDefaultOIDFunction@12 @193
+  CryptUnregisterOIDFunction@12 @194
+  CryptVerifyCertificateSignature@20 @196
+  CryptVerifyCertificateSignatureEx@32 @197
+  CryptVerifyDetachedMessageHash@32 @198
+  CryptVerifyDetachedMessageSignature@32 @199
+  CryptVerifyMessageHash@28 @200
+  CryptVerifyMessageSignature@28 @201
+  I_CertUpdateStore@16 @204
+  I_CryptAllocTls@0 @205
+  I_CryptCreateLruCache@8 @206
+  I_CryptCreateLruEntry@12 @207
+  I_CryptDetachTls@4 @208
+  I_CryptFindLruEntry@8 @209
+  I_CryptFindLruEntryData@12 @210
+  I_CryptFlushLruCache@12 @211
+  I_CryptFreeLruCache@12 @212
+  I_CryptFreeTls@8 @213
+  I_CryptGetAsn1Decoder@4 @214
+  I_CryptGetAsn1Encoder@4 @215
+  I_CryptGetDefaultCryptProv@4 @216
+  I_CryptGetOssGlobal@4 @218
+  I_CryptGetTls@4 @219
+  I_CryptInstallAsn1Module@12 @221
+  I_CryptInstallOssGlobal@12 @222
+  I_CryptReadTrustedPublisherDWORDValueFromRegistry@8 @223
+  I_CryptSetTls@8 @225
+  I_CryptUninstallAsn1Module@4 @226
+  PFXExportCertStore@16 @228
+  PFXExportCertStoreEx@20 @229
+  PFXImportCertStore@12 @230
+  PFXIsPFXBlob@4 @231
+  PFXVerifyPassword@12 @232
