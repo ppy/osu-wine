@@ -37,6 +37,8 @@
 	<string></string>
 	<key>CSResourcesFileMapped</key>
 	<true/>
+	<key>Debug Mode</key>
+	<false/>
 	<key>Disable CPUs</key>
 	<false/>
 	<key>Fullscreen</key>
@@ -70,11 +72,11 @@
 	<key>Symlinks In User Folder</key>
 	<true/>
 	<key>Try To Use GPU Info</key>
-	<true/>
+	<false/>
 	<key>Use RandR</key>
 	<true/>
 	<key>Use XQuartz</key>
-	<true/>
+	<false/>
 	<key>WINEDEBUG=</key>
 	<string>-all</string>
 	<key>force Installer to normal windows</key>
@@ -82,7 +84,7 @@
 	<key>force wrapper quartz-wm</key>
 	<false/>
 	<key>set max files</key>
-	<false/>
+	<true/>
 	<key>use start.exe</key>
 	<false/>
 </dict>

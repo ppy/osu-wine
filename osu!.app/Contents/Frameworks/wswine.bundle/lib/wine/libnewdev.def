@@ -3,6 +3,8 @@
 LIBRARY newdev.dll
 
 EXPORTS
+  DiInstallDriverA@24 @3
+  DiInstallDriverW@24 @4
   InstallNewDevice@12 @8
   InstallSelectedDriver@20 @9
   UpdateDriverForPlugAndPlayDevicesA@20 @12

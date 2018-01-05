@@ -7,6 +7,8 @@ EXPORTS
   EnumDirTreeW@24 @4
   EnumerateLoadedModules@12 @5
   EnumerateLoadedModules64@12 @6
+  EnumerateLoadedModulesEx@12=EnumerateLoadedModules64@12 @7
+  EnumerateLoadedModulesExW@12=EnumerateLoadedModulesW64@12 @8
   EnumerateLoadedModulesW64@12 @9
   ExtensionApiVersion@0 @10
   FindDebugInfoFile@12 @11

@@ -251,6 +251,8 @@ EXPORTS
   MsiMessageBoxExA@28 @279
   MsiMessageBoxExW@28 @280
   MsiSetExternalUIRecord@16 @281
+  MsiGetPatchFileListA@16 @282
+  MsiGetPatchFileListW@16 @283
   MsiBeginTransactionA@16 @284
   MsiBeginTransactionW@16 @285
   MsiEndTransaction@4 @286
@@ -259,6 +261,8 @@ EXPORTS
   MsiEnumComponentsExW@28 @290
   MsiEnumClientsExA@32 @291
   MsiEnumClientsExW@32 @292
+  MsiGetComponentPathExA@24 @293
+  MsiGetComponentPathExW@24 @294
   DllCanUnloadNow@0 @296 PRIVATE
   DllGetClassObject@12 @297 PRIVATE
   DllRegisterServer@0 @298 PRIVATE

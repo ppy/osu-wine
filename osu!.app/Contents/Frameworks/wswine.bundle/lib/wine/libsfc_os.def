@@ -3,6 +3,9 @@
 LIBRARY sfc_os.dll
 
 EXPORTS
-  SfcGetNextProtectedFile@8 @1
-  SfcIsFileProtected@8 @2
-  SfcIsKeyProtected@12 @3
+  SRSetRestorePointA@8 @4
+  SRSetRestorePointW@8 @5
+  SfcConnectToServer@4 @7
+  SfcGetNextProtectedFile@8 @9
+  SfcIsFileProtected@8 @13
+  SfcIsKeyProtected@12 @14

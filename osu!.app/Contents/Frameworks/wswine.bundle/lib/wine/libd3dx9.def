@@ -63,11 +63,11 @@ EXPORTS
   D3DXCreateMatrixStack@8 @73
   D3DXCreateMesh@24 @74
   D3DXCreateMeshFVF@24 @75
-  D3DXCreatePolygon@20 @79
+  D3DXCreatePolygon@20 @83
   D3DXCreateRenderToEnvMap@28 @84
   D3DXCreateRenderToSurface@28 @85
   D3DXCreateSkinInfo@16 @87
-  D3DXCreateSkinInfoFVF@16 @89
+  D3DXCreateSkinInfoFVF@16 @88
   D3DXCreateSphere@24 @90
   D3DXCreateSprite@8 @91
   D3DXCreateTeapot@12 @92
@@ -84,6 +84,7 @@ EXPORTS
   D3DXCreateTextureFromResourceExA@60 @103
   D3DXCreateTextureFromResourceExW@60 @104
   D3DXCreateTextureFromResourceW@16 @105
+  D3DXCreateTextureShader@8 @107
   D3DXCreateTorus@28 @108
   D3DXCreateVolumeTexture@36 @109
   D3DXCreateVolumeTextureFromFileA@12 @110
@@ -96,17 +97,21 @@ EXPORTS
   D3DXDeclaratorFromFVF@8 @121
   D3DXDisassembleEffect@12 @122
   D3DXDisassembleShader@16 @123
-  D3DXFileCreate@4 @124
-  D3DXFillCubeTexture@12 @125
-  D3DXFillTexture@12 @127
-  D3DXFillVolumeTexture@12 @129
-  D3DXFilterTexture@16 @131
-  D3DXFindShaderComment@16 @132
-  D3DXFloat16To32Array@12 @133
-  D3DXFloat32To16Array@12 @134
-  D3DXFrameDestroy@8 @137
-  D3DXFresnelTerm@8 @141
-  D3DXFVFFromDeclarator@8 @142
+  D3DXFVFFromDeclarator@8 @124
+  D3DXFileCreate@4 @125
+  D3DXFillCubeTexture@12 @126
+  D3DXFillCubeTextureTX@8 @127
+  D3DXFillTexture@12 @128
+  D3DXFillTextureTX@8 @129
+  D3DXFillVolumeTexture@12 @130
+  D3DXFillVolumeTextureTX@8 @131
+  D3DXFilterTexture@16 @132
+  D3DXFindShaderComment@16 @133
+  D3DXFloat16To32Array@12 @134
+  D3DXFloat32To16Array@12 @135
+  D3DXFrameDestroy@8 @138
+  D3DXFrameFind@8 @139
+  D3DXFresnelTerm@8 @142
   D3DXGetDeclLength@4 @150
   D3DXGetDeclVertexSize@8 @151
   D3DXGetDriverLevel@4 @152
@@ -202,25 +207,25 @@ EXPORTS
   D3DXQuaternionSquad@24 @254
   D3DXQuaternionSquadSetup@28 @255
   D3DXQuaternionToAxisAngle@12 @256
-  D3DXSaveSurfaceToFileA@20 @266
-  D3DXSaveSurfaceToFileInMemory@20 @267
-  D3DXSaveSurfaceToFileW@20 @268
-  D3DXSaveTextureToFileA@16 @269
-  D3DXSaveTextureToFileInMemory@16 @270
-  D3DXSaveTextureToFileW@16 @271
-  D3DXSHAdd@16 @275
-  D3DXSHDot@12 @276
-  D3DXSHEvalConeLight@36 @277
-  D3DXSHEvalDirection@12 @278
-  D3DXSHEvalDirectionalLight@32 @279
-  D3DXSHEvalHemisphereLight@52 @280
-  D3DXSHEvalSphericalLight@36 @281
-  D3DXSHMultiply2@12 @282
-  D3DXSHMultiply3@12 @283
-  D3DXSHMultiply4@12 @284
-  D3DXSHRotate@16 @290
-  D3DXSHRotateZ@16 @291
-  D3DXSHScale@16 @292
+  D3DXSHAdd@16 @258
+  D3DXSHDot@12 @259
+  D3DXSHEvalConeLight@36 @260
+  D3DXSHEvalDirection@12 @261
+  D3DXSHEvalDirectionalLight@32 @262
+  D3DXSHEvalHemisphereLight@52 @263
+  D3DXSHEvalSphericalLight@36 @264
+  D3DXSHMultiply2@12 @265
+  D3DXSHMultiply3@12 @266
+  D3DXSHMultiply4@12 @267
+  D3DXSHRotate@16 @273
+  D3DXSHRotateZ@16 @274
+  D3DXSHScale@16 @275
+  D3DXSaveSurfaceToFileA@20 @284
+  D3DXSaveSurfaceToFileInMemory@20 @285
+  D3DXSaveSurfaceToFileW@20 @286
+  D3DXSaveTextureToFileA@16 @287
+  D3DXSaveTextureToFileInMemory@16 @288
+  D3DXSaveTextureToFileW@16 @289
   D3DXSphereBoundProbe@16 @294
   D3DXTessellateNPatches@24 @296
   D3DXValidMesh@12 @303

@@ -57,8 +57,8 @@ do
 done
 
 # finally, the default bin directory
-if [ -x "/tmp/WineskinEngineBuilder/wswine.bundle/bin/wine" ]; then exec "/tmp/WineskinEngineBuilder/wswine.bundle/bin/wine" "$appname" "$@"; fi
-if [ -x "/tmp/WineskinEngineBuilder/wswine.bundle/bin/wine64" ]; then exec "/tmp/WineskinEngineBuilder/wswine.bundle/bin/wine64" "$appname" "$@"; fi
+if [ -x "/Users/gverm/Desktop/tmp/WineskinEngineBuilder/wswine.bundle/bin/wine" ]; then exec "/Users/gverm/Desktop/tmp/WineskinEngineBuilder/wswine.bundle/bin/wine" "$appname" "$@"; fi
+if [ -x "/Users/gverm/Desktop/tmp/WineskinEngineBuilder/wswine.bundle/bin/wine64" ]; then exec "/Users/gverm/Desktop/tmp/WineskinEngineBuilder/wswine.bundle/bin/wine64" "$appname" "$@"; fi
 
 echo "$0: the Wine loader is missing"
 exit 1
