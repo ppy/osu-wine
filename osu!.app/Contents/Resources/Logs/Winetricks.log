@@ -1,0 +1,6 @@
+warning: taskset/cpuset not available on your platform!
+Using winetricks 20180603-next - sha256sum: 030723c3f69e8d532608be2d16e8a42432308784a694ff5a885eef291b74f5cf with wine-2.22 and WINEARCH=win32
+Executing w_do_call videomemorysize=1024
+Executing load_videomemorysize 1024
+Setting video memory size to 1024
+Executing wine regedit C:\windows\Temp\_videomemorysize=1024\set-video.reg

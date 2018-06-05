@@ -14,3 +14,4 @@ EXPORTS
   DllGetClassObject@12 @14 PRIVATE
   DllRegisterServer@0 @15 PRIVATE
   DllUnregisterServer@0 @16 PRIVATE
+  GetSurfaceFromDC@12 @18

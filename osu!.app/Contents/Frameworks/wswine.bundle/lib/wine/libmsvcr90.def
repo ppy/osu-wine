@@ -80,12 +80,15 @@ EXPORTS
   _CItanh @88
   _CRT_RTC_INIT @89
   _CRT_RTC_INITW @90
+  _CreateFrameInfo @91
   _CxxThrowException@8 @92
   _EH_prolog @93
+  _FindAndUnlinkFrame @94
   _Getdays @95
   _Getmonths @96
   _Gettnames @97
   _HUGE=MSVCRT__HUGE @98 DATA
+  _IsExceptionObjectToBeDestroyed @99
   _Strftime @103
   _XcptFilter @104
   __AdjustPointer @105
@@ -97,6 +100,9 @@ EXPORTS
   __CxxFrameHandler3=__CxxFrameHandler @117
   __CxxLongjmpUnwind@4 @118
   __CxxQueryExceptionSize @119
+  __CxxRegisterExceptionObject @120
+  __CxxUnregisterExceptionObject @121
+  __DestructExceptionObject @122
   __RTCastToVoid=MSVCRT___RTCastToVoid @124
   __RTDynamicCast=MSVCRT___RTDynamicCast @125
   __RTtypeid=MSVCRT___RTtypeid @126
@@ -341,6 +347,7 @@ EXPORTS
   _flushall=MSVCRT__flushall @406
   _fmode=MSVCRT__fmode @407 DATA
   _fpclass=MSVCRT__fpclass @408
+  _fpieee_flt @409
   _fpreset @410
   _fputc_nolock=MSVCRT__fputc_nolock @415
   _fputchar=MSVCRT__fputchar @416
@@ -356,6 +363,7 @@ EXPORTS
   _fseeki64_nolock=MSVCRT__fseeki64_nolock @429
   _fsopen=MSVCRT__fsopen @430
   _fstat32=MSVCRT__fstat32 @431
+  _fstat32i64=MSVCRT__fstat32i64 @432
   _fstat64=MSVCRT__fstat64 @433
   _fstat64i32=MSVCRT__fstat64i32 @434
   _ftell_nolock=MSVCRT__ftell_nolock @435
@@ -378,6 +386,7 @@ EXPORTS
   _get_current_locale=MSVCRT__get_current_locale @456
   _get_daylight @457
   _get_doserrno @458
+  _get_dstbias=MSVCRT__get_dstbias @459
   _get_errno @460
   _get_fmode=MSVCRT__get_fmode @461
   _get_heap_handle @462
@@ -386,6 +395,7 @@ EXPORTS
   _get_output_format=MSVCRT__get_output_format @465
   _get_pgmptr @466
   _get_printf_count_output=MSVCRT__get_printf_count_output @467
+  _get_purecall_handler @468
   _get_sbh_threshold @469
   _get_terminate=MSVCRT__get_terminate @470
   _get_timezone @471
@@ -455,6 +465,7 @@ EXPORTS
   _ismbcgraph @565
   _ismbchira @567
   _ismbckata @569
+  _ismbcl0 @571
   _ismbclegal @577
   _ismbclower @579
   _ismbcprint @581
@@ -469,6 +480,7 @@ EXPORTS
   _isspace_l=MSVCRT__isspace_l @598
   _isupper_l=MSVCRT__isupper_l @599
   _iswalpha_l=MSVCRT__iswalpha_l @601
+  _iswctype_l=MSVCRT__iswctype_l @605
   _iswdigit_l=MSVCRT__iswdigit_l @606
   _iswpunct_l=MSVCRT__iswpunct_l @610
   _iswspace_l=MSVCRT__iswspace_l @611
@@ -482,6 +494,7 @@ EXPORTS
   _jn=MSVCRT__jn @621
   _kbhit @622
   _lfind @623
+  _lfind_s @624
   _loaddll @625
   _local_unwind2 @626
   _local_unwind4 @627
@@ -509,6 +522,9 @@ EXPORTS
   _mbbtombc @650
   _mbbtype @652
   _mbccpy @654
+  _mbccpy_l @655
+  _mbccpy_s @656
+  _mbccpy_s_l @657
   _mbcjistojms @658
   _mbcjmstojis @660
   _mbclen @662
@@ -534,6 +550,7 @@ EXPORTS
   _mbsicoll_l @695
   _mbsinc @696
   _mbslen @698
+  _mbslen_l @699
   _mbslwr @700
   _mbslwr_s @702
   _mbsnbcat @704
@@ -556,6 +573,8 @@ EXPORTS
   _mbsnextc @740
   _mbsnicmp @742
   _mbsninc @746
+  _mbsnlen @748
+  _mbsnlen_l @749
   _mbsnset @750
   _mbspbrk @754
   _mbsrchr @756
@@ -576,7 +595,8 @@ EXPORTS
   _mbsupr_s @782
   _mbtowc_l=MSVCRT_mbtowc_l @784
   _memccpy=ntdll._memccpy @785
-  _memicmp=ntdll._memicmp @786
+  _memicmp=MSVCRT__memicmp @786
+  _memicmp_l=MSVCRT__memicmp_l @787
   _mkdir=MSVCRT__mkdir @788
   _mkgmtime32=MSVCRT__mkgmtime32 @789
   _mkgmtime64=MSVCRT__mkgmtime64 @790
@@ -691,6 +711,7 @@ EXPORTS
   _strdate_s @919
   _strdup=MSVCRT__strdup @920
   _strerror=MSVCRT__strerror @921
+  _strftime_l=MSVCRT__strftime_l @923
   _stricmp=MSVCRT__stricmp @924
   _stricmp_l=MSVCRT__stricmp_l @925
   _stricoll=MSVCRT__stricoll @926
@@ -768,7 +789,14 @@ EXPORTS
   _utime64 @1003
   _vcprintf @1004
   _vcwprintf @1010
+  _vfprintf_l=MSVCRT__vfprintf_l @1016
+  _vfprintf_p=MSVCRT__vfprintf_p @1017
+  _vfprintf_p_l=MSVCRT__vfprintf_p_l @1018
+  _vfprintf_s_l=MSVCRT__vfprintf_s_l @1019
   _vfwprintf_l=MSVCRT__vfwprintf_l @1020
+  _vfwprintf_p=MSVCRT__vfwprintf_p @1021
+  _vfwprintf_p_l=MSVCRT__vfwprintf_p_l @1022
+  _vfwprintf_s_l=MSVCRT__vfwprintf_s_l @1023
   _vscprintf=MSVCRT__vscprintf @1028
   _vscprintf_p=MSVCRT__vscprintf_p @1030
   _vscprintf_p_l=MSVCRT__vscprintf_p_l @1031
@@ -810,6 +838,7 @@ EXPORTS
   _wcsdup=MSVCRT__wcsdup @1071
   _wcserror=MSVCRT__wcserror @1072
   _wcserror_s=MSVCRT__wcserror_s @1073
+  _wcsftime_l=MSVCRT__wcsftime_l @1074
   _wcsicmp=MSVCRT__wcsicmp @1075
   _wcsicmp_l=MSVCRT__wcsicmp_l @1076
   _wcsicoll=MSVCRT__wcsicoll @1077
@@ -862,6 +891,7 @@ EXPORTS
   _wfindfirst32=MSVCRT__wfindfirst32 @1125
   _wfindfirst64=MSVCRT__wfindfirst64 @1127
   _wfindfirst64i32=MSVCRT__wfindfirst64i32 @1128
+  _wfindnext32=MSVCRT__wfindnext32 @1129
   _wfindnext64=MSVCRT__wfindnext64 @1131
   _wfindnext64i32=MSVCRT__wfindnext64i32 @1132
   _wfopen=MSVCRT__wfopen @1133
@@ -880,6 +910,7 @@ EXPORTS
   _wmktemp=MSVCRT__wmktemp @1147
   _wmktemp_s=MSVCRT__wmktemp_s @1148
   _wopen=MSVCRT__wopen @1149
+  _wperror=MSVCRT__wperror @1150
   _wpgmptr=MSVCRT__wpgmptr @1151 DATA
   _wpopen=MSVCRT__wpopen @1152
   _wputenv @1157
@@ -949,6 +980,7 @@ EXPORTS
   calloc=MSVCRT_calloc @1221
   ceil=MSVCRT_ceil @1222
   clearerr=MSVCRT_clearerr @1223
+  clearerr_s=MSVCRT_clearerr_s @1224
   clock=MSVCRT_clock @1225
   cos=MSVCRT_cos @1226
   cosh=MSVCRT_cosh @1227
@@ -1036,6 +1068,7 @@ EXPORTS
   mbrlen=MSVCRT_mbrlen @1310
   mbrtowc=MSVCRT_mbrtowc @1311
   mbsrtowcs=MSVCRT_mbsrtowcs @1312
+  mbsrtowcs_s=MSVCRT_mbsrtowcs_s @1313
   mbstowcs=MSVCRT_mbstowcs @1314
   mbstowcs_s=MSVCRT__mbstowcs_s @1315
   mbtowc=MSVCRT_mbtowc @1316
@@ -1084,7 +1117,7 @@ EXPORTS
   strchr=MSVCRT_strchr @1359
   strcmp=MSVCRT_strcmp @1360
   strcoll=MSVCRT_strcoll @1361
-  strcpy=ntdll.strcpy @1362
+  strcpy=MSVCRT_strcpy @1362
   strcpy_s=MSVCRT_strcpy_s @1363
   strcspn=ntdll.strcspn @1364
   strerror=MSVCRT_strerror @1365

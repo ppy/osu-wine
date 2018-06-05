@@ -236,6 +236,7 @@ EXPORTS
   GdipGetCustomLineCapBaseCap@8 @239
   GdipGetCustomLineCapBaseInset@8 @240
   GdipGetCustomLineCapStrokeJoin@8 @242
+  GdipGetCustomLineCapType@8 @243
   GdipGetCustomLineCapWidthScale@8 @244
   GdipGetDC@8 @245
   GdipGetDpiX@8 @246
@@ -258,6 +259,7 @@ EXPORTS
   GdipGetHatchForegroundColor@8 @264
   GdipGetHatchStyle@8 @265
   GdipGetHemfFromMetafile@8 @266
+  GdipGetImageAttributesAdjustedPalette@12 @267
   GdipGetImageBounds@12 @268
   GdipGetImageDecoders@12 @269
   GdipGetImageDecodersSize@8 @270
@@ -295,6 +297,7 @@ EXPORTS
   GdipGetMetafileHeaderFromFile@8 @303
   GdipGetMetafileHeaderFromMetafile@8 @304
   GdipGetMetafileHeaderFromStream@8 @305
+  GdipGetMetafileHeaderFromWmf@12 @306
   GdipGetNearestColor@8 @307
   GdipGetPageScale@8 @308
   GdipGetPageUnit@8 @309
@@ -600,7 +603,10 @@ EXPORTS
   GdipSetEffectParameters@12 @617
   GdipBitmapCreateApplyEffect@36 @619
   GdipBitmapApplyEffect@24 @620
+  GdipBitmapGetHistogram@28 @621
+  GdipBitmapGetHistogramSize@8 @622
   GdipBitmapConvertFormat@24 @623
   GdipImageSetAbort@8 @624
+  GdipGraphicsSetAbort@8 @625
   GdipConvertToEmfPlus@24 @627
   GdipConvertToEmfPlusToFile@28 @628

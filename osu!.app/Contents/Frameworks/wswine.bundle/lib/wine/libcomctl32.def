@@ -58,6 +58,7 @@ EXPORTS
   DPA_CreateEx@8 @340 NONAME
   SendNotify@16 @341 NONAME
   SendNotifyEx@20 @342 NONAME
+  TaskDialog@32 @344 NONAME
   TaskDialogIndirect@16 @345 NONAME
   StrChrA@8 @350 NONAME PRIVATE
   StrRChrA@12 @351 NONAME PRIVATE

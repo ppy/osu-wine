@@ -86,6 +86,9 @@ EXPORTS
   __CxxFrameHandler @83
   __CxxLongjmpUnwind@4 @84
   __CxxQueryExceptionSize @85
+  __CxxRegisterExceptionObject @86
+  __CxxUnregisterExceptionObject @87
+  __DestructExceptionObject @88
   __RTCastToVoid=MSVCRT___RTCastToVoid @89
   __RTDynamicCast=MSVCRT___RTDynamicCast @90
   __RTtypeid=MSVCRT___RTtypeid @91
@@ -263,6 +266,7 @@ EXPORTS
   _flushall=MSVCRT__flushall @270
   _fmode=MSVCRT__fmode @271 DATA
   _fpclass=MSVCRT__fpclass @272
+  _fpieee_flt @273
   _fpreset @274
   _fputchar=MSVCRT__fputchar @275
   _fputwchar=MSVCRT__fputwchar @276
@@ -318,6 +322,7 @@ EXPORTS
   _ismbcgraph @339
   _ismbchira @340
   _ismbckata @341
+  _ismbcl0 @342
   _ismbclegal @345
   _ismbclower @346
   _ismbcprint @347
@@ -403,7 +408,7 @@ EXPORTS
   _mbstrlen @429
   _mbsupr @430
   _memccpy=ntdll._memccpy @431
-  _memicmp=ntdll._memicmp @432
+  _memicmp=MSVCRT__memicmp @432
   _mkdir=MSVCRT__mkdir @433
   _mktemp=MSVCRT__mktemp @434
   _mktime64=MSVCRT__mktime64 @435
@@ -567,6 +572,7 @@ EXPORTS
   _wmkdir=MSVCRT__wmkdir @597
   _wmktemp=MSVCRT__wmktemp @598
   _wopen=MSVCRT__wopen @599
+  _wperror=MSVCRT__wperror @600
   _wpgmptr=MSVCRT__wpgmptr @601 DATA
   _wpopen=MSVCRT__wpopen @602
   _wputenv @603
@@ -738,7 +744,7 @@ EXPORTS
   strchr=MSVCRT_strchr @769
   strcmp=MSVCRT_strcmp @770
   strcoll=MSVCRT_strcoll @771
-  strcpy=ntdll.strcpy @772
+  strcpy=MSVCRT_strcpy @772
   strcspn=ntdll.strcspn @773
   strerror=MSVCRT_strerror @774
   strftime=MSVCRT_strftime @775

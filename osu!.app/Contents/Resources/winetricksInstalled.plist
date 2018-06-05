@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>WS-Installed</key>
+	<array>
+		<string></string>
+		<string>baekmuk</string>
+		<string>cjkfonts</string>
+		<string>dotnet40</string>
+		<string>fakechinese</string>
+		<string>fakejapanese</string>
+		<string>fakejapanese_vlgothic</string>
+		<string>fakekorean</string>
+		<string>gdiplus</string>
+		<string>remove_mono</string>
+		<string>takao</string>
+		<string>unifont</string>
+		<string>Using winetricks 20180603-next - sha256sum: 030723c3f69e8d532608be2d16e8a42432308784a694ff5a885eef291b74f5cf with wine-2.22 and WINEARCH=win32</string>
+		<string>videomemorysize=1024</string>
+		<string>vlgothic</string>
+		<string>w_workaround_wine_bug-34803</string>
+		<string>warning: taskset/cpuset not available on your platform!</string>
+		<string>wenquanyi</string>
+		<string>winxp</string>
+	</array>
+</dict>
+</plist>

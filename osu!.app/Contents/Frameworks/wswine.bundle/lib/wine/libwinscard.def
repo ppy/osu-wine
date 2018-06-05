@@ -9,6 +9,8 @@ EXPORTS
   SCardEstablishContext@16 @15
   SCardIsValidContext@4 @36
   SCardListCardsA@24 @37
+  SCardListReadersA@16 @43
+  SCardListReadersW@16 @44
   SCardReleaseContext@4 @50
   SCardReleaseStartedEvent@0 @51
   SCardStatusA@28 @58

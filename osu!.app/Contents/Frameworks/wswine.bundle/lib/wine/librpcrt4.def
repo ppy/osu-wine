@@ -60,6 +60,7 @@ EXPORTS
   NDRSContextUnmarshallEx@12 @115
   NdrAllocate@8 @117
   NdrAsyncClientCall @118
+  NdrAsyncServerCall@4 @119
   NdrAsyncStubCall@16 @120
   NdrByteCountPointerBufferSize@12 @121
   NdrByteCountPointerFree@12 @122
@@ -281,35 +282,36 @@ EXPORTS
   RpcServerRegisterAuthInfoA@16 @433
   RpcServerRegisterAuthInfoW@16 @434
   RpcServerRegisterIf2@28 @435
-  RpcServerRegisterIf@12 @436
-  RpcServerRegisterIfEx@24 @437
-  RpcServerUnregisterIf@12 @439
-  RpcServerUnregisterIfEx@12 @440
-  RpcServerUseProtseqA@12 @445
-  RpcServerUseProtseqEpA@16 @446
-  RpcServerUseProtseqEpExA@20 @447
-  RpcServerUseProtseqEpExW@20 @448
-  RpcServerUseProtseqEpW@16 @449
-  RpcServerUseProtseqW@12 @456
-  RpcSmDestroyClientContext@4 @460
-  RpcSsDestroyClientContext@4 @471
-  RpcSsDontSerializeContext@0 @473
-  RpcStringBindingComposeA@24 @481
-  RpcStringBindingComposeW@24 @482
-  RpcStringBindingParseA@24 @483
-  RpcStringBindingParseW@24 @484
-  RpcStringFreeA@4 @485
-  RpcStringFreeW@4 @486
-  TowerConstruct@24 @492
-  TowerExplode@24 @493
-  UuidCompare@12 @494
-  UuidCreate@4 @495
-  UuidCreateNil@4 @496
-  UuidCreateSequential@4 @497
-  UuidEqual@12 @498
-  UuidFromStringA@8 @499
-  UuidFromStringW@8 @500
-  UuidHash@8 @501
-  UuidIsNil@8 @502
-  UuidToStringA@8 @503
-  UuidToStringW@8 @504
+  RpcServerRegisterIf3@32 @436
+  RpcServerRegisterIf@12 @437
+  RpcServerRegisterIfEx@24 @438
+  RpcServerUnregisterIf@12 @440
+  RpcServerUnregisterIfEx@12 @441
+  RpcServerUseProtseqA@12 @446
+  RpcServerUseProtseqEpA@16 @447
+  RpcServerUseProtseqEpExA@20 @448
+  RpcServerUseProtseqEpExW@20 @449
+  RpcServerUseProtseqEpW@16 @450
+  RpcServerUseProtseqW@12 @457
+  RpcSmDestroyClientContext@4 @461
+  RpcSsDestroyClientContext@4 @472
+  RpcSsDontSerializeContext@0 @474
+  RpcStringBindingComposeA@24 @482
+  RpcStringBindingComposeW@24 @483
+  RpcStringBindingParseA@24 @484
+  RpcStringBindingParseW@24 @485
+  RpcStringFreeA@4 @486
+  RpcStringFreeW@4 @487
+  TowerConstruct@24 @493
+  TowerExplode@24 @494
+  UuidCompare@12 @495
+  UuidCreate@4 @496
+  UuidCreateNil@4 @497
+  UuidCreateSequential@4 @498
+  UuidEqual@12 @499
+  UuidFromStringA@8 @500
+  UuidFromStringW@8 @501
+  UuidHash@8 @502
+  UuidIsNil@8 @503
+  UuidToStringA@8 @504
+  UuidToStringW@8 @505
