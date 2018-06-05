@@ -3,6 +3,7 @@
 LIBRARY avrt.dll
 
 EXPORTS
+  AvQuerySystemResponsiveness@8 @1
   AvRevertMmThreadCharacteristics@4 @2
   AvSetMmThreadCharacteristicsA@8 @12
   AvSetMmThreadCharacteristicsW@8 @13

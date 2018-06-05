@@ -21,10 +21,12 @@ EXPORTS
   PSUnregisterPropertySchema@4 @75
   PropVariantChangeType@16 @76
   PropVariantCompareEx@16 @77
+  PropVariantToBoolean@8 @90
   PropVariantToGUID@8 @102
   PropVariantToInt16@8 @103
   PropVariantToInt32@8 @107
   PropVariantToInt64@8 @111
+  PropVariantToStringAlloc@8 @117
   PropVariantToUInt16@8 @121
   PropVariantToUInt32@8 @125
   PropVariantToUInt64@8 @129

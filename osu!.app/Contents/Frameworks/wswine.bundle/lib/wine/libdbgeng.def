@@ -3,6 +3,7 @@
 LIBRARY dbgeng.dll
 
 EXPORTS
-  DebugExtensionInitialize@8 @1
-  DebugCreate@8 @2
-  DebugConnect@12 @3
+  DebugConnect@12 @328
+  DebugCreate@8 @330
+  DebugCreateEx@12 @331
+  DebugExtensionInitialize@8 @332

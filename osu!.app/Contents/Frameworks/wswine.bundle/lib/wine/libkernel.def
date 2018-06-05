@@ -4,15 +4,15 @@ LIBRARY krnl386.exe16
 
 EXPORTS
   __wine_spec_dos_header=.L__wine_spec_dos_header @1 DATA PRIVATE
-  VxDCall0@4=VxDCall@4 @2
-  VxDCall1@4=VxDCall@4 @3
-  VxDCall2@4=VxDCall@4 @4
-  VxDCall3@4=VxDCall@4 @5
-  VxDCall4@4=VxDCall@4 @6
-  VxDCall5@4=VxDCall@4 @7
-  VxDCall6@4=VxDCall@4 @8
-  VxDCall7@4=VxDCall@4 @9
-  VxDCall8@4=VxDCall@4 @10
+  VxDCall0@0=VxDCall@0 @2
+  VxDCall1@0=VxDCall@0 @3
+  VxDCall2@0=VxDCall@0 @4
+  VxDCall3@0=VxDCall@0 @5
+  VxDCall4@0=VxDCall@0 @6
+  VxDCall5@0=VxDCall@0 @7
+  VxDCall6@0=VxDCall@0 @8
+  VxDCall7@0=VxDCall@0 @9
+  VxDCall8@0=VxDCall@0 @10
   k32CharToOemA@8 @11
   k32CharToOemBuffA@12 @12
   k32OemToCharA@8 @13
@@ -156,30 +156,31 @@ EXPORTS
   GetCurrentTask@0 @151
   GetDOSEnvironment16@0 @152
   GetExePtr@4 @153
-  GetExpWinVer16@4 @154
-  GetModuleHandle16@4 @155
-  GlobalReAlloc16@12 @156
-  InitTask16@4 @157
-  IsBadReadPtr16@8 @158
-  IsTask16@4 @159
-  LoadModule16@8 @160
-  LoadResource16@8 @161
-  LocalAlloc16@8 @162
-  LocalInit16@12 @163
-  LocalLock16@4 @164
-  LocalUnlock16@4 @165
-  LocalReAlloc16@12 @166
-  LocalFree16@4 @167
-  LocalSize16@4 @168
-  LocalCompact16@4 @169
-  LocalCountFree16@0 @170
-  LocalHeapSize16@0 @171
-  LockResource16@4 @172
-  SetSelectorBase@8 @173
-  SetSelectorLimit16@8 @174
-  SizeofResource16@8 @175
-  WinExec16@8 @176
-  __wine_call_int_handler @177
-  __wine_load_dos_exe @178
-  __wine_vxd_open @179 PRIVATE
-  __wine_vxd_get_proc @180 PRIVATE
+  GetExeVersion16@0 @154
+  GetExpWinVer16@4 @155
+  GetModuleHandle16@4 @156
+  GlobalReAlloc16@12 @157
+  InitTask16@4 @158
+  IsBadReadPtr16@8 @159
+  IsTask16@4 @160
+  LoadModule16@8 @161
+  LoadResource16@8 @162
+  LocalAlloc16@8 @163
+  LocalInit16@12 @164
+  LocalLock16@4 @165
+  LocalUnlock16@4 @166
+  LocalReAlloc16@12 @167
+  LocalFree16@4 @168
+  LocalSize16@4 @169
+  LocalCompact16@4 @170
+  LocalCountFree16@0 @171
+  LocalHeapSize16@0 @172
+  LockResource16@4 @173
+  SetSelectorBase@8 @174
+  SetSelectorLimit16@8 @175
+  SizeofResource16@8 @176
+  WinExec16@8 @177
+  __wine_call_int_handler @178
+  __wine_load_dos_exe @179
+  __wine_vxd_open @180 PRIVATE
+  __wine_vxd_get_proc @181 PRIVATE

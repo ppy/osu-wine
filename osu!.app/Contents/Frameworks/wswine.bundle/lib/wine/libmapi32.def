@@ -94,6 +94,7 @@ EXPORTS
   MAPIDetails@20 @218
   MAPIResolveName@24 @219
   cmc_query_configuration@16 @235
+  HrDispatchNotifications@4@4=HrDispatchNotifications@4 @239
   FGetComponentPath@20 @254
   FGetComponentPath@20@20=FGetComponentPath@20 @255
   MAPISendMailW@20 @256

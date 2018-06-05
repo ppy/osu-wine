@@ -4,22 +4,23 @@ LIBRARY dwmapi.dll
 
 EXPORTS
   DwmEnableComposition@4 @102
-  DwmAttachMilContent@4 @114
-  DwmDefWindowProc@20 @121
-  DwmDetachMilContent@4 @122
-  DwmEnableBlurBehindWindow@8 @123
-  DwmEnableMMCSS@4 @124
-  DwmExtendFrameIntoClientArea@8 @125
-  DwmFlush@0 @126
-  DwmGetColorizationColor@8 @127
-  DwmGetCompositionTimingInfo@8 @128
-  DwmGetGraphicsStreamClient@8 @129
-  DwmGetGraphicsStreamTransformHint@8 @130
-  DwmGetTransportAttributes@12 @131
-  DwmGetWindowAttribute@16 @132
-  DwmInvalidateIconicBitmaps@4 @133
-  DwmIsCompositionEnabled@4 @134
-  DwmRegisterThumbnail@12 @137
-  DwmSetWindowAttribute@16 @140
-  DwmUnregisterThumbnail@4 @141
-  DwmUpdateThumbnailProperties@8 @142
+  DwmAttachMilContent@4 @111
+  DwmDefWindowProc@20 @116
+  DwmDetachMilContent@4 @117
+  DwmEnableBlurBehindWindow@8 @122
+  DwmEnableMMCSS@4 @123
+  DwmExtendFrameIntoClientArea@8 @149
+  DwmFlush@0 @165
+  DwmGetColorizationColor@8 @166
+  DwmGetCompositionTimingInfo@8 @167
+  DwmGetGraphicsStreamClient@8 @168
+  DwmGetGraphicsStreamTransformHint@8 @169
+  DwmGetTransportAttributes@12 @170
+  DwmGetWindowAttribute@16 @171
+  DwmInvalidateIconicBitmaps@4 @172
+  DwmIsCompositionEnabled@4 @173
+  DwmRegisterThumbnail@12 @176
+  DwmSetPresentParameters@8 @180
+  DwmSetWindowAttribute@16 @181
+  DwmUnregisterThumbnail@4 @182
+  DwmUpdateThumbnailProperties@8 @183

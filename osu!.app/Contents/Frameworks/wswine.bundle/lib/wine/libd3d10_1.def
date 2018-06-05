@@ -4,7 +4,9 @@ LIBRARY d3d10_1.dll
 
 EXPORTS
   D3D10CreateDevice1@28 @5
+  D3D10CreateDeviceAndSwapChain1@36 @6
   D3D10CreateEffectFromMemory@24=d3d10.D3D10CreateEffectFromMemory @7
+  D3D10CreateEffectPoolFromMemory@20=d3d10.D3D10CreateEffectPoolFromMemory @8
   D3D10CreateStateBlock@12=d3d10.D3D10CreateStateBlock @9
   D3D10StateBlockMaskDifference@12=d3d10.D3D10StateBlockMaskDifference @23
   D3D10StateBlockMaskDisableAll@4=d3d10.D3D10StateBlockMaskDisableAll @24

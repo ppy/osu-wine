@@ -349,17 +349,17 @@ EXPORTS
   wglDescribePixelFormat@16 @344
   wglGetCurrentContext@0 @345
   wglGetCurrentDC@0 @346
-  wglGetLayerPaletteEntries@20 @348
-  wglGetPixelFormat@4 @349
-  wglGetProcAddress@4 @350
-  wglMakeCurrent@8 @351
-  wglRealizeLayerPalette@12 @352
-  wglSetLayerPaletteEntries@20 @353
-  wglSetPixelFormat@12 @354
-  wglShareLists@8 @355
-  wglSwapBuffers@4 @356
-  wglSwapLayerBuffers@8 @357
-  wglUseFontBitmapsA@16 @358
-  wglUseFontBitmapsW@16 @359
-  wglUseFontOutlinesA@32 @360
-  wglUseFontOutlinesW@32 @361
+  wglGetLayerPaletteEntries@20 @347
+  wglGetPixelFormat@4 @348
+  wglGetProcAddress@4 @349
+  wglMakeCurrent@8 @350
+  wglRealizeLayerPalette@12 @351
+  wglSetLayerPaletteEntries@20 @352
+  wglSetPixelFormat@12 @353
+  wglShareLists@8 @354
+  wglSwapBuffers@4 @355
+  wglSwapLayerBuffers@8 @356
+  wglUseFontBitmapsA@16 @357
+  wglUseFontBitmapsW@16 @358
+  wglUseFontOutlinesA@32 @359
+  wglUseFontOutlinesW@32 @360

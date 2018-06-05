@@ -4,15 +4,32 @@ LIBRARY d3dx10_43.dll
 
 EXPORTS
   D3DX10CheckVersion@8 @2
+  D3DX10CompileFromMemory@52 @5
+  D3DX10CreateAsyncFileLoaderA@8 @12
+  D3DX10CreateAsyncFileLoaderW@8 @13
+  D3DX10CreateAsyncMemoryLoader@12 @14
+  D3DX10CreateAsyncResourceLoaderA@12 @15
+  D3DX10CreateAsyncResourceLoaderW@12 @16
+  D3DX10CreateDevice@20 @21
+  D3DX10CreateDeviceAndSwapChain@28 @22
   D3DX10CreateEffectFromFileA@48 @23
   D3DX10CreateEffectFromFileW@48 @24
   D3DX10CreateEffectFromMemory@56 @25
+  D3DX10CreateEffectPoolFromFileA@44 @28
+  D3DX10CreateEffectPoolFromFileW@44 @29
   D3DX10CreateEffectPoolFromMemory@52 @30
+  D3DX10CreateTextureFromMemory@28 @47
+  D3DX10FilterTexture@12 @50
+  D3DX10GetFeatureLevel1@8 @51
+  D3DX10GetImageInfoFromMemory@20 @54
+  D3DX10PreprocessShaderFromMemory@36 @60
+  D3DX10UnsetAllDeviceObjects@4 @67
   D3DXBoxBoundProbe@16=d3dx9_36.D3DXBoxBoundProbe @68
   D3DXColorAdjustContrast@12=d3dx9_36.D3DXColorAdjustContrast @69
   D3DXColorAdjustSaturation@12=d3dx9_36.D3DXColorAdjustSaturation @70
   D3DXComputeBoundingBox@20=d3dx9_36.D3DXComputeBoundingBox @71
   D3DXComputeBoundingSphere@20=d3dx9_36.D3DXComputeBoundingSphere @72
+  D3DXCpuOptimizations@4 @73
   D3DXCreateMatrixStack@8=d3dx9_36.D3DXCreateMatrixStack @74
   D3DXFloat16To32Array@12=d3dx9_36.D3DXFloat16To32Array @75
   D3DXFloat32To16Array@12=d3dx9_36.D3DXFloat32To16Array @76

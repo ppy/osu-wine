@@ -1,0 +1,313 @@
+WineskinX11: main(): argc=12
+Waiting for startup parameters via Mach IPC.
+WineskinX11: do_start_x11_server(): argc=12
+Attempting to use pixel depth of 24
+[1747140.400] WineskinX11 starting:
+[1747140.400] X.Org X Server 1.13.0
+[1747140.400] Build Date: 20120921
+[1747140.400] _XSERVTransmkdir: ERROR: euid != 0,directory /tmp/.X11-unix will not be created.
+[1747140.411] Initializing built-in extension Generic Event Extension
+[1747140.411] Initializing built-in extension SHAPE
+[1747140.411] Initializing built-in extension MIT-SHM
+[1747140.411] Initializing built-in extension XInputExtension
+[1747140.411] Initializing built-in extension XTEST
+[1747140.411] Initializing built-in extension BIG-REQUESTS
+[1747140.411] Initializing built-in extension SYNC
+[1747140.411] Initializing built-in extension XKEYBOARD
+[1747140.411] Initializing built-in extension XC-MISC
+[1747140.411] Initializing built-in extension XINERAMA
+[1747140.411] Initializing built-in extension PseudoramiX
+[1747140.411] Initializing built-in extension XFIXES
+[1747140.411] Initializing built-in extension RENDER
+[1747140.411] Initializing built-in extension RANDR
+[1747140.411] Initializing built-in extension DAMAGE
+[1747140.411] Initializing built-in extension MIT-SCREEN-SAVER
+[1747140.411] Initializing built-in extension DOUBLE-BUFFER
+[1747140.411] Initializing built-in extension RECORD
+[1747140.411] Initializing built-in extension X-Resource
+[1747140.411] Initializing built-in extension XVideo
+[1747140.411] Initializing built-in extension XVideo-MotionCompensation
+[1747140.411] Initializing built-in extension GLX
+[1747140.412] x: 0, y: 0, w: 1920, h: 1057
+[1747140.448] (II) GLX: Initialized Core OpenGL GL provider for screen 0
+[1747140.638] noPseudoramiXExtension=0, pseudoramiXNumScreens=1
+Engine Used: WS9Wine2.22
+Hardware:
+
+    Hardware Overview:
+
+      Model Name: Mac mini
+      Model Identifier: Macmini7,1
+      Processor Name: Intel Core i5
+      Processor Speed: 2.6 GHz
+      Number of Processors: 1
+      Total Number of Cores: 2
+      L2 Cache (per Core): 256 KB
+      L3 Cache: 3 MB
+      Memory: 8 GB
+      Boot ROM Version: MM71.0230.B00
+      SMC Version (system): 2.24f32
+
+Graphics/Displays:
+
+    Intel Iris:
+
+      Chipset Model: Intel Iris
+      Type: GPU
+      Bus: Built-In
+      VRAM (Dynamic, Max): 1536 MB
+      Vendor: Intel
+      Device ID: 0x0a2e
+      Revision ID: 0x0009
+      Metal: Supported, feature set macOS GPUFamily1 v3
+      Displays:
+        S24E390:
+          Resolution: 1920 x 1080 (1080p FHD - Full High Definition)
+          UI Looks like: 1920 x 1080 @ 60 Hz
+          Framebuffer Depth: 24-Bit Color (ARGB8888)
+          Main Display: Yes
+          Mirror: Off
+          Online: Yes
+          Rotation: Supported
+          Automatically Adjust Brightness: No
+
+Engine Used: WS9Wine2.22
+Hardware:
+
+    Hardware Overview:
+
+      Model Name: Mac mini
+      Model Identifier: Macmini7,1
+      Processor Name: Intel Core i5
+      Processor Speed: 2.6 GHz
+      Number of Processors: 1
+      Total Number of Cores: 2
+      L2 Cache (per Core): 256 KB
+      L3 Cache: 3 MB
+      Memory: 8 GB
+      Boot ROM Version: MM71.0230.B00
+      SMC Version (system): 2.24f32
+
+Graphics/Displays:
+
+    Intel Iris:
+
+      Chipset Model: Intel Iris
+      Type: GPU
+      Bus: Built-In
+      VRAM (Dynamic, Max): 1536 MB
+      Vendor: Intel
+      Device ID: 0x0a2e
+      Revision ID: 0x0009
+      Metal: Supported, feature set macOS GPUFamily1 v3
+      Displays:
+        S24E390:
+          Resolution: 1920 x 1080 (1080p FHD - Full High Definition)
+          UI Looks like: 1920 x 1080 @ 60 Hz
+          Framebuffer Depth: 24-Bit Color (ARGB8888)
+          Main Display: Yes
+          Mirror: Off
+          Online: Yes
+          Rotation: Supported
+          Automatically Adjust Brightness: No
+
+Engine Used: WS9Wine2.22
+Hardware:
+
+    Hardware Overview:
+
+      Model Name: Mac mini
+      Model Identifier: Macmini7,1
+      Processor Name: Intel Core i5
+      Processor Speed: 2.6 GHz
+      Number of Processors: 1
+      Total Number of Cores: 2
+      L2 Cache (per Core): 256 KB
+      L3 Cache: 3 MB
+      Memory: 8 GB
+      Boot ROM Version: MM71.0230.B00
+      SMC Version (system): 2.24f32
+
+Graphics/Displays:
+
+    Intel Iris:
+
+      Chipset Model: Intel Iris
+      Type: GPU
+      Bus: Built-In
+      VRAM (Dynamic, Max): 1536 MB
+      Vendor: Intel
+      Device ID: 0x0a2e
+      Revision ID: 0x0009
+      Metal: Supported, feature set macOS GPUFamily1 v3
+      Displays:
+        S24E390:
+          Resolution: 1920 x 1080 (1080p FHD - Full High Definition)
+          UI Looks like: 1920 x 1080 @ 60 Hz
+          Framebuffer Depth: 24-Bit Color (ARGB8888)
+          Main Display: Yes
+          Mirror: Off
+          Online: Yes
+          Rotation: Supported
+          Automatically Adjust Brightness: No
+
+Engine Used: WS9Wine2.22
+Hardware:
+
+    Hardware Overview:
+
+      Model Name: Mac mini
+      Model Identifier: Macmini7,1
+      Processor Name: Intel Core i5
+      Processor Speed: 2.6 GHz
+      Number of Processors: 1
+      Total Number of Cores: 2
+      L2 Cache (per Core): 256 KB
+      L3 Cache: 3 MB
+      Memory: 8 GB
+      Boot ROM Version: MM71.0230.B00
+      SMC Version (system): 2.24f32
+
+Graphics/Displays:
+
+    Intel Iris:
+
+      Chipset Model: Intel Iris
+      Type: GPU
+      Bus: Built-In
+      VRAM (Dynamic, Max): 1536 MB
+      Vendor: Intel
+      Device ID: 0x0a2e
+      Revision ID: 0x0009
+      Metal: Supported, feature set macOS GPUFamily1 v3
+      Displays:
+        S24E390:
+          Resolution: 1920 x 1080 (1080p FHD - Full High Definition)
+          UI Looks like: 1920 x 1080 @ 60 Hz
+          Framebuffer Depth: 24-Bit Color (ARGB8888)
+          Main Display: Yes
+          Mirror: Off
+          Online: Yes
+          Rotation: Supported
+          Automatically Adjust Brightness: No
+
+Engine Used: WS9Wine2.22
+Hardware:
+
+    Hardware Overview:
+
+      Model Name: Mac mini
+      Model Identifier: Macmini7,1
+      Processor Name: Intel Core i5
+      Processor Speed: 2.6 GHz
+      Number of Processors: 1
+      Total Number of Cores: 2
+      L2 Cache (per Core): 256 KB
+      L3 Cache: 3 MB
+      Memory: 8 GB
+      Boot ROM Version: MM71.0230.B00
+      SMC Version (system): 2.24f32
+
+Graphics/Displays:
+
+    Intel Iris:
+
+      Chipset Model: Intel Iris
+      Type: GPU
+      Bus: Built-In
+      VRAM (Dynamic, Max): 1536 MB
+      Vendor: Intel
+      Device ID: 0x0a2e
+      Revision ID: 0x0009
+      Metal: Supported, feature set macOS GPUFamily1 v3
+      Displays:
+        S24E390:
+          Resolution: 1920 x 1080 (1080p FHD - Full High Definition)
+          UI Looks like: 1920 x 1080 @ 60 Hz
+          Framebuffer Depth: 24-Bit Color (ARGB8888)
+          Main Display: Yes
+          Mirror: Off
+          Online: Yes
+          Rotation: Supported
+          Automatically Adjust Brightness: No
+
+Engine Used: WS9Wine2.22
+Hardware:
+
+    Hardware Overview:
+
+      Model Name: Mac mini
+      Model Identifier: Macmini7,1
+      Processor Name: Intel Core i5
+      Processor Speed: 2.6 GHz
+      Number of Processors: 1
+      Total Number of Cores: 2
+      L2 Cache (per Core): 256 KB
+      L3 Cache: 3 MB
+      Memory: 8 GB
+      Boot ROM Version: MM71.0230.B00
+      SMC Version (system): 2.24f32
+
+Graphics/Displays:
+
+    Intel Iris:
+
+      Chipset Model: Intel Iris
+      Type: GPU
+      Bus: Built-In
+      VRAM (Dynamic, Max): 1536 MB
+      Vendor: Intel
+      Device ID: 0x0a2e
+      Revision ID: 0x0009
+      Metal: Supported, feature set macOS GPUFamily1 v3
+      Displays:
+        S24E390:
+          Resolution: 1920 x 1080 (1080p FHD - Full High Definition)
+          UI Looks like: 1920 x 1080 @ 60 Hz
+          Framebuffer Depth: 24-Bit Color (ARGB8888)
+          Main Display: Yes
+          Mirror: Off
+          Online: Yes
+          Rotation: Supported
+          Automatically Adjust Brightness: No
+
+Engine Used: WS9Wine2.22
+Hardware:
+
+    Hardware Overview:
+
+      Model Name: Mac mini
+      Model Identifier: Macmini7,1
+      Processor Name: Intel Core i5
+      Processor Speed: 2.6 GHz
+      Number of Processors: 1
+      Total Number of Cores: 2
+      L2 Cache (per Core): 256 KB
+      L3 Cache: 3 MB
+      Memory: 8 GB
+      Boot ROM Version: MM71.0230.B00
+      SMC Version (system): 2.24f32
+
+Graphics/Displays:
+
+    Intel Iris:
+
+      Chipset Model: Intel Iris
+      Type: GPU
+      Bus: Built-In
+      VRAM (Dynamic, Max): 1536 MB
+      Vendor: Intel
+      Device ID: 0x0a2e
+      Revision ID: 0x0009
+      Metal: Supported, feature set macOS GPUFamily1 v3
+      Displays:
+        S24E390:
+          Resolution: 1920 x 1080 (1080p FHD - Full High Definition)
+          UI Looks like: 1920 x 1080 @ 60 Hz
+          Framebuffer Depth: 24-Bit Color (ARGB8888)
+          Main Display: Yes
+          Mirror: Off
+          Online: Yes
+          Rotation: Supported
+          Automatically Adjust Brightness: No
+
