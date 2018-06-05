@@ -1,4 +1,5 @@
 # osu! for Mac Stable (Latest)
+[Original Repo link](https://github.com/Mic238/osu-for-Mac-Stable-Latest)
 
 ### Step to Install:
 1. Download zip (196M) from this page, it should be sitting in Download folder.
